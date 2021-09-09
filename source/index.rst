@@ -8,6 +8,8 @@ GLPI Agent documentation
    installation/index
    configuration
    usage
+   tasks/index
+   database
 
 Documentation license
 ---------------------

@@ -11,7 +11,7 @@ If the agent is running as a service or a daemon, its web interface should
 be accessible at ``http://hostname:62354``.
 
 If the machine connecting to this interface is trusted (see ``httpd-trust``
-:doc:`configuration directive <configuration`, a link will be available to force immediate execution.
+:doc:`configuration directive <configuration>`, a link will be available to force immediate execution.
 
 Command line
 ^^^^^^^^^^^^
@@ -127,7 +127,7 @@ Half-managed mode
 
 This mode requires a local triggering mechanism to launch the agent. It may be
 a scheduling system (cron, task scheduler) to run it automatically and
-regularily, but it may as well be a user session start script, for instance.
+regularly, but it may as well be a user session start script, for instance.
 
 Example:
 
