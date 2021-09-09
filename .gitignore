@@ -1,0 +1,5 @@
+#generated pages
+build/
+# log
+docx.log
+.vscode/settings.json
