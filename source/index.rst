@@ -7,6 +7,7 @@ GLPI Agent documentation
 
    installation/index
    configuration
+   usage
 
 Documentation license
 ---------------------

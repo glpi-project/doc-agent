@@ -44,7 +44,7 @@ The only required configuration parameter is an execution target, which depends 
 
 .. warning::
 
-   Using multiple targets implies multiple executions of the same inventory; this is not just a matter of targets. This can lead to different results.
+   Using multiple targets implies multiple executions of the same inventory; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
 
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
