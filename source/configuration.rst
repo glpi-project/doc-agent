@@ -6,11 +6,11 @@ Location
 
 On Unix, the agent reads its configuration from a configuration file named ``agent.cfg``, whose location depends of the installation method:
 
-* ``/etc/fusioninventory/agent.cfg`` on :abbr:`FHS (File System Hierarchy)` compliant systems
-* ``/opt/fusioninventory/agent.cfg`` on OS X mpkg
-* ``/usr/local/etc/fusioninventory/agent.cfg`` on FreeBSD port
+* ``/etc/glpi-agent/agent.cfg`` on :abbr:`FHS (File System Hierarchy)` compliant systems
+* ``/opt/glpi-agent/agent.cfg`` on OS X mpkg
+* ``/usr/local/etc/glpi-agent/agent.cfg`` on FreeBSD port
 
-More globzally, you'll find that file in the GLPI Agent installation directory.
+More globally, you'll find that file in the GLPI Agent installation directory.
 
 It is strongly discouraged to change this file, as it would prevent it to be updated (especially if you use a linux package).
 
