@@ -6,6 +6,7 @@ GLPI Agent documentation
    :maxdepth: 3
 
    installation/index
+   configuration
 
 Documentation license
 ---------------------
