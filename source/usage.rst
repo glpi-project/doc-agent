@@ -1,6 +1,53 @@
 Usage
 =====
 
+Running the agent
+-----------------
+
+HTTP interface
+^^^^^^^^^^^^^^
+
+If the agent is running as a service or a daemon, its web interface should
+be accessible at ``http://hostname:62354``.
+
+If the machine connecting to this interface is trusted (see ``httpd-trust``
+:doc:`configuration directive <configuration`, a link will be available to force immediate execution.
+
+Command line
+^^^^^^^^^^^^
+
+Agent can also be executed from command line, using one of available executables.
+
+Windows
+^^^^^^^
+
+Open a command interpreter windows (``cmd.exe``), with administrator privileges
+(*right click*, *Run as Administrator*).
+
+Go to ``C:\Program files\GLPI-Agent\perl\bin`` (adapt path depending on your configuration) directory and run:
+
+.. code-block:: doscon
+
+    # perl glpi-agent
+
+OS X
+^^^^
+
+Ensure ``daemon`` key is not defined or false in configuration file. This key is enabled on OS X default settings, and run the following command:
+
+.. code-block:: shell
+
+    $ sudo /opt/glpi-agent/glpi-agent
+
+Other
+^^^^^
+
+In most of the cases, you should just run (as an administrator):
+
+.. code-block:: shell
+
+    # glpi-agent
+
 Execution modes
 ---------------
 
