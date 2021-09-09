@@ -124,8 +124,6 @@ GLPI agent come with a test-suite. You can run it with this command:
 PERL Dependencies
 ^^^^^^^^^^^^^^^^^
 
-## Perl dependencies
-
 The easiest way to install perl dependencies is to use `cpanminus <http://cpanmin.us>`_ script, running:
 
 .. code-block:: doscon
@@ -170,7 +168,7 @@ Now you can copy the directory to another machine and run the agent this way:
 Other dependencies
 ^^^^^^^^^^^^^^^^^^
 
-On Solaris/SPARC, you must install `sneep <http://www.sun.com/download/products.xml?id=4304155a>`_ and record the Serial Number with it.
+On Solaris/SPARC, you must install `sneep <https://docs.oracle.com/cd/E35557_01/doc.81/e35226/ch3_sneep.htm#IGSTB133>`_ and record the Serial Number with it.
 
 On Windows, we use an additional ``dmidecode`` binary shipped in the windows
 distribution to retrieve many information not available otherwise, including
