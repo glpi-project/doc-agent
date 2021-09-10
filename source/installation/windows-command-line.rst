@@ -1,70 +1,75 @@
-:orphan:
+Windows installer
+-----------------
 
-Windows command line installation manual
-========================================
+By default, the installer will bring you to the graphical user interface unless you use the `/i /quiet` options, calling it from command line.
 
-Two types of installations are possible:
+.. prompt:: batch
+   :substitutions:
 
-* **from scratch**, which allows a new brand installation, based on default options (see below),
-* **from-current-config** which will use your current installation options.
+   GLPI-Agent-|version|-x64.msi /i /quiet SERVER=<URL>
 
-In all cases, any previous installation of a GLPI Agent will be removed before the new installation is done.
+or:
 
-Per default, the installer will bring you to the graphical user interface unless you use the `/S` flag calling it from command line.
+.. prompt:: batch
+   :substitutions:
 
-.. code-block:: doscon
-
-   C:\> glpi-agent_windows-<platform>_<version>.exe /S
+   msiexec /i /quiet GLPI-Agent-|version|-x64.msi SERVER=<URL>
 
 All options can be defined in several places; the last takes precedence on all others:
 
 * default values,
-* values from the current GLPI Agent installation (``from-current-config`` installation type only),
+* values from the current GLPI Agent installation,
 * values from the command line,
 * values from the graphical installer.
 
 .. note::
 
-   When using command line options, you should keep in mind:
+   When using command line parameters, you should keep in mind:
 
-   * there are two types of options; those that act as a switch (``/option``), and those that have a value (``/option=value``),
+   * parameters beggining with a slash are indeed ``msiexec.exe`` options,
+   * an equal sign is always required for other parameters: ``TAG=prod``,
    * options names are case-sensitive,
    * options values are *not* case-sensitive, unless specified,
-   * for valued options:
+   * the equal sign must not be preceded or followed with a space character: ``LOCAL = C:\temp`` is incorrect,
+   * if a value contains a space, it must be surrounded with single ``'`` or double quotes ``"``,
+   * if you want to set a empty value, put an empty string (``LOCAL=`` or ``LOCAL=""``).
 
-      * the equal sign must not be preceded or followed with a space character, (``/local = c:\\temp`` is incorrect),
-      * if the value contains a space or the slash (``/``) character, it must be surrounded with single or double quotes (either ``'`` or ``"``)
-      * if you want to set a empty value, put an empty string (``/local=''``).
+Command line parameters
+-----------------------
 
-Command line options
---------------------
+``/i``
+   Specify this is a normal installation. This is indeed a ``msiexec.exe`` option.
 
-``/acceptlicense``
-   You accept and acknowledge that you have read, and understood, the terms
-   and conditions of GLPI Agent license. (By default: No)
+``/quiet``
+   Silent installation. This is indeed a ``msiexec.exe`` option. (By default: No)
 
-   You must use this option if you perform the installation in silent mode
-   (see ``/S``).
+``ADD_FIREWALL_EXCEPTION=1``
+   Adds GLPI Agent to the Windows Firewall exception list. (By default: ``0`` for No)
 
-   If you indicate this option on the command line, but not the ``/S``
-   option, the *visual mode* installation will omit any question about the
-   license.
+``ADDLOCAL=feature[,feature[...]]``
+   This parameter permits to select features to install. (By default: "feat_DEPLOY,feat_COLLECT")
 
-``/add-firewall-exception``
-   Adds GLPI Agent to the Windows Firewall exception list. (By
-   default: No)
+   The *feature* can take the following values:
 
-``/backend-collect-timeout=timeout``
-   Timeout for task ``Inventory`` modules execution. (By default: 180
-   seconds)
+   * ``ALL``: All included tasks are selected for installation
+   * ``feat_NETINV``: to select NetDiscovery and NetInventory tasks for installation
+   * ``feat_DEPLOY``: to select Deploy task for installation
+   * ``feat_COLLECT``: to select Collect task for installation
+   * ``feat_WOL``: to select WakeOnLan task for installation
 
-``/ca-cert-dir=pathname``
+   The base feature is feat_AGENT which is always selected and includes Inventory task. By
+   default, Deploy and Collect tasks are also selected.
+
+``BACKEND_COLLECT_TIMEOUT=180``
+   Timeout for task ``Inventory`` modules execution. (By default: ``180`` seconds)
+
+``CA_CERT_DIR=pathname``
    Absolute path to the standard certificate directory of certificate
-   authorities (CA). (By default: "")
+   authorities (CA). (By default: empty)
 
-   The use of this option is incompatible with the use of the
-   ``/ca-cert-file`` option. The ``/ca-cert-dir`` and ``/ca-cert-file``
-   options are mutually exclusive.
+   The use of this parameter is incompatible with the use of the
+   ``CA_CERT_FILE`` parameter. The ``CA_CERT_DIR`` and ``CA_CERT_FILE``
+   parameters are mutually exclusive.
 
    A *standard certificate directory* must contain the certificate files
    corresponding to different certificate authorities in Privacy Enhanced
@@ -76,43 +81,36 @@ Command line options
    hash value of the certificate's *subject* field using, for example,
    OpenSSL
 
-   .. code-block:: doscon
+   .. prompt:: batch
 
-      C:\OpenSSL> openssl.exe x509 -in C:\FICert_Class1.crt -subject_hash -noout b760f1ce
+      openssl.exe x509 -in C:\FICert_Class1.crt -subject_hash -noout b760f1ce
 
    and afterwards, move or copy the certificate file to the directory
    *pathname* with the name ``b760f1ce.0``.
 
-   .. code-block:: doscon
+   .. prompt:: batch
 
-      C:\OpenSSL> move.exe C:\FICert_Class1.crt pathname\b760f1ce.0
+      move.exe C:\FICert_Class1.crt pathname\b760f1ce.0
 
-``/ca-cert-file=filename``
+``CA_CERT_FILE=filename``
    Full path to the certificates file of certification authorities (CA).
-   (By default: "")
+   (By default: empty)
 
-   The use of this option is incompatible with the use of the
-   ``/ca-cert-dir`` option. The ``/ca-cert-dir`` and ``/ca-cert-file``
-   options are mutually exclusive.
+   The use of this parameter is incompatible with the use of the
+   ``CA_CERT_DIR`` parameter. The ``CA_CERT_DIR`` and ``CA_CERT_FILE``
+   parameters are mutually exclusive.
 
    *filename* must have extension ``.pem`` (Privacy Enhanced Mail) and can
    contain one or more certificates of certificate authorities. To
    concatenate multiple certificate files into one file you can make use,
    for example, of the command *copy*.
 
-   .. code-block:: doscon
+   .. prompt:: batch
 
-      C:\> copy.exe FICert_Class1.crt+FICert_Class2.crt FICerts.pem
+      copy.exe FICert_Class1.crt+FICert_Class2.crt FICerts.pem
 
-``/ca-cert-uri=URI``
-   *URI* from where to obtain the file or files of certificate of
-   authorities (CA). (By default: "")
-
-   The use of this option requires the joint use of the ``/ca-cert-dir`` or
-   ``/ca-cert-file`` options, but not both.
-
-``/debug=level``
-   Sets the debug level of the agent. (By default: 0)
+``DEBUG=level``
+   Sets the debug level of the agent. (By default: ``0``)
 
    *level* can take one of the following values:
 
@@ -120,60 +118,44 @@ Command line options
    * ``1``: Normal debug
    * ``2``: Full debug
 
-``/delaytime=limit``
+``DELAYTIME=limit``
    Sets an initial delay before first contact with a remote destination
-   (see ``/server``). This delay is calculated at random between *limit/2*
-   and *limit* seconds. (Default: 3600 seconds)
+   (see ``SERVER``). This delay is calculated at random between *limit/2*
+   and *limit* seconds. (Default: ``3600`` seconds)
 
-   This option is ignored for remote destinations after the first contact
-   with each one, in favor of the specific server parameter (PROLOG\_FREQ).
+   This parameter is ignored for remote destinations after the first contact
+   with each one, in favor of the specific server parameter (PROLOG\_FREQ or Contact expiration).
 
-   The ``/delaytime`` option comes into play only if GLPI Agent
-   runs in *server mode* (see ``/execmode``).
+   The ``DELAYTIME`` parameter comes into play only if GLPI Agent
+   runs in *server mode* (see ``EXECMODE``).
 
-``/dumphelp``
-
-   Creates a RTF file with this help, and aborts the installation.
-
-``/execmode=mode``
-   Sets the agent execution mode. (By default: ``Current``)
+``EXECMODE=value``
+   Sets the agent execution mode. (By default: ``1``)
 
    *mode* can take one of the following values:
 
-   * ``Service``: The agent runs as a Windows Service (always running)
-   * ``Task``: The agent runs as a Windows Task (runs at intervals)
-   * ``Manual``: The agent doesn't run automatically (no ``Service``, no ``Task``)
-   * ``Current``: The agent runs in the same way that the agent already installed runs
+   * ``1`` for ``Service``: The agent runs as a Windows Service (always running)
+   * ``2`` for ``Task``: The agent runs as a Windows Task (runs at intervals)
+   * ``3`` for ``Manual``: The agent doesn't run automatically (no ``Service``, no ``Task``)
 
    The mode ``Service`` is known also as *server mode*.
 
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
 
-   In the case of an installation ``from-scratch`` (see ``/installtype``),
-   the ``Current`` mode is a synonym of ``Service``.
+``HTML=value``
+   Save the inventory as HTML instead of XML. (By default: ``0`` for No)
 
-``/help``
-   This help. If the ``/help`` option is present, shows the help and aborts
-   the installation.
+   The ``HTML`` parameter comes into play only if you have also indicated a
+   value for the ``LOCAL`` parameter.
 
-``/html``
-   Save the inventory as HTML instead of XML. (By default: No)
+``HTTPD_IP=ip``
+   IP address by which the embedded web server should listen. (By default: ``0.0.0.0``)
 
-   The ``/html`` option comes into play only if you have also indicated a
-   value for the ``/local`` option.
+``HTTPD_PORT=port``
+   IP port by which the embedded web server should listen. (By default: ``62354``)
 
-``/httpd``
-   This option is the opposite of ``/no-httpd``. See ``/no-httpd`` for more
-   information.
-
-``/httpd-ip=ip``
-   IP address by which the embedded web server should listen. (By default: 0.0.0.0)
-
-``/httpd-port=port``
-   IP port by which the embedded web server should listen. (By default: 62354)
-
-``/httpd-trust={ip|range|hostname}[,{ip|range|hostname}[...]]``
+``HTTPD_TRUST={ip|range|hostname}[,{ip|range|hostname}[...]]``
    Trusted IP addresses that do not require authentication token by the
    integrated web server. (By default: 127.0.0.1/32)
 
@@ -186,132 +168,78 @@ Command line options
 
    *hostname* is the name of a host (ex. "itms.acme.org")
 
-   Keep in mind that ``/httpd-trust`` does not have to include the hostname
-   part of those URIs that are set up in ``/server`` because they are
-   tacitly included. The following is an example; both configurations are
-   equal.
+   Keep in mind that ``HTTPD_TRUST`` does not have to include the hostname
+   part of those URIs that are set up in ``SERVER`` because they are
+   tacitly included. The following is an example, both configurations are
+   equal:
 
-   .. code-block:: doscon
+   .. code::
 
-       /httpd-trust="127.0.0.1/32,itms.acme.org"
-       /server="http://itms.acme.org/glpi/front/inventory.php"
+       ... HTTPD_TRUST="127.0.0.1/32,itms.acme.org" \
+           SERVER="http://itms.acme.org/glpi/front/inventory.php"
 
-   .. code-block:: doscon
+   .. code::
 
-       /httpd-trust="127.0.0.1/32"
-       /server="http://itms.acme.org/glpi/front/inventory.php"
+       ... HTTPD_TRUST="127.0.0.1/32" \
+           SERVER="http://itms.acme.org/glpi/front/inventory.php"
 
-``/installdir=pathname``
+``INSTALLDIR=pathname``
    Sets the installation base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent``)
 
    *pathname* must be an absolute path.
 
-``/installtasks``={task[,task[...]]|macro}``
-   Selects the tasks to install. (By default: ``Default``)
+``LAZY=1``
+   Contact server only if the server expiration delay has been reached. (By default: ``0``)
 
-   *task* can be take any of the following values:
+   This option is only used if you set ``EXECMODE=2`` to use Windows Task scheduling.
 
-   * ``Deploy``: Task Deploy
-   * ``ESX``: Task ESX
-   * ``Inventory``: Task Inventory
-   * ``NetDiscovery``: Task NetDiscovery
-   * ``NetInventory``: Task NetInventory
-   * ``WakeOnLan``: Task WakeOnLan
-
-   There are three macros defined to simplify the mission, are the
-   following:
-
-   * ``Minimal``: ``Inventory``
-   * ``Default``: ``Inventory``
-   * ``Full``: ``Deploy``, ``ESX``, ``Inventory``, ``NetDiscovery``, ``NetInventory``, ``WakeOnLan``
-
-   It should be noted that the ``Inventory`` task will be always installed
-   and that the ``NetDiscovery`` and ``NetInventory`` tasks are
-   inter-dependent. Nowadays ``Minimal`` and ``Default`` are the same
-   configuration.
-
-``/installtype={from-scratch|from-current-config}``
-   Selects between an installation from the beginning (``from-scratch``)
-   or, whether the system has a previously installed agent, an installation
-   based on the current configuration (``from-current-config``). (By
-   default: ``from-current-config``)
-
-   The installer automatically switches from ``from-current-config`` to
-   ``from-scratch`` whether it's not able to detect a GLPI Agent
-   previously installed on the system. This behaviour makes unnecessary to
-   have to indicate ``/installtype=from-scratch`` to perform an
-   installation on those systems in which it doesn't
-   exist previously and, at the same time, facilitates the update of
-   GLPi Agent on those systems in which it exists.
-
-``/local=pathname``
-   Writes the results of tasks execution into the given directory. (By
-   default: "")
+``LOCAL=pathname``
+   Writes the results of tasks execution into the given directory. (By default: empty)
 
    You must indicate an absolute pathname or an empty string (""). If you
    indicate an empty string, the results of tasks execution will not be
    written locally.
 
-   You can use the ``/local`` and ``/server`` options simultaneously.
+   You can use the ``LOCAL`` and ``SERVER`` options simultaneously.
 
-``/logfile=filename``
-   Writes log messages into the file *filename*. (By default: ``C:\\Program Files\\GLPI-Agent\\glpi-agent.log``)
+``LOGFILE=filename``
+   Writes log messages into the file *filename*. (By default: ``C:\Program Files\GLPI-Agent\logs\glpi-agent.log``)
 
-   You must indicate a full path in *filename*. The ``/local`` option comes
-   into play only if you have also indicated ``File`` as a value of the
-   ``/logger`` option.
+   You must indicate a full path in *filename*. The ``LOGFILE`` parameter comes
+   into play only if you have also indicated ``file`` as a value of the
+   ``LOGGER`` parameter, which is the default.
 
-``/logfile-maxsize=size``
-   Sets the maximum size of logfile (see ``/logfile``) to *size* . (By
-   default: 16 MBytes)
+``LOGFILE_MAXSIZE=size``
+   Sets the maximum size of logfile (see ``LOGFILE``) to *size* in MBytes. (By default: 4 MBytes)
 
-``/logger=backend[,backend]``
-   Sets the logger backends. (By default: File)
+``LOGGER=backend[,backend]``
+   Sets the logger backends. (By default: ``file``)
 
    *backend* can take any of the following values:
 
-   * ``File``: Sends the log messages to a file (see ``/logfile``)
-   * ``Stderr``: Sends the log messages to the console
+   * ``file``: Sends the log messages to a file (see ``LOGFILE``)
+   * ``stderr``: Sends the log messages to the console
 
-``/no-category=category[,category[...]]``
-   Do not inventory the indicated categories of elements. (By default: "")
+``NO_CATEGORY=category[,category[...]]``
+   Do not inventory the indicated categories of elements. (By default: empty)
 
-   *category* can take any of the following values:
+   *category* can take any value listed by the following command:
 
-   * ``Environment``: Environment variables
-   * ``Printer``: Printers
-   * ``Process``: System's processes (has no effect on Microsoft Windows systems)
-   * ``Software``: Software
-   * ``User``: Users
+   .. prompt:: batch
 
-   If you indicate an empty string (""), all categories of elements will be
-   inventoried.
+      "C:\Program Files\GLPI-Agent\glpi-agent" --list-categories
 
-``/no-html``
-   This option is the opposite of ``/html``. See ``/html`` for more
-   information.
+``NO_HTTPD=1``
+   Disables the embedded web server. (By default: ``0``)
 
-``/no-httpd``
-   Disables the embedded web server. (By default: No)
+``NO_P2P=1``
+   Do not use peer to peer to download files. (By default: ``0``)
 
-``/no-p2p``
-   Do not use peer to peer to download files. (By default: No)
+``NO_SSL_CHECK=1``
+   Do not check server certificate. (By default: ``0``)
 
-``/no-scan-homedirs``
-   This option is the opposite of ``/scan-homedirs``. See
-   ``/scan-homedirs`` for more information.
-
-``/no-ssl-check``
-   Do not check server certificate. (By default: No)
-
-``/no-start-menu``
-   Do not create the GLPI Agent folder on the Start Menu. (By
-   default: No)
-
-   The GLPI Agent folder will be available for all users, whenever it is created.
-
-``/no-task=task[,task[...]]``
-   Disables the given tasks. (By default: "")
+``NO_TASK=task[,task[...]]``
+   Disables the given tasks. (By default: empty)
 
    *task* can take any of the following values:
 
@@ -324,93 +252,101 @@ Command line options
 
    If you indicate an empty string (""), all tasks will be executed.
 
-``/p2p``
-   This option is the opposite of ``/no-p2p``. See ``/no-p2p`` for more
-   information.
+``PASSWORD=password``
+   Uses *password* as password for server authentication. (By default: empty)
 
-``/password=password``
-   Uses *password* as password for server authentication. (By default: "")
+   The ``PASSWORD`` comes into play only if you have also indicated a
+   value for the ``SERVER`` parameter.
 
-   The ``/password`` comes into play only if you have also indicated a
-   value for the ``/server`` option.
+``PROXY=URI``
+   Uses *URI* as HTTP/S proxy server. (By default: empty)
 
-``/proxy=URI``
-   Uses *URI* as HTTP/S proxy server. (By default: "")
+``QUICKINSTALL=1``
+   Don't ask for detailed configurations during graphical install. (By default: ``0``)
 
-``/runnow``
-   Launches the agent immediately after its installation. (By default: No)
+``RUNNOW=1``
+   Launches the agent immediately after its installation. (By default: ``0``)
 
-``/S``
-   Silent installation. (By default: No)
+``SCAN_HOMEDIRS=1``
+   Allows the agent to scan home directories for virtual machines. (By default: ``0``)
 
-   You must accept the license in a explicit way (see ``/acceptlicense``)
-   if you perform the installation in silent mode.
-
-``/scan-homedirs``
-   Allows the agent to scan home directories for virtual machines. (By
-   default: No)
-
-``/server``=URI[,URI[...]]``
-   Sends results of tasks execution to given servers. (By default: "")
+``SERVER=URI[,URI[...]]``
+   Sends results of tasks execution to given servers. (By default: empty)
 
    If you indicate an empty string (""), the results of tasks execution
    will not be written remotely.
 
-   You can use the ``/server`` and ``/local`` options simultaneously.
+   You can use the ``SERVER`` and ``LOCAL`` parameters simultaneously.
 
-``/ssl-check``
-   This option is the opposite of ``/no-ssl-check``. See ``/no-ssl-check``
-   for more information.
+``TAG=tag``
+   Marks the computer with the tag *tag* . (By default: empty)
 
-``/start-menu``
-   This option is the opposite of ``/no-start-menu``. See
-   ``/no-start-menu`` for more information.
+``TASKS=task[,task[,...]]``
+   Plan tasks in the given order. (By default: empty)
 
-``/tag=tag``
-   Marks the computer with the tag *tag* . (By default: "")
+   Not listed tasks won't be planned during a run, unless ``,...`` is specified at the end.
 
-``/task-daily-modifier=modifier``
-   Daily task schedule modifier. (By default: 1 day)
+   *task* can take any of the following values:
 
-   *modifier* can take values between 1 and 30, both included.
+   * ``Deploy``: Task Deploy
+   * ``ESX``: Task ESX
+   * ``Inventory``: Task Inventory
+   * ``NetDiscovery``: Task NetDiscovery
+   * ``NetInventory``: Task NetInventory
+   * ``WakeOnLan``: Task WakeOnLan
 
-   The ``/task-daily-modifier`` option comes into play only if you have
-   also indicated ``Daily`` as value of the ``/task-frequency`` option.
+   If you indicate an empty string (""), all tasks will be executed.
+   If you indicate ``,...`` at the end, all not listed tasks will be added in any order.
+   You can indicate a task more than one time if this makes sens.
 
-``/task-frequency=frequency``
-   Frequency for task schedule. (By default: ``Hourly``)
+``TASK_DAILY_MODIFIER=modifier``
+   Daily task schedule modifier. (By default: ``1`` day)
+
+   *modifier* can take values between 1 and 365, both included.
+
+   The ``TASK_DAILY_MODIFIER`` parameter comes into play only if you have
+   also indicated ``daily`` as value of the ``TASK_FREQUENCY`` option.
+
+``TASK_FREQUENCY=frequency``
+   Frequency for task schedule. (By default: ``hourly``)
 
    *frequency* can take any of the following values:
 
-   * ``Minute``: At minute intervals (see option ``/task-minute-modifier``)
-   * ``Hourly``: At hour intervals (see option ``/task-hourly-modifier``)
-   * ``Daily``: At day intervals (see option ``/task-daily-modifier``)
+   * ``minute``: At minute intervals (see ``TASK_MINUTE_MODIFIER`` parameter)
+   * ``hourly``: At hour intervals (see ``TASK_HOURLY_MODIFIER`` parameter)
+   * ``daily``: At day intervals (see ``TASK_DAILY_MODIFIER`` parameter)
 
-``/task-hourly-modifier=modifier``
-   Hourly task schedule modifier. (By default: 1 hour)
+``TASK_HOURLY_MODIFIER=modifier``
+   Hourly task schedule modifier. (By default: ``1`` hour)
 
    *modifier* can take values between 1 and 23, both included.
 
-   The ``/task-hourly-modifier`` option comes into play only if you have
-   also indicated ``Hourly`` as value of the ``/task-frequency`` option.
+   The ``TASK_HOURLY_MODIFIER`` parameter comes into play only if you have
+   also indicated ``hourly`` as value of the ``TASK_FREQUENCY`` parameter.
 
-``/task-minute-modifier=modifier``
-   Minute task schedule modifier. (By default: 15 minutes)
+``TASK_MINUTE_MODIFIER=modifier``
+   Minute task schedule modifier. (By default: ``15`` minutes)
 
-   *modifier* can take the following values: 15, 20 or 30.
+   *modifier* can take the any value from 1 to 1439.
 
-   The ``/task-minute-modifier`` option comes into play only if you have
-   also indicated ``Minute`` as value of the ``/task-frequency`` option.
+   The ``TASK_MINUTE_MODIFIER`` parameter comes into play only if you have
+   also indicated ``minute`` as value of the ``TASK_FREQUENCY`` parameter.
 
-``/timeout=timeout``
-   Sets the limit time (in seconds) to connect with the server. (By
-   default: 180 seconds)
+``TIMEOUT=180``
+   Sets the limit time (in seconds) to connect with the server. (By default: ``180`` seconds)
 
-   The ``/timeout`` option comes into play only if you have also indicated
-   a value for the ``/server`` option.
+   The ``TIMEOUT`` parameter comes into play only if you have also indicated
+   a value for the ``SERVER`` parameter.
 
-``/user=user``
-   Uses *user* as user for server authentication. (By default: "")
+``USER=user``
+   Uses *user* as user for server authentication. (By default: empty)
 
-   The ``/user`` option comes into play only if you have also indicated a
-   value for the ``/server`` option.
+   The ``USER`` parameter comes into play only if you have also indicated a
+   value for the ``SERVER`` parameter.
+
+``VARDIR=pathname``
+   Sets the vardir base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent\var``)
+
+   This parameter can be used when the agent is installed in a shared storage.
+
+   *pathname* must be an absolute path.

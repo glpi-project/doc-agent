@@ -10,6 +10,12 @@ The latest release is available from `our github releases page <https://github.c
 Windows
 -------
 
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+
+   Windows installer <windows-command-line>
+
 The installer integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
 
 You can get the last `GLPI Agent installer for Microsoft Windows <https://github.com/glpi-project/glpi-agent/releases>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
