@@ -54,7 +54,7 @@ exclude_patterns = []
 html_theme = 'glpi'
 
 # html_logo = None
-html_logo = 'static/images/glpi.png'
+html_logo = '_static/images/glpi.png'
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -64,3 +64,14 @@ html_theme_path = sphinx_glpi_theme.get_html_themes_path()
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# If true, links to the reST sources are added to the pages.
+#
+# html_show_sourcelink = True
+html_show_sourcelink = False
+
+html_theme_options = {
+    'logo_only': False
+}
+
+html_favicon = '_static/images/favicon.ico'
