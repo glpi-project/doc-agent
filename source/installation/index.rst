@@ -1,7 +1,11 @@
 Installation
 ============
 
-The latest release is available either from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or from `CPAN <https://metacpan.org/release/GLPI-Agent>`_.
+The latest release is available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+
+.. note::
+
+   Nightly builds are also available from `our dedicated GLPI-Agent Nightly Builds page <https://nightly.glpi-project.org/glpi-agent>`_.
 
 Windows
 -------
@@ -10,11 +14,7 @@ The installer integrates its native, although reduced, version of `Strawberry Pe
 
 You can get the last `GLPI Agent installer for Microsoft Windows <https://github.com/glpi-project/glpi-agent/releases>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
 
-It will perform per default a graphical installation, unless you use the `/S` flag calling it from command line. All installer options are described in :doc:`./windows-command-line`. This manual is also contained in the installer itself; get it using `/help`:
-
-.. code-block:: doscon
-
-   C:\> glpi-agent_windows-<platform>_<version>.exe /help
+It will perform per default a graphical installation, unless you use the msiexec `/i` and `/quiet` flags calling it from command line. All installer parameters are described in :doc:`./windows-command-line`.
 
 .. note::
 
@@ -28,42 +28,58 @@ A VBScript (Visual Basic Script) is provided to deploy the installer on a networ
 MacOS
 -----
 
-First, get the latest ``.pkg.tar.gz`` package from `releases page <https://github.com/glpi-project/glpi-agent/releases>`, and extract it using right click or command line:
+The installer integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
 
-.. code-block:: shell
+Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent.app/etc/conf.d`` folder.
 
-   $ tar xfz glpi-agent_macosx-intel_XXX.pkg.tar.gz
+You can for example create a ``local.cfg`` file and :
 
-This will extract the `PKG` file. If you want to configure anything, right click on the `PKG` file, and choose `Show the package content`. Go to the resources directory and edit the ``agent.cfg`` file according to your needs.
-
-You can for example:
-
-* add the ``server=`` line,
-* uncomment and adapt the ``logfile`` entry to get some logs,
-* increase ``backend-collect-timeout``; some of the used commands may take time. We recommend to set at least ``180`` here.
+* add the ``server = GLPI_URL`` line to point to your GLPI server,
+* eventually set ``debug = 1`` to generate some debug in logs,
+* set a ``tag`` like ``tag = MyLovelyTag``.
 
 GNU/Linux
 ---------
 
-You GNU/Linux distribution may provide a native package; you should find it with your usual package manager.
+We support major distros as we provides generic packages for RPM and DEB based distros. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
 
-If the Agent is not available; you can still :ref:`install it from sources <install-from-sources>`.
+Snap
+^^^^
 
-BSD
----
+The Snap package integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
 
-FreeBSD port
-^^^^^^^^^^^^
+If your system support Snap, you can also install the agent with the ``snap`` command after download the snap package. Then, you just have to run:
 
-A FreeBSD port is available in ``net-mgmt/p5-GLPI-Agent``.
+.. prompt:: bash
+   :substitutions:
 
-    cd /usr/ports/net-mgmt/p5-GLPI-Agent/
-    make install clean
+   snap install --classic --dangerous GLPI-Agent-|version|_amd64.snap
 
-pkgsrc port
-^^^^^^^^^^^
+Linux Installer
+^^^^^^^^^^^^^^^
 
-A `pkgsrc port <http://pkgsrc.se/net/p5-GLPI-Agent>`_ is available in ``net/p5-GLPI-Agent``.
+.. note::
+
+   The linux installer only requires perl command.
+
+We also provide a dedicated linux installer which includes all the packages we build (RPM & DEB) and eventually the snap one.
+On supported distros (DEB & RPM based), the installer will eventually try to enable third party repositories, like EPEL on CentOS.
+
+The installer is a simple perl script. It supports few options to configure the agent during installation. You can check all supported options by running:
+
+.. prompt:: bash
+   :substitutions:
+
+   perl glpi-agent-|version|-linux-installer.pl --help
+
+or if you use the installer embedding snap package:
+
+.. prompt:: bash
+   :substitutions:
+
+   perl glpi-agent-|version|-with-snap-linux-installer.pl --help
+
+If your GNU/Linux distro is not supported, you still can :ref:`install it from sources <install-from-sources>`.
 
 .. _install-from-sources:
 
@@ -77,24 +93,25 @@ From sources
 
 First, you need to extract the source and change the current directory.
 
-.. code-block:: shell
+.. prompt:: bash
+   :substitutions:
 
-    $ tar xfz GLPI-Agent-1.0.0.tar.gz
-    $ cd GLPI-Agent-1.0.0
+   tar xfz GLPI-Agent-|version|.tar.gz
+   cd GLPI-Agent-|version|
 
 Executing ``Makefile.PL`` will verify all the required dependencies are available
 and prepare the build tree.
 
-.. code-block:: shell
+.. prompt:: bash
 
-    $ perl Makefile.PL
+   perl Makefile.PL
 
 If you don't want to use the default directory (``/usr/local``), you can use the
 ``PREFIX`` parameter:
 
-.. code-block:: shell
+.. prompt:: bash
 
-    $ perl Makefile.PL PREFIX=/opt/glpi-agent
+   perl Makefile.PL PREFIX=/opt/glpi-agent
 
 .. note::
 
@@ -103,10 +120,10 @@ If you don't want to use the default directory (``/usr/local``), you can use the
 
 You now can finish the installation. Here again we recommend `GNU make` (`gmake`):
 
-.. code-block:: shell
+.. prompt:: bash
 
-    $ make
-    $ make install
+   make
+   make install
 
 Tests
 ^^^^^
@@ -117,18 +134,18 @@ Tests
 
 GLPI agent come with a test-suite. You can run it with this command:
 
-.. code-block:: shell
+.. prompt:: bash
 
-    $ make test
+   make test
 
 PERL Dependencies
 ^^^^^^^^^^^^^^^^^
 
 The easiest way to install perl dependencies is to use `cpanminus <http://cpanmin.us>`_ script, running:
 
-.. code-block:: doscon
+.. prompt:: bash
 
-    $> cpanm .
+   cpanm .
 
 You can use the ``--notest`` flag if you are brave and want to skip the tests suite execution for each install perl module.
 
@@ -141,37 +158,38 @@ Offline installations
 
 First grab the tarball from the website and extract it:
 
-.. code-block:: doscon
+.. prompt:: bash
+   :substitutions:
 
-    $> tar xzf GLPI-Agent-2.3.19.tar.gz
-    $> cd GLPI-Agent-2.3.19
+   tar xzf GLPI-Agent-|version|.tar.gz
+   cd GLPI-Agent-|version|
 
 We use ``cpanm`` to fetch and extract the dependencies in the extlib directory:
 
-.. code-block:: doscon
+.. prompt:: bash
 
-    $> cpanm --pureperl --installdeps -L extlib --notest .
+   cpanm --pureperl --installdeps -L extlib --notest .
 
 If this command fails with an error related to ``Params::Validate``, then just run
 this last command:
 
-.. code-block:: doscon
+.. prompt:: bash
 
-    $> cpanm --installdeps -L extlib --notest .
+   cpanm --installdeps -L extlib --notest .
 
 Now you can copy the directory to another machine and run the agent this way:
 
-.. code-block:: doscon
+.. prompt:: bash
 
-    $> perl -Iextlib/lib/perl5 -Ilib glpi-agent
+   perl -Iextlib/lib/perl5 -Ilib glpi-agent
 
 Other dependencies
 ^^^^^^^^^^^^^^^^^^
 
 On Solaris/SPARC, you must install `sneep <https://docs.oracle.com/cd/E35557_01/doc.81/e35226/ch3_sneep.htm#IGSTB133>`_ and record the Serial Number with it.
 
-On Windows, we use an additional ``dmidecode`` binary shipped in the windows
-distribution to retrieve many information not available otherwise, including
+On Windows, we use an additional ``dmidecode`` binary shipped in the windows MSI
+package to retrieve many information not available otherwise, including
 fine-grained multi-cores CPUs identification. Unfortunately, this binary is not
 reliable enough to be used on Windows 2003, leading to less precise
 inventories.
