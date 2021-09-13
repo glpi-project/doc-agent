@@ -1,18 +1,17 @@
 Configuration
 =============
 
-Location
---------
+System location
+---------------
 
 On Unix, the agent reads its configuration from a configuration file named ``agent.cfg``, whose location depends of the installation method:
 
 * ``/etc/glpi-agent/agent.cfg`` on :abbr:`FHS (File System Hierarchy)` compliant systems
-* ``/opt/glpi-agent/agent.cfg`` on OS X mpkg
-* ``/usr/local/etc/glpi-agent/agent.cfg`` on FreeBSD port
+* ``/Applications/GLPI-Agent/etc/agent.cfg`` on MacOS X pkg
 
 More globally, you'll find that file in the GLPI Agent installation directory.
 
-It is strongly discouraged to change this file, as it would prevent it to be updated (especially if you use a linux package).
+It is strongly discouraged to change this file, as it would prevent it to be updated (especially if you use a linux or MacOS X package).
 
 Just ensure the ``include conf.d/`` is not commented (does not starts with a ``#``). Your specific configuration should then go to any ``conf.d/*.cfg`` file.
 
@@ -21,21 +20,32 @@ On Windows, the agent read its configuration from a registry key, whose location
 * ``HKEY_LOCAL_MACHINE\SOFTWARE\GLPI-Agent`` is the default,
 * ``HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\GLPI-Agent`` for 32bits agent installed on a 64bits system.
 
-Syntax
-------
+But windows portable version will use ``agent.cfg`` located under ``etc`` folder unless ``--config=registry`` option is used.
+
+Parameter syntax
+----------------
 
 Most of the configuration options are single-valued; you can use a comma (``,``) as separator for multi-valued ones:
 
-.. code-block:: shell
+In configuration file:
 
-   logger = Stderr, File
+.. code::
+
+   logger = stderr,file
+
+On command-line:
+
+.. prompt:: bash
+
+   glpi-agent --logger=stderr,file
+   glpi-agent --logger stderr,file
 
 Available parameters
 --------------------
 
 .. note::
 
-   All configuration options can be specified on command line; this will override configuration file values.
+   Most configuration options can be specified on command line ; this will override configuration file values in that case.
 
 The only required configuration parameter is an execution target, which depends on the mode you will use:
 
@@ -44,7 +54,7 @@ The only required configuration parameter is an execution target, which depends 
 
 .. warning::
 
-   Using multiple targets implies multiple executions of the same inventory; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
+   Using multiple targets implies multiple executions of the same inventory ; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
 
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
@@ -52,9 +62,18 @@ The only required configuration parameter is an execution target, which depends 
 
     If the given value start with ``http://`` or ``https://``, it is assumed to be an URL,
     and used directly. Otherwise, it is assumed to be an hostname, and interpreted
-    as ``http://hostname/ocsinventory``.
+    as ``http://hostname/inventory``.
 
     Multiple values can be specified, using a comma as a separator.
+
+``include``
+    This directive can only be used from a configuration file and permits to specify a file or
+    a path from where to load any ``*.cfg`` files. The default is ``conf.d`` to load any
+    ``<INSTALLDIR>/etc/conf.d/*.cfg`` file.
+
+``conf-reload-interval``
+    Automatically reload agent configuration after the given delay in seconds. The default
+    is 0 which value just disables the feature.
 
 ``delaytime``
     Specifies the upper limit, in seconds, for the initial delay before contacting
@@ -63,7 +82,7 @@ The only required configuration parameter is an execution target, which depends 
     The actual delay is computed randomly between TIME / 2 and TIME seconds.
 
     This directive is used for initial contact only, and ignored thereafter in
-    favor of server-provided value in response from prolog request.
+    favor of server-provided value in response from prolog or Contact request.
 
 ``lazy``
     Do not contact the control server before next scheduled time.
@@ -108,6 +127,7 @@ The only required configuration parameter is an execution target, which depends 
     Specifies the network interface to use for the embedded web interface. The
     default is to use all available ones.
 
+``httpd-port``
     Specifies the network port to use for the embedded web interface. The default
     is 62354.
 
@@ -150,10 +170,25 @@ The only required configuration parameter is an execution target, which depends 
 
     - 0: basic agent processing
     - 1: extended agent processing
-    - 2: messages exchanged with the server
-    - 3: additional traces for some external libraries as Net::SSLeay
+    - 2: messages exchanged with the server and activates traces from Net::SSLeay if used
 
-# TASK-SPECIFIC DIRECTIVES
+``no-compression``
+    Disable compression when exchanging informations with GLPI Server. The default is to compress data.
+
+    This directive is only supported when server option is set.
+
+``listen``
+    Force agent to always listen for requests on httpd interface, even when no target is defined with
+    server or local option.
+
+    This directive does nothing if server or local option is set.
+
+``vardir``
+    Set dedicated ``vardir`` path as agent storage. The default is ``<INSTALLDIR>/var`` on MacOSX, win32 or source install
+    and generally ``/var/lib/glpi-agent`` on linux/unix when installed with a package.
+
+Task-specific parameters
+------------------------
 
 ``tag``
     Specifies an arbitrary string to add to output. This can be used as an
@@ -162,7 +197,8 @@ The only required configuration parameter is an execution target, which depends 
     This directive is only for inventory or esx task only.
 
 ``no-category``
-    Disables given category in output. The possible values are:
+    Disables given category in output. The possible values can be listed running ``glpi-agent --list-categories``.
+    Some available categories:
 
     - printer
     - software
@@ -175,12 +211,19 @@ The only required configuration parameter is an execution target, which depends 
     This directive is used for inventory task only.
 
 ``additional-content``
-    Specifies an XML file whose content will be automatically merged with output.
+    Specifies an XML file whose content will be automatically merged with output. If inventory format is JSON, you can
+    also specify a JSON file from which ``content`` base node will be merged.
 
     This directive is used for inventory task only.
 
 ``scan-homedirs``
-    Enables scanning user home directories for virtual machines. The default is 0
+    Enables scanning user home directories for virtual machines (Any OS) or licenses (MacOS X only) . The default is 0
+    (false).
+
+    This directive is used for inventory task only.
+
+``scan-profiles``
+    Enables scanning profiles for softwares installation (Win32). The default is 0
     (false).
 
     This directive is used for inventory task only.
@@ -199,3 +242,14 @@ The only required configuration parameter is an execution target, which depends 
     Disables peer to peer for downloading files.
 
     This directive is used for deploy task only.
+
+``html``
+    Output inventory in HTML format.
+
+    This directive is used for inventory task and for local target only.
+
+``json``
+    Use JSON as inventory format.
+
+    This directive is used for inventory task.
+
