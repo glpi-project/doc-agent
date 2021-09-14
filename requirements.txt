@@ -1,0 +1,6 @@
+sphinx
+docutils==0.16
+recommonmark
+sphinx-glpi-theme
+sphinx-prompt
+sphinx-substitution-extensions
