@@ -1,9 +1,14 @@
 Installation
 ============
 
-The latest release is available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+.. attention::
 
-.. note::
+   As of this writing, GLPI Agent was not officialy released so the github releases page remains empty.
+   Anyway you still can download development builds from `our GLPI-Agent Nightly Builds page <https://nightly.glpi-project.org/glpi-agent>`_.
+
+The latest release will be available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+
+.. hint::
 
    Nightly builds are also available from `our dedicated GLPI-Agent Nightly Builds page <https://nightly.glpi-project.org/glpi-agent>`_.
 
@@ -18,7 +23,7 @@ Windows
 
 The installer integrates its native, although reduced but recent, version of `Strawberry Perl <https://strawberryperl.com/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-You can download the lastest `GLPI Agent installer here <https://github.com/glpi-project/glpi-agent/releases>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
+You can download the lastest `GLPI Agent installer <https://github.com/glpi-project/glpi-agent/releases>`_ or `current nightly build <https://nightly.glpi-project.org/glpi-agent>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
 
 By default, it will perform a graphical installation, unless you use the msiexec `/i` and `/quiet` options. All installer parameters are described in :doc:`./windows-command-line` dedicated page.
 
@@ -36,7 +41,7 @@ MacOS
 
 The installer integrates its native, although reduced but recent, version of `Perl <https://www.perl.org/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent.app/etc/conf.d`` folder.
+Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent.app/etc/conf.d`` folder.
 
 You can for example create a ``local.cfg`` file and :
 
@@ -47,14 +52,14 @@ You can for example create a ``local.cfg`` file and :
 GNU/Linux
 ---------
 
-We support major distros as we provides generic packages for **RPM** and **DEB** based distros as well if they supports **Snap** packaging. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+We support major distros as we provides generic packages for **RPM** and **DEB** based distros as well if they supports **Snap** packaging. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_.
 
 Snap
 ^^^^
 
 The `Snapcraft`_ **Snap** package integrates its native, although reduced but recent, version of `Perl <https://www.perl.org/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-If your system support **Snap**, you can simply install the agent with the ``snap`` command after getting the **Snap** package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_. Then, you just have to run:
+If your system support **Snap**, you can simply install the agent with the ``snap`` command after getting the **Snap** package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. Then, you just have to run:
 
 .. prompt:: bash
    :substitutions:
