@@ -4,6 +4,7 @@ GLPI Agent documentation
 
 .. toctree::
    :maxdepth: 3
+   :includehidden:
 
    installation/index
    configuration
