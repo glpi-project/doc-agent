@@ -16,11 +16,11 @@ Windows
 
    Windows installer <windows-command-line>
 
-The installer integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
+The installer integrates its native, although reduced but recent, version of `Strawberry Perl <https://strawberryperl.com/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-You can get the last `GLPI Agent installer for Microsoft Windows <https://github.com/glpi-project/glpi-agent/releases>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
+You can download the lastest `GLPI Agent installer here <https://github.com/glpi-project/glpi-agent/releases>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
 
-It will perform per default a graphical installation, unless you use the msiexec `/i` and `/quiet` flags calling it from command line. All installer parameters are described in :doc:`./windows-command-line`.
+By default, it will perform a graphical installation, unless you use the msiexec `/i` and `/quiet` options. All installer parameters are described in :doc:`./windows-command-line` dedicated page.
 
 .. note::
 
@@ -34,7 +34,7 @@ A VBScript (Visual Basic Script) is provided to deploy the installer on a networ
 MacOS
 -----
 
-The installer integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
+The installer integrates its native, although reduced but recent, version of `Perl <https://www.perl.org/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
 Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent.app/etc/conf.d`` folder.
 
@@ -47,29 +47,47 @@ You can for example create a ``local.cfg`` file and :
 GNU/Linux
 ---------
 
-We support major distros as we provides generic packages for RPM and DEB based distros. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+We support major distros as we provides generic packages for **RPM** and **DEB** based distros as well if they supports **Snap** packaging. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
 
 Snap
 ^^^^
 
-The Snap package integrates its native, although reduced, version of `Strawberry Perl <http://strawberryperl.com>`_.
+The `Snapcraft`_ **Snap** package integrates its native, although reduced but recent, version of `Perl <https://www.perl.org/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-If your system support Snap, you can also install the agent with the ``snap`` command after download the snap package. Then, you just have to run:
+If your system support **Snap**, you can simply install the agent with the ``snap`` command after getting the **Snap** package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_. Then, you just have to run:
 
 .. prompt:: bash
    :substitutions:
 
    snap install --classic --dangerous GLPI-Agent-|version|_amd64.snap
 
+After installation, you can easily configure the agent with the **set** ``snap`` sub-command:
+
+.. prompt:: bash
+
+   snap set glpi-agent server=http://myserver/front/inventory.php
+
+Any supported glpi-agent option can be set this way. If you need to unset a configuration parameter, just set it empty:
+
+.. prompt:: bash
+
+   snap set glpi-agent tag=
+
+.. note::
+
+   You won't find the package in the `Snapcraft`_ store as the agent features and requirements can't apply to their standard policies.
+
+.. _Snapcraft: https://snapcraft.io/
+
 Linux Installer
 ^^^^^^^^^^^^^^^
 
 .. note::
 
-   The linux installer only requires perl command.
+   The only requirement for the linux installer is to have the ``perl`` command available.
 
-We also provide a dedicated linux installer which includes all the packages we build (RPM & DEB) and eventually the snap one.
-On supported distros (DEB & RPM based), the installer will eventually try to enable third party repositories, like EPEL on CentOS.
+We also provide a dedicated linux installer which includes all the packages we build (**RPM** & **DEB**) and eventually the `snap <#snap>`_ one.
+On supported distros (**DEB** & **RPM** based), the installer will also eventually try to enable third party repositories, like EPEL on CentOS if they are required.
 
 The installer is a simple perl script. It supports few options to configure the agent during installation. You can check all supported options by running:
 
@@ -78,7 +96,7 @@ The installer is a simple perl script. It supports few options to configure the 
 
    perl glpi-agent-|version|-linux-installer.pl --help
 
-or if you use the installer embedding snap package:
+or if you use the installer embedding **snap** package:
 
 .. prompt:: bash
    :substitutions:

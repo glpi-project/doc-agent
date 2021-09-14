@@ -15,7 +15,7 @@ or:
 
    msiexec /i /quiet GLPI-Agent-|version|-x64.msi SERVER=<URL>
 
-All options can be defined in several places; the last takes precedence on all others:
+All options can be defined in several places; the last taking precedence on all others:
 
 * default values,
 * values from the current GLPI Agent installation,

@@ -56,6 +56,8 @@ The only required configuration parameter is an execution target, which depends 
 
    Using multiple targets implies multiple executions of the same inventory ; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
 
+.. _server:
+
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
     recipient for task execution output.
@@ -65,6 +67,8 @@ The only required configuration parameter is an execution target, which depends 
     as ``http://hostname/inventory``.
 
     Multiple values can be specified, using a comma as a separator.
+
+.. _include:
 
 ``include``
     This directive can only be used from a configuration file and permits to specify a file or
@@ -83,6 +87,8 @@ The only required configuration parameter is an execution target, which depends 
 
     This directive is used for initial contact only, and ignored thereafter in
     favor of server-provided value in response from prolog or Contact request.
+
+.. _lazy:
 
 ``lazy``
     Do not contact the control server before next scheduled time.
@@ -119,6 +125,8 @@ The only required configuration parameter is an execution target, which depends 
 ``timeout``
     Specifies a timeout, in seconds, for server connections.
 
+.. _no-httpd:
+
 ``no-httpd``
     Disables the embedded web interface, used to receive execution requests from the
     server. The default is 0 (false).
@@ -131,14 +139,18 @@ The only required configuration parameter is an execution target, which depends 
     Specifies the network port to use for the embedded web interface. The default
     is 62354.
 
+.. _httpd-trust:
+
 ``httpd-trust``
     Specifies which IP address should be trusted, for execution requests. The
     default is to only accept requests from the control servers.
 
-    All formats supported by [Net::IP](https://metacpan.org/pod/Net::IP) can be used (IP addresses, IP addresses
+    All formats supported by `Net::IP <https://metacpan.org/pod/Net::IP>`_ can be used (IP addresses, IP addresses
     ranges, networks in CIDR notatation), as well as hostnames.
 
     Multiple values can be specified, using a comma as a separator.
+
+.. _logger:
 
 ``logger``
     Specifies the logger backend to use. The possible values are:
@@ -165,6 +177,8 @@ The only required configuration parameter is an execution target, which depends 
 
     This directive is used on Unix only.
 
+.. _debug:
+
 ``debug``
     Specifies the level of verbosity for log content. The possible values are:
 
@@ -183,6 +197,8 @@ The only required configuration parameter is an execution target, which depends 
 
     This directive does nothing if server or local option is set.
 
+.. _vardir:
+
 ``vardir``
     Set dedicated ``vardir`` path as agent storage. The default is ``<INSTALLDIR>/var`` on MacOSX, win32 or source install
     and generally ``/var/lib/glpi-agent`` on linux/unix when installed with a package.
@@ -190,11 +206,15 @@ The only required configuration parameter is an execution target, which depends 
 Task-specific parameters
 ------------------------
 
+.. _tag:
+
 ``tag``
     Specifies an arbitrary string to add to output. This can be used as an
     additional decision criteria on server side.
 
     This directive is only for inventory or esx task only.
+
+.. _no-category:
 
 ``no-category``
     Disables given category in output. The possible values can be listed running ``glpi-agent --list-categories``.
@@ -209,6 +229,8 @@ Task-specific parameters
     Multiple values can be specified, using a comma as a separator.
 
     This directive is used for inventory task only.
+
+.. _additional-content:
 
 ``additional-content``
     Specifies an XML file whose content will be automatically merged with output. If inventory format is JSON, you can
