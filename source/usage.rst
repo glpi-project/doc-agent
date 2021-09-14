@@ -52,6 +52,8 @@ In most of the cases, you should just run (as an administrator):
 
    glpi-agent
 
+.. _execution-modes:
+
 Execution modes
 ---------------
 

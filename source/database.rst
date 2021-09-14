@@ -12,6 +12,8 @@ The agent integrates IDS databases which are located in agent data directory. It
 Those files can easily be customized if needed, as their format is
 self-documented. However, local modifications will get lost on upgrade.
 
+.. _sysobject.ids:
+
 SNMP device IDS database
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

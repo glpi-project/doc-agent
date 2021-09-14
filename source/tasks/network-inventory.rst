@@ -24,8 +24,7 @@ Running
 Pre-requisite
 ^^^^^^^^^^^^^
 
-The agent performing the task needs to have the network inventory module
-installed. Many Linux distributions ships agent modules in distinct packages.
+The agent performing the task needs to have the NetInventory module installed.
 
 The agent performing the task needs network access the target devices, with
 proper access control: just being able to send UDP packets to a device is not
@@ -34,7 +33,7 @@ enough, if this device is configured to ignore them.
 The target device should be associated with proper SNMP credentials in GLPI.
 
 As for any other server controlled task, the agent should use either managed or
-half-managed mode, as explained in :doc:`agent usage <../usage>`. If
+half-managed mode, as explained in :ref:`execution-modes`. If
 the task is server-triggered, the agent must run in managed mode, and
 its HTTP port should be reachable from the server.
 
@@ -44,10 +43,11 @@ Command-line execution
 A network inventory task can be also performed without a GLPI server, allowing
 easier control and troubleshooting, with the ``glpi-netinventory`` command-line tool.
 
-However, there is no way currently to inject the result in GLPI.
+However, this command generates files which will have to be injected in GLPI server
+using ``glpi-injector`` command.
 
 Troubleshooting
 ---------------
 
-See :ref:`troubleshoot`.
+See :ref:`NetDiscovery troubleshooting <troubleshooting>`.
 
