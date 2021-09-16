@@ -11,7 +11,7 @@ On Unix, the agent reads its configuration from a configuration file named ``age
 
 More globally, you'll find that file in the GLPI Agent installation directory.
 
-It is strongly discouraged to change this file, as it would prevent it to be updated (especially if you use a linux or MacOS X package).
+It is strongly discouraged to change this file, as you will probably loose your configuration on update (especially if you use a linux or MacOS X package).
 
 Just ensure the ``include conf.d/`` is not commented (does not starts with a ``#``). Your specific configuration should then go to any ``conf.d/*.cfg`` file.
 
