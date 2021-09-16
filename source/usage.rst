@@ -222,12 +222,12 @@ Result import
 ^^^^^^^^^^^^^
 
 GLPI Interface
-****************
+""""""""""""""
 
 Go to the Administration > Inventory menu, choose the Import tab and upload the inventory file.
 
 glpi-injector
-*************
+"""""""""""""
 
 The agent also has a dedicated executable for result injection:
 
@@ -238,7 +238,7 @@ The agent also has a dedicated executable for result injection:
 See glpi-injector man page for details.
 
 curl
-****
+""""
 
 You can also use curl to push an inventory. This can be useful if your Perl
 installation has no SSL support, for instance:
