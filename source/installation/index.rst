@@ -80,7 +80,7 @@ Any supported glpi-agent option can be set this way. If you need to unset a conf
 
 .. note::
 
-   You won't find the package in the `Snapcraft`_ store as the agent features and requirements can't apply to their standard policies.
+   You won't find the package in the `Snapcraft`_ store as their standard policies are too restrictive for GLPI Agent features and requirements.
 
 .. _Snapcraft: https://snapcraft.io/
 
