@@ -1,12 +1,14 @@
 # GLPI Agent documentation
 
+[![Documentation Status](https://readthedocs.org/projects/glpi-agent/badge/?version=latest)](https://glpi-agent.readthedocs.io/en/latest/?badge=latest)
+
 Current documentation is built on top of [Sphinx documentation generator](http://sphinx-doc.org/). 
 
 Documentation is released under the terms of the Creative Commons License Attribution-ShareAlike 3.0 France [CC BY-SA 3.0 FR](https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en).
 
 ## View it online!
 
-[GLPI Agent documentation is currently visible on ReadTheDocs](http://glpi-agent-documentation.rtfd.io/).
+[GLPI Agent documentation is currently visible on ReadTheDocs](http://glpi-agent.rtfd.io/).
 
 ## Run it!
 
