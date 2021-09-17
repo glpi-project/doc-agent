@@ -1,6 +1,8 @@
 Configuration
 =============
 
+.. _system-location:
+
 System location
 ---------------
 
@@ -129,11 +131,13 @@ The only required configuration parameter is an execution target, which depends 
 
 ``no-httpd``
     Disables the embedded web interface, used to receive execution requests from the
-    server. The default is 0 (false).
+    GLPI server or serve httpd plugins. The default is 0 (false).
 
 ``httpd-ip``
     Specifies the network interface to use for the embedded web interface. The
     default is to use all available ones.
+
+.. _httpd-port:
 
 ``httpd-port``
     Specifies the network port to use for the embedded web interface. The default

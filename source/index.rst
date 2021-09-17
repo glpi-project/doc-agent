@@ -10,6 +10,7 @@ GLPI Agent documentation
    configuration
    usage
    tasks/index
+   plugins/index
    IDS databases <database>
 
 Documentation license
