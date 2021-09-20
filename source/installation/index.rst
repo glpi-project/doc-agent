@@ -8,6 +8,11 @@ Installation
 
 The latest release will be available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
 
+.. note::
+
+   In the case you're replacing `FusionInventory agent <https://fusioninventory.org/>`_ with GLPI Agent, you should first uninstall **FusionInventory agent**
+   before installing **GLPI Agent**. You can use the same dedicated configuration if you placed it in `conf.d` configuration subfolder.
+
 .. hint::
 
    Nightly builds are also available from `our dedicated GLPI-Agent Nightly Builds page <https://nightly.glpi-project.org/glpi-agent>`_.
