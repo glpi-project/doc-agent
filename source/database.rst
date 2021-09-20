@@ -48,6 +48,10 @@ The sysObjectID value for any SNMP device can be retrieved by any SNMP client,
 using its OID (``.1.3.6.1.2.1.1.2.0``), or with either :doc:`tasks/network-inventory` or :doc:`tasks/network-discovery`
 command-line tools, with ``--debug`` flag.
 
+.. hint::
+
+    You can contribute your modifications on the `related github sysobject.ids project <https://github.com/fusioninventory/sysobject.ids/>`_.
+
 .. rubric:: Footnotes
 
 .. [#f1] See sysObjectID definition in `RFC 3418 <https://www.rfc-editor.org/rfc/rfc3418.html>`_:
