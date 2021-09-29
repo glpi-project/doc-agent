@@ -16,9 +16,9 @@ GLPI Agent documentation
 Documentation license
 ---------------------
 
-This documentation is distributed under the terms of the `Creative Commons License Attribution-ShareAlike 3.0 France (CC BY-SA 3.0 FR) <https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en>`_.
+This documentation is distributed under the terms of the `Creative Commons License Attribution-ShareAlike 4.0 (CC BY-SA 4.0) <https://creativecommons.org/licenses/by-sa/4.0/>`_.
 
-For the complete terms of the license, please refer to https://creativecommons.org/licenses/by-sa/3.0/fr/legalcode.
+For the complete terms of the license, please refer to https://creativecommons.org/licenses/by-sa/4.0/legalcode.
 
 You are free to:
 

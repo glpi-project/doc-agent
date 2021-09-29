@@ -4,7 +4,7 @@
 
 Current documentation is built on top of [Sphinx documentation generator](http://sphinx-doc.org/). 
 
-Documentation is released under the terms of the Creative Commons License Attribution-ShareAlike 3.0 France [CC BY-SA 3.0 FR](https://creativecommons.org/licenses/by-sa/3.0/fr/deed.en).
+Documentation is released under the terms of the Creative Commons License Attribution-ShareAlike 4.0 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## View it online!
 
@@ -45,4 +45,4 @@ You can then use the `livehtml` command:
 $ make livehtml
 ```
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/fr/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/fr/80x15.png" /></a>
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a>
