@@ -34,9 +34,9 @@ simple identification. If no match is found, various heuristics are performed
 in order to identify the device, with lower reliability.
 
 A secondary method relies on GLPI Agent ``MibSupport`` feature which permits to implement
-dedicated perl module for any kind of device. As an exemple, when the sysObjectID
+dedicated perl module for any kind of device. As an example, when the sysObjectID
 is reported as **linux** with the ``8072.3.2.10`` model-specific suffix, the ``LinuxAppliance``
-**MibSupport** module usage is triggered and permit to inventory Synology or Ubiquiti devices.
+**MibSupport** module usage is triggered and permits to inventory Synology or Ubiquiti devices.
 
 Discovered devices are then reported to the GLPI servers, where import
 rules are applied. Devices not matching any import
