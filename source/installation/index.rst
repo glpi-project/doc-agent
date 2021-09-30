@@ -166,16 +166,16 @@ Tests
 
    The tests suite requires some additional dependencies like Test::More.
 
-GLPI agent come with a test-suite. You can run it with this command:
+GLPI agent comes with a test-suite. You can run it with this command:
 
 .. prompt:: bash
 
    make test
 
-PERL Dependencies
+Perl dependencies
 ^^^^^^^^^^^^^^^^^
 
-The easiest way to install perl dependencies is to use `cpanminus <http://cpanmin.us>`_ script, running:
+The easiest way to install `perl <https://www.perl.org/>`_ dependencies is to use `cpanminus <https://cpanmin.us/>`_ script, running:
 
 .. prompt:: bash
 
