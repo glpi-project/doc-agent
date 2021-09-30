@@ -6,7 +6,7 @@
 
 # -- Path setup --------------------------------------------------------------
 import datetime
-import sphinx_glpi_theme
+import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -43,6 +43,7 @@ rst_prolog = """
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_rtd_theme',
     'sphinx-prompt',
     'sphinx_substitution_extensions',
     'sphinx.ext.todo',
@@ -65,14 +66,10 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'glpi'
+html_theme = "sphinx_rtd_theme"
 
 # html_logo = None
-html_logo = '_static/images/glpi.png'
-
-# Add any paths that contain custom themes here, relative to this directory.
-# html_theme_path = []
-html_theme_path = sphinx_glpi_theme.get_html_themes_path()
+html_logo = '_static/images/glpi-agent.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -85,7 +82,16 @@ html_static_path = ['_static']
 html_show_sourcelink = False
 
 html_theme_options = {
-    'logo_only': False
+    #'style_nav_header_background': 'white',
+    'logo_only': False,
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 3,
+    'includehidden': True,
+    'titles_only': False,
+    # Misc options
+    'prev_next_buttons_location': 'both',
 }
 
 html_favicon = '_static/images/favicon.ico'
