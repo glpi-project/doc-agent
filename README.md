@@ -30,8 +30,6 @@ Results will be avaiable in the `build/html` directory :)
 
 Note that it actually uses the readthedocs theme installed in your virtual environment and it can differ locally from the one on readthedocs system.
 
-Note also to not use docutils later than 0.16 as 0.17.1 still breaks pages as of this writing.
-
 ## Autobuild
 
 Autobuild automatically rebuild and refresh the current page on edit.
