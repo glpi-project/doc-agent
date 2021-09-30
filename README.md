@@ -30,7 +30,7 @@ Results will be avaiable in the `build/html` directory :)
 
 Note that it actually uses the default theme, which differs locally and on readthedocs system.
 
-Note also to not use docutils earlier than 0.16 as 0.17.1 still breaks pages as of this writing.
+Note also to not use docutils later than 0.16 as 0.17.1 still breaks pages as of this writing.
 
 ## Autobuild
 
