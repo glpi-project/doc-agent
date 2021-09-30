@@ -17,7 +17,7 @@ You'll have to install [Python Sphinx](http://sphinx-doc.org/) 1.3 minimum, and 
 If your distribution does not provide this version, you could use a `virtualenv`:
 ```
 $ virtualenv /path/to/virtualenv/files
-$ /path/to/virtualenv/bin/activate
+$ source /path/to/virtualenv/bin/activate
 $ pip install -r requirements.txt
 ```
 
@@ -28,7 +28,7 @@ $ make html
 
 Results will be avaiable in the `build/html` directory :)
 
-Note that it actually uses the default theme, which differs locally and on readthedocs system.
+Note that it actually uses the readthedocs theme installed in your virtual environment and it can differ locally from the one on readthedocs system.
 
 Note also to not use docutils later than 0.16 as 0.17.1 still breaks pages as of this writing.
 
@@ -40,9 +40,11 @@ To use it, you need the `sphinx-autobuild` module:
 $ pip install sphinx-autobuild
 ```
 
-You can then use the `livehtml` command:
+You can then use the `sphinx-autobuild` command:
 ```
-$ make livehtml
+$ sphinx-autobuild source build/html
 ```
+
+And access your documentation on the proposed link: `http://127.0.0.1:8000`
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a>
