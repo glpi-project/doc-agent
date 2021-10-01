@@ -12,6 +12,7 @@ GLPI Agent documentation
    tasks/index
    plugins/index
    IDS databases <database>
+   bug-reporting
 
 Documentation license
 ---------------------
