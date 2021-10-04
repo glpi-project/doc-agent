@@ -63,9 +63,11 @@ We support major distros as we provides generic packages for **RPM** and **DEB**
 
    When possible, prefer to use our :ref:`linux installer <linux-installer>` as it supports **RPM** and **DEB** based distros and there's a version also including the **Snap** package.
    The linux installer accepts few options to configure the agent so it can simplify manual or automatic installation.
-   It also can be handy for tools like `Puppet`_.
+   It also can be handy for tools like `Puppet`_ or `Ansible`_.
 
 .. _Puppet: https://puppet.com/open-source/#osp
+
+.. _Ansible: https://www.ansible.com/community
 
 Snap
 ^^^^
