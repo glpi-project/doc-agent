@@ -102,9 +102,16 @@ Any supported glpi-agent option can be set this way. If you need to unset a conf
 Linux Installer
 ^^^^^^^^^^^^^^^
 
-.. note::
+.. attention::
 
-   The only requirement for the linux installer is to have the ``perl`` command available.
+   The **linux installer** main requirement is the **perl** command.
+
+   It also requires one of the following command, depending on the targeted system:
+
+    - **dnf** for recent **RPM** based systems
+    - **yum** for previous generation of **RPM** based systems
+    - **apt** for **DEB** based systems like Debian & Ubuntu
+    - **snap** for other systems supporting `Snapcraft`_ **Snap** packages
 
 We also provide a dedicated linux installer which includes all the packages we build (**RPM** & **DEB**) and eventually the `snap <#snap>`_ one.
 On supported distros (**DEB** & **RPM** based), the installer will also eventually try to enable third party repositories, like EPEL on CentOS if they are required.
