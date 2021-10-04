@@ -95,3 +95,6 @@ html_theme_options = {
 }
 
 html_favicon = '_static/images/favicon.ico'
+
+# Disable smartquotes to avoid dash concatenation on man pages
+smartquotes = False
