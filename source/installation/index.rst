@@ -59,6 +59,14 @@ GNU/Linux
 
 We support major distros as we provides generic packages for **RPM** and **DEB** based distros as well if they supports **Snap** packaging. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_.
 
+.. hint::
+
+   When possible, prefer to use our :ref:`linux installer <linux-installer>` as it supports **RPM** and **DEB** based distros and there's a version also including the **Snap** package.
+   The linux installer accepts few options to configure the agent so it can simplify manual or automatic installation.
+   It also can be handy for tools like `Puppet`_.
+
+.. _Puppet: https://puppet.com/open-source/#osp
+
 Snap
 ^^^^
 
@@ -88,6 +96,8 @@ Any supported glpi-agent option can be set this way. If you need to unset a conf
    You won't find the package in the `Snapcraft`_ store as their standard policies are too restrictive for GLPI Agent features and requirements.
 
 .. _Snapcraft: https://snapcraft.io/
+
+.. _linux-installer:
 
 Linux Installer
 ^^^^^^^^^^^^^^^
