@@ -12,7 +12,7 @@ Documentation is released under the terms of the Creative Commons License Attrib
 
 ## Run it!
 
-You'll have to install [Python Sphinx](http://sphinx-doc.org/) 1.3 minimum, and Python Markdown module (`recommonmark`) (until rewrite to restructured text will be complete).
+You'll have to install [Python Sphinx](http://sphinx-doc.org/) 1.3 minimum.
 
 If your distribution does not provide this version, you could use a `virtualenv`:
 ```

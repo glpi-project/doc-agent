@@ -1,6 +1,5 @@
 sphinx
 docutils
-recommonmark
 sphinx-rtd-theme
 sphinx-prompt
 sphinx-substitution-extensions
