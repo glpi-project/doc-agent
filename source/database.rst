@@ -50,7 +50,7 @@ command-line tools, with ``--debug`` flag.
 
 .. hint::
 
-    You can contribute your modifications on the `related github sysobject.ids project <https://github.com/fusioninventory/sysobject.ids/>`_.
+    You can contribute your modifications on the `related github sysobject.ids project <https://github.com/glpi-project/sysobject.ids/>`_.
 
 .. rubric:: Footnotes
 
