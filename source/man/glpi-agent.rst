@@ -112,8 +112,8 @@ DESCRIPTION
 The *glpi-agent* agent is a generic multi-platform agent. It can perform
 a large array of management tasks, such as local inventory, software
 deployment or network discovery. It can be used either standalone, or in
-combination with a compatible server (OCS, GLPI, OTRS) acting as a
-centralized control point.
+combination with a compatible server acting as a centralized control
+point.
 
 OPTIONS
 -------
@@ -137,13 +137,13 @@ Target definition options
 
    ::
 
-          % --server=http://example/inventory
+          % --server=http://example/front/inventory.php
 
-   In general, OCS Inventory server URL have this format:
+   In general, GLPI server URL have this format:
 
    ::
 
-          http://example/ocsinventory
+          http://example/front/inventory.php
 
    and FusionInventory for GLPI this one:
 

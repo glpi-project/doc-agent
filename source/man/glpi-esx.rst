@@ -35,12 +35,12 @@ EXAMPLES
 
        % glpi-esx --host myesx --user foo --password bar --directory /tmp
 
-You can import the .ocs file in your inventory server with the
+You can import the .xml file in your inventory server with the
 glpi-injector tool.
 
 .. code-block:: text
 
-       %glpi-injector -v --file /tmp/*.ocs -u https://example/plugins/fusioninventory/
+       % glpi-injector -v --file /tmp/*.xml -u https://example/front/inventory.php
 
 DESCRIPTION
 -----------

@@ -13,7 +13,7 @@ Man pages
 INDEX
 
 for PAGE in glpi-agent glpi-inventory glpi-netdiscovery glpi-netinventory      \
-    glpi-esx glpi-injector glpi-remoteinventory glpi-win32-service
+    glpi-esx glpi-injector glpi-remote glpi-win32-service
 do
     SRCPAGE="$SRCPATH/bin/$PAGE"
     DSTPAGE="source/man/$PAGE.rst"

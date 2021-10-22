@@ -10,5 +10,5 @@ Man pages
    glpi-netinventory
    glpi-esx
    glpi-injector
-   glpi-remoteinventory
+   glpi-remote
    glpi-win32-service
