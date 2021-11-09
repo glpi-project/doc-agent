@@ -25,7 +25,7 @@ By default, this plugin is disabled. The first step is to enable it creating a d
 #. Also set a private token setting the ``token`` parameter to any strong secret
 
 This way, the agent will start to accept inventory requets from a computer knowing the shared secret.
-To do so, just use the :ref:`glpi-remoteinventory <inventory-request>` companion script.
+To make such inventory requests, you'll just have to use the **agent** sub-command of :ref:`glpi-remote<inventory-request>` script.
 
 .. hint::
 
@@ -109,43 +109,9 @@ The default configuration is self-explanatory:
 Inventory request
 *****************
 
-Inventory request should be done by the ``glpi-remoteinventory`` companion script.
+Inventory request have to be done using **agent** sub-command of the ``glpi-remote`` script.
 
-The ``--help`` option includes some examples:
-
-.. prompt:: bash
-
-   bin/glpi-remoteinventory --help
-
-::
-
-   Usage:
-      glpi-remoteinventory [options] <host1> [<host2> ...]
-
-         Options:
-          -h --help      this menu
-          -d --directory store xml files to the given directory
-          -t --timeout   requests timeout and even inventory get timeout
-          -b --baseurl   remote base url if not /inventory
-          -p --port      remote port (62354 by default)
-          -T --token     token as shared secret
-          -i --id        request id to identify requests in agent log
-          -s --ssl       connect using SSL
-          --no-ssl-check do not check agent SSL certificate
-          --ca-cert-file CA certificates file
-
-          -C --no-compression
-                         ask to not compress sent XML inventories
-
-          -v --verbose   verbose mode
-          --debug        debug mode
-          -u --useragent set used HTTP User-Agent for requests
-
-         Examples:
-          glpi-remoteinventory -T strong-shared-secret 192.168.43.236
-          glpi-remoteinventory -v -T strong-shared-secret 192.168.43.237 | \
-              glpi-injector -url https://login:pw@server/plugins/fusioninventory/
-          glpi-remoteinventory -T strong-shared-secret -d /tmp 192.168.43.236 192.168.43.237
+See the :doc:`../man/glpi-remote` dedicated man page for all possible options.
 
 Use cases
 *********
@@ -169,7 +135,7 @@ On the GLPI server, create a script you would want to put in ``/etc/cron.daily``
 
    #!/bin/bash
    sleep $((RANDOM/100))
-   glpi-remoteinventory -T 5c9898f9-e619-4bdb-8e29-6a20766ab760 <dmz-server-ip> | \
+   glpi-remote -T 5c9898f9-e619-4bdb-8e29-6a20766ab760 agent <dmz-server-ip> | \
       glpi-injector -url http://127.0.0.1/front/inventory.php >/var/tmp/server-inventory.log 2>&1
 
 Adapt this shell script to your needs.
@@ -202,7 +168,7 @@ On the GLPI server, create a script you would want to put in ``/etc/cron.daily``
 
    #!/bin/bash
    sleep $((RANDOM/100))
-   glpi-remoteinventory -T 2b0a48a2-6eb1-4e8f-bf8c-41f461b58ef1 <internet-server-ip> -p 54443 --ssl --no-ssl-check -b /2cd3a12ac1c4 | \
+   glpi-remote -T 2b0a48a2-6eb1-4e8f-bf8c-41f461b58ef1 -p 54443 --ssl --no-ssl-check -b /2cd3a12ac1c4 agent <internet-server-ip> | \
       glpi-injector -url http://127.0.0.1/front/inventory.php >/var/tmp/internet-server-inventory.log 2>&1
 
 Adapt this shell script to your needs.
