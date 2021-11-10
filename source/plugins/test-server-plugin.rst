@@ -35,16 +35,19 @@ The default configuration is:
 
 ::
 
-    disabled = yes
+   # By default, a plugin is always disabled unless "disabled" is set to "no" or "0".
+   # You can uncomment the following line or set it in included configuration file
+   # at the end of this configuration
+   #disabled = no
 
-    #configtest = test
+   #configtest = test
 
-    #port = 62355
+   #port = 62355
 
-    # You should create and define you specific parameter in the following
-    # included configuration file to override any default.
-    # For example just set "disabled = no" in it to enable the plugin
-    include "server-test-plugin.local"
+   # You should create and define you specific parameter in the following
+   # included configuration file to override any default.
+   # For example just set "disabled = no" in it to enable the plugin
+   include "server-test-plugin.local"
 
 ``disabled``
    Can be set to "no" to enable the plugin. (By default: yes)

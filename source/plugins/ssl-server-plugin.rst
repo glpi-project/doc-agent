@@ -34,7 +34,10 @@ The default configuration is self-explanatory:
 
 ::
 
-   disabled = yes
+   # By default, a plugin is always disabled unless "disabled" is set to "no" or "0".
+   # You can uncomment the following line or set it in included configuration file
+   # at the end of this configuration
+   #disabled = no
 
    # Comma separated list of ports like in: ports = 62355,62356
    #ports = 0
