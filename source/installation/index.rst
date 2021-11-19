@@ -39,7 +39,8 @@ By default, it will perform a graphical installation, unless you use the msiexec
 Large Installations
 ^^^^^^^^^^^^^^^^^^^
 
-A VBScript (Visual Basic Script) is provided to deploy the installer on a network: `glpi-agent-deployment.vbs <https://raw.github.com/glpi-project/glpi-agent/develop/contrib/windows/glpi-agent-deployment.vbs>`_.
+A VBScript (Visual Basic Script) is provided to deploy the installer on a network:
+:download:`glpi-agent-deployment.vbs <https://raw.github.com/glpi-project/glpi-agent/develop/contrib/windows/glpi-agent-deployment.vbs>`.
 
 MacOS
 -----
