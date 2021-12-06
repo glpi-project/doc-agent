@@ -13,7 +13,7 @@ or:
 .. prompt:: batch
    :substitutions:
 
-   msiexec /i /quiet GLPI-Agent-|version|-x64.msi SERVER=<URL>
+   msiexec /i GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
 
 All options can be defined in several places; the last taking precedence on all others:
 
@@ -39,6 +39,8 @@ Command line parameters
 
 ``/i``
    Specify this is a normal installation. This is indeed a ``msiexec.exe`` option.
+
+   When used with ``msiexec.exe``, it must be used just before the MSI package path.
 
 ``/quiet``
    Silent installation. This is indeed a ``msiexec.exe`` option. (By default: No)
