@@ -47,7 +47,7 @@ MacOS
 
 The installer integrates its native, although reduced but recent, version of `Perl <https://www.perl.org/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent.app/etc/conf.d`` folder.
+Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent/etc/conf.d`` folder.
 
 You can for example create a ``local.cfg`` file and :
 
