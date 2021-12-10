@@ -1,12 +1,7 @@
 Installation
 ============
 
-.. attention::
-
-   As of this writing, GLPI Agent was not officialy released so the github releases page remains empty.
-   Anyway you still can download development builds from `our GLPI-Agent Nightly Builds page <https://nightly.glpi-project.org/glpi-agent>`_.
-
-The latest release will be available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
+The latest release is available from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_.
 
 .. note::
 
