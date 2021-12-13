@@ -83,9 +83,10 @@ Command line parameters
    hash value of the certificate's *subject* field using, for example,
    OpenSSL
 
-   .. prompt:: batch
+   .. prompt::
 
-      openssl.exe x509 -in C:\FICert_Class1.crt -subject_hash -noout b760f1ce
+      C:\> openssl.exe x509 -in C:\FICert_Class1.crt -subject_hash -noout
+      b760f1ce
 
    and afterwards, move or copy the certificate file to the directory
    *pathname* with the name ``b760f1ce.0``.
