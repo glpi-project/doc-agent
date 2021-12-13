@@ -113,9 +113,26 @@ The only required configuration parameter is an execution target, which depends 
 ``password``
     Specifies the password to use for HTTP authentication on the server.
 
+.. _ca-cert-dir:
+
 ``ca-cert-dir``
     Specifies the directory containing indexed Certification Authority (CA)
     certificates.
+
+    This directory must contain the certificate files corresponding to different
+    certificate authorities in Privacy Enhanced Mail (PEM) format. The file name
+    of each certificate file must match the hash value of the certificate's
+    *subject* field and use the ``.0`` extension.
+
+    You can obtain the hash value of the certificate's *subject* field and copy
+    the *CA.crt* certificate to the expected place following this snippet:
+
+    .. code::
+
+        $ CA_CERT_DIR=/etc/glpi-agent/ca-cert-dir
+        $ openssl x509 -in CA.crt -subject_hash -noout
+        b760f1ce
+        * cp -a CA.crt $CA_CERT_DIR/b760f1ce.0
 
 ``ca-cert-file``
     Specifies the file containing aggregated Certification Authority (CA)
