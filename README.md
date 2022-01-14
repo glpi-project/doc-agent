@@ -16,7 +16,7 @@ You'll have to install [Python Sphinx](http://sphinx-doc.org/) 1.3 minimum.
 
 If your distribution does not provide this version, you could use a `virtualenv`:
 ```
-$ virtualenv /path/to/virtualenv/files
+$ virtualenv /path/to/virtualenv
 $ source /path/to/virtualenv/bin/activate
 $ pip install -r requirements.txt
 ```
