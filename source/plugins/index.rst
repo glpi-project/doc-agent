@@ -1,5 +1,5 @@
-Plugins
-=======
+HTTP Server Plugins
+===================
 
 .. toctree::
    :maxdepth: 3
