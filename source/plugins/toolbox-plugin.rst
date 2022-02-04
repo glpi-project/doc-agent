@@ -1,5 +1,12 @@
-ToolBox
-=======
+ToolBox interface
+=================
+
+ToolBox is a simple HTTP user interface allowing to use some features when no GLPI server is available.
+
+.. note::
+   **ToolBox** is not intended to replace a plugin like `GlpiInventory <https://github.com/glpi-project/glpi-inventory-plugin/>`_
+   or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugin
+   but can be helpful where these can't be used for any reason.
 
 Context
 *******
@@ -20,11 +27,6 @@ Some MIB-Support rules can also be applied to tune the results as the tasks are 
 
 The tool can also be used to review and update inventory with custom fields which can be setup
 using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_.
-
-.. note::
-   **ToolBox** is not intended to replace a plugin like `GlpiInventory <https://github.com/glpi-project/glpi-inventory-plugin/>`_
-   or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugin
-   but can be helpful where these can't be used for some reason.
 
 Setup
 *****
