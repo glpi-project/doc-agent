@@ -115,15 +115,15 @@ For example, the two lines below are all equivalent:
 Target definition options
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--s, --server\ =\ URI
+**-s**, **--server**\ =\ *URI*
    Send the results of tasks execution to given server.
 
    Multiple values can be specified, using comma as a separator.
 
--l, --local\ =\ PATH
+**-l**, **--local**\ =\ *PATH*
    Write the results of tasks execution locally.
 
---target\ =\ TARGETID
+**--target**\ =\ *TARGETID*
    Use the given TARGETID to look for the expected target for result
    submission.
 
@@ -142,86 +142,86 @@ Target definition options
 General options
 ~~~~~~~~~~~~~~~
 
--t, --timeout\ =\ SECS
+**-t**, **--timeout**\ =\ *SECS*
    Set the timeout for network requests (defaults to 10 seconds).
 
--p, --port\ =\ LIST
+**-p**, **--port**\ =\ *LIST*
    Do not contact the target before next scheduled time.
 
    A list of ports used when making a scan and to discover remote
    computers. The defaults is to scan the standard ssh port and winrm
    ports: *22,5985,5986*.
 
---ssh
+**--ssh**
    Use ssh protocol for connection.
 
---ssl
+**--ssl**
    Use SSL protocol for connecting with WinRM protocol or to a remote
    agent with inventory server plugin enabled.
 
---ca-cert-dir\ =\ DIRECTORY
+**--ca-cert-dir**\ =\ *DIRECTORY*
    CA certificates directory.
 
---ca-cert-file\ =\ FILE
+**--ca-cert-file**\ =\ *FILE*
    CA certificates file.
 
---ssl-cert-file\ =\ FILE
+**--ssl-cert-file**\ =\ *FILE*
    SSL certificate file for authentication
 
---no-ssl-check
+**--no-ssl-check**
    Do not check server SSL certificate.
 
--u USER, --user\ =\ USER
+**-u** *USER*, **--user**\ =\ *USER*
    Use *USER* for remote authentication.
 
--p, --password\ =\ PASSWORD
+**-p**, **--password**\ =\ *PASSWORD*
    Use *PASSWORD* for remote authentication.
 
--X, show-passwords
+**-X**, **show-passwords**
    By default, **list** sub-command won't show remotes passwords. This
    option asks to unmask them during remotes listing.
 
--c, --credentials\ =\ LIST
+**-c**, **--credentials**\ =\ *LIST*
    List of credentials to try during a scan.
 
--v, --verbose
+**-v**, **--verbose**
    Enable verbose mode.
 
---debug
+**--debug**
    Turn the debug mode on. You can use the parameter up to 2 times in a
    row to increase the verbosity (e.g: **--debug --debug**).
 
--C, --no-check
+**-C**, **--no-check**
    Don't check remote is alive while adding it.
 
--i, --inventory
+**-i**, **--inventory**
    Don't register remotes as they are discovered but just run the
    inventory task on them.
 
--T, --threads\ =\ NUM
+**-T**, **--threads**\ =\ *NUM*
    Setup number of threads while doing a scan. By default, the agent
    only uses one thread.
 
--A, --add
+**-A**, **--add**
    Add discovered remotes to local remotes list.
 
--U, --useragent\ =\ USER-AGENT
+**-U**, **--useragent**\ =\ *USER-AGENT*
    Define HTTP user agent for request (mostly if required for winrm).
 
-agent sub-command options
-~~~~~~~~~~~~~~~~~~~~~~~~~
+*agent* sub-command options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--b, --baseurl\ =\ PATH
+**-b**, **--baseurl**\ =\ *PATH*
    Remote base url if the default */inventory* has been changed in the
    remote plugin configuration.
 
--K, --token\ =\ TOKEN
+**-K**, **--token**\ =\ *TOKEN*
    Shared secret required to request an inventory to the remote plugin.
 
--I, <--id>=\ ID
+**-I**, <--id>=\ *ID*
    Request-ID to identify the request in the agent log.
 
---no-compression
+**--no-compression**
    Ask to skip requested inventory compression.
 
 Sub-commands

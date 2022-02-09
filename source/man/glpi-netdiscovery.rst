@@ -43,35 +43,35 @@ a GLPI server.
 OPTIONS
 -------
 
---first|--host ADDRESS
+**--first|--host** *ADDRESS*
    Set the first IP address of the network range to scan.
 
---last ADDRESS
+**--last** *ADDRESS*
    Set the last IP address of the network range to scan.
 
    If not set, it is set with the value of the --first or --host option.
 
---port PORT[,PORT2]
+**--port** *PORT[,PORT2]*
    List of ports to try, defaults to: 161
 
    Set it to 161,16100 to first try on default port and then on 16100.
 
---protocol PROTOCOL[,PROTOCOL2]
+**--protocol** *PROTOCOL[,PROTOCOL2]*
    List of protocols to try, defaults to: udp/ipv4
 
    Possible values are: udp/ipv4,udp/ipv6,tcp/ipv4,tcp/ipv6
 
---file FILE
+**--file** *FILE*
    Run an offline discovery against snmpwalk output, stored in the given
    file.
 
    If no host or first ip is provided, ip is set to emulate 1.1.1.1 ip
    scan.
 
---community STRING
+**--community** *STRING*
    Use given string as SNMP community (assume SNMPv1).
 
---credentials STRING
+**--credentials** *STRING*
    Use given string as SNMP credentials specification. This
    specification is a comma-separated list of key:value authentication
    parameters, such as:
@@ -80,20 +80,20 @@ OPTIONS
    -  version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
    -  etc.
 
---timeout TIME
+**--timeout** *TIME*
    Set SNMP timeout, in seconds.
 
---entity ENTITY
+**--entity** *ENTITY*
    Set GLPI entity.
 
---threads COUNT
+**--threads** *COUNT*
    Use given number of inventory threads.
 
---control
+**--control**
    Output server-agent control messages, in addition to inventory result
    itself.
 
---debug
+**--debug**
    Turn the debug mode on. Multiple usage allowed, for additional
    verbosity.
 

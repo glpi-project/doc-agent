@@ -129,7 +129,7 @@ For example, the two lines below are all equivalent:
 Target definition options
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
--s, --server\ =\ URI
+**-s**, **--server**\ =\ *URI*
    Send the results of tasks execution to given server.
 
    If *URI* doesn't start with http:// or https://, the agent assume the
@@ -153,7 +153,7 @@ Target definition options
 
    Multiple values can be specified, using comma as a separator.
 
--l, --local\ =\ PATH
+**-l**, **--local**\ =\ *PATH*
    Write the results of tasks execution locally.
 
    Exact behaviour according to given path:
@@ -167,13 +167,13 @@ Target definition options
 Target scheduling options
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
---delaytime\ =\ LIMIT
+**--delaytime**\ =\ *LIMIT*
    Set an initial delay before the first target, whose value is computed
    randomly between LIMIT / 2 and LIMIT seconds. This setting is ignored
    for server targets after the initial contact, in favor of
    server-specified parameter (PROLOG_FREQ).
 
---lazy
+**--lazy**
    Do not contact the target before next scheduled time.
 
    This option is only available when the agent is not run as a server.
@@ -181,16 +181,16 @@ Target scheduling options
 Task selection options
 ~~~~~~~~~~~~~~~~~~~~~~
 
---list-tasks
+**--list-tasks**
    List all available tasks, tasks planned for execution and exit
 
---no-task\ =\ TASK
+**--no-task**\ =\ *TASK*
    Do not run given task.
 
    Multiple values can be specified, using comma as a separator. See
    option *--list-tasks* for the list of available tasks.
 
---tasks\ =\ TASK
+**--tasks**\ =\ *TASK*
    Run given tasks in given order.
 
    Multiple tasks can be specified, using comma as a separator. A task
@@ -201,18 +201,20 @@ Task selection options
 
    Examples :
 
-   \* --tasks=inventory,deploy,inventory First task executed is
-   'inventory', second task is 'deploy', third and last task is
-   'inventory'.
+   -  **--tasks=inventory,deploy,inventory**
 
-   \* --tasks=inventory,deploy,... First executed task is 'inventory',
-   second task is 'deploy' and then all other available tasks are
-   executed.
+      First task executed is 'inventory', second task is 'deploy', third
+      and last task is 'inventory'.
+
+   -  **--tasks=inventory,deploy,...**
+
+      First executed task is 'inventory', second task is 'deploy' and
+      then all other available tasks are executed.
 
 Inventory task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
---no-category\ =\ CATEGORY
+**--no-category**\ =\ *CATEGORY*
    Do not list given category items in inventory.
 
    Multiple values can be specified, using comma as a separator. The
@@ -254,36 +256,36 @@ Inventory task specific options
    -  video
    -  virtualmachine
 
---list-categories
+**--list-categories**
    List all supported categories by scanning all available inventory
    modules
 
---credentials\ =\ CREDENTIALS
+**--credentials**\ =\ *CREDENTIALS*
    Setup credentials for database inventory
 
    CREDENTIALS should be a list of "key:value" separated by commas like
    in: For example:
    --credentials="type:login_password,login:root,password:********,use:postgresql,params_id:0"
 
---scan-homedirs
+**--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.
 
---scan-profiles
+**--scan-profiles**
    Allow the agent to scan user profiles for software.
 
---html|--json
+**--html|--json**
    Save the inventory as HTML or JSON.
 
    This is only used for local inventories.
 
--f, --force
+**-f**, **--force**
    Send an inventory to the server, even if this last one doesn't ask
    for it.
 
---backend-collect-timeout\ =\ TIME
+**--backend-collect-timeout**\ =\ *TIME*
    Timeout for inventory modules execution.
 
---additional-content\ =\ FILE
+**--additional-content**\ =\ *FILE*
    Additional inventory content file.
 
    This file should be an XML file, using same syntax as the one
@@ -292,48 +294,48 @@ Inventory task specific options
 Package deployment task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
---no-p2p
+**--no-p2p**
    Do not use peer to peer to download files.
 
 Server target specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--P, --proxy\ =\ PROXY
+**-P**, **--proxy**\ =\ *PROXY*
    Use *PROXY* as HTTP proxy.
 
    By default, the agent uses HTTP_PROXY environment variable.
 
--u USER, --user\ =\ USER
+**-u** *USER*, **--user**\ =\ *USER*
    Use *USER* for server authentication.
 
--p, --password\ =\ PASSWORD
+**-p**, **--password**\ =\ *PASSWORD*
    Use *PASSWORD* for server authentication.
 
---ca-cert-dir\ =\ DIRECTORY
+**--ca-cert-dir**\ =\ *DIRECTORY*
    CA certificates directory.
 
---ca-cert-file\ =\ FILE
+**--ca-cert-file**\ =\ *FILE*
    CA certificates file.
 
---no-ssl-check
+**--no-ssl-check**
    Do not check server SSL certificate.
 
---timeout\ =\ TIME
+**--timeout**\ =\ *TIME*
    Timeout for server connections.
 
 Web interface options
 ~~~~~~~~~~~~~~~~~~~~~
 
---no-httpd
+**--no-httpd**
    Disable the embedded web server.
 
---httpd-ip\ =\ IP
+**--httpd-ip**\ =\ *IP*
    The network interface to use for the embedded web server (all).
 
---httpd-port\ =\ PORT
+**--httpd-port**\ =\ *PORT*
    The network port to use for the embedded web server (62354).
 
---httpd-trust\ =\ IP
+**--httpd-trust**\ =\ *IP*
    Trust requests from given addresses without authentication token
    (false).
 
@@ -344,7 +346,7 @@ Web interface options
 
    Multiple values can be specified, using comma as a separator.
 
---listen
+**--listen**
    This option should be used if no local or server target is defined
    and the agent still needs to answer http requests. **--no-httpd**
    should not be set and **--httpd-trust** should be set to enable
@@ -353,7 +355,7 @@ Web interface options
 Logging options
 ~~~~~~~~~~~~~~~
 
---logger\ =\ BACKEND
+**--logger**\ =\ *BACKEND*
    Logger backend to use.
 
    Multiple values can be specified, using comma as a separator. The
@@ -365,18 +367,18 @@ Logging options
 
    Multiple values can be specified, using comma as a separator.
 
---logfile\ =\ FILE
+**--logfile**\ =\ *FILE*
    Log message in *FILE* (implies File logger backend).
 
---logfile-maxsize\ =\ SIZE
+**--logfile-maxsize**\ =\ *SIZE*
    Max logfile size in MB, default is unlimited. When the max size is
    reached, the file is truncated. This is only useful if there is no
    log rotation mechanism on the system.
 
---logfacility\ =\ FACILITY
+**--logfacility**\ =\ *FACILITY*
    Syslog facility to use (default LOG_USER).
 
---color
+**--color**
    Display color on the terminal, when the Stderr backend is used.
 
    This options is ignored on Windows.
@@ -384,7 +386,7 @@ Logging options
 Configuration options
 ~~~~~~~~~~~~~~~~~~~~~
 
---config\ =\ BACKEND
+**--config**\ =\ *BACKEND*
    Configuration backend to use.
 
    The available backends are:
@@ -395,11 +397,11 @@ Configuration options
       Windows).
    -  none: don't read any configuration.
 
---conf-file\ =\ FILE
+**--conf-file**\ =\ *FILE*
    Use *FILE* as configuration file (implies file configuration
    backend).
 
---conf-reload-interval\ =\ SECONDS
+**--conf-reload-interval**\ =\ *SECONDS*
    SECONDS is the number of seconds between two configuration
    reloadings. Default value is 0, which means that configuration is
    never reloaded. Minimum value is 60. If given value is less than this
@@ -409,30 +411,30 @@ Configuration options
 Execution mode options
 ~~~~~~~~~~~~~~~~~~~~~~
 
--w LIMIT, --wait\ =\ LIMIT
+**-w** *LIMIT*, **--wait**\ =\ *LIMIT*
    Wait a random delay whose value is computed randomly between 0 and
    LIMIT seconds, before execution. This is useful when execution is
    triggered from some kind of system scheduling on multiple clients, to
    spread the server load.
 
--d, --daemon
+**-d**, **--daemon**
    Run the agent as a daemon.
 
---no-fork
+**--no-fork**
    Don't fork in background.
 
    This is only useful when running as a daemon.
 
---pidfile\ [=\ FILE]
+**--pidfile**\ [=\ *FILE*]
    Store pid in *FILE* or in default PID file.
 
    This is only useful when running as a daemon and still not managed
    with a system service manager like systemd.
 
---tag\ =\ TAG
+**--tag**\ =\ *TAG*
    Add the given tag to every inventory results.
 
---debug
+**--debug**
    Turn the debug mode on. You can use the parameter up to 3 times in a
    row to increase the verbosity (e.g: **--debug --debug**).
 
@@ -440,8 +442,8 @@ Execution mode options
    `Net::SSLeay <https://metacpan.org/pod/Net%3A%3ASSLeay>`__. These
    messages will only be be printed on STDERR.
 
---setup
+**--setup**
    Print the agent setup directories and exit.
 
---version
+**--version**
    Print the version and exit.

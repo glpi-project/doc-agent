@@ -37,28 +37,28 @@ a GLPI server.
 OPTIONS
 -------
 
---host HOST
+**--host** *HOST*
    Run an online inventory against given host. Multiple usage allowed,
    for multiple hosts.
 
---port PORT[,PORT2]
+**--port** *PORT[,PORT2]*
    List of ports to try, defaults to: 161
 
    Set it to 161,16100 to first try on default port and then on 16100.
 
---protocol PROTOCOL[,PROTOCOL2]
+**--protocol** *PROTOCOL[,PROTOCOL2]*
    List of protocols to try, defaults to: udp/ipv4
 
    Possible values are: udp/ipv4,udp/ipv6,tcp/ipv4,tcp/ipv6
 
---file FILE
+**--file** *FILE*
    Run an offline inventory against snmpwalk output, stored in given
    file. Multiple usage allowed, for multiple files.
 
---communty STRING
+**--communty** *STRING*
    Use given string as SNMP community (assume SNMPv1)
 
---credentials STRING
+**--credentials** *STRING*
    Use given string as SNMP credentials specification. This
    specification is a comma-separated list of key:value authentication
    parameters, such as:
@@ -67,10 +67,10 @@ OPTIONS
    -  version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
    -  etc.
 
---timeout TIME
+**--timeout** *TIME*
    Set SNMP timeout, in seconds.
 
---type TYPE
+**--type** *TYPE*
    Force device type, instead of relying on automatic identification.
    Currently allowed types:
 
@@ -81,14 +81,14 @@ OPTIONS
    -  POWER
    -  PHONE
 
---threads count
+**--threads** *count*
    Use given number of inventory threads.
 
---control
+**--control**
    Output server-agent control messages, in addition to inventory result
    itself.
 
---debug
+**--debug**
    Turn the debug mode on. Multiple usage allowed, for additional
    verbosity.
 

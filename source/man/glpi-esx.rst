@@ -50,15 +50,15 @@ uses the SOAP interface of the remote server.
 
 Supported systems:
 
-ESX and ESXi 3.5
+*ESX and ESXi 3.5*
 
-ESX and ESXi 4.1
+*ESX and ESXi 4.1*
 
-ESXi 5.0
+*ESXi 5.0*
 
-vCenter 4.1
+*vCenter 4.1*
 
-vCenter 5.0
+*vCenter 5.0*
 
 Active Directory users, please note the AD authentication doesn't work.
 You must create a account on the VMware server.
