@@ -54,11 +54,26 @@ The only required configuration parameter is an execution target, which depends 
 * ``server``: a server URL, such as ``https://glpi/front/inventory.php``,
 * ``local``: full path for local directory, like ``/tmp/inventory``.
 
-.. warning::
-
-   Using multiple targets implies multiple executions of the same inventory ; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
-
 .. _server:
+
+.. hint::
+
+   If you're using `GLPI 10+ <https://glpi10.com/>`_, you may want to use `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_
+   as a replacement for FusionInventory plugin **netdiscovery**, **netinventory**, **deploy**, **collect** and **esx** tasks management until this will be integrated in core.
+
+.. caution::
+
+   About the server URL to use as ``server`` parameter, it will depends on you server and plugins installation:
+
+   * If you're using GLPI 9.5.x with FusionInventory for GLPI plugin 9.5+3.0:
+      Your URL will look like: ``https://glpi-server/plugins/fusioninventory/``
+   * If you're using `GLPI 10+ <https://glpi10.com/>`_, there are few cases to consider:
+      1. You're not using `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_:
+          Your URL will look like: ``https://glpi-server/front/inventory.php``
+      2. You installed `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_ via Marketplace:
+          Your URL will look like: ``https://glpi-server/marketplace/glpiinventory/``
+      3. You installed `GlpiInventory plugin <https://github.com/glpi-project/glpi-inventory-plugin>`_ manually under ``/plugins`` GLPI folder:
+          Your URL will look like: ``https://glpi-server/plugins/glpiinventory/``
 
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
@@ -69,6 +84,25 @@ The only required configuration parameter is an execution target, which depends 
     as ``http://hostname/inventory``.
 
     Multiple values can be specified, using a comma as a separator.
+
+.. warning::
+
+   Using multiple targets implies multiple executions of the same inventory ; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
+
+.. _local:
+
+``local``
+    Write the results of tasks execution locally.
+    Exact behaviour according to given path:
+     * if parameter is a directory, a file will be created therein
+     * if parameter is a file, it will be used directly
+     * if parameter is ``-``, **STDOUT** will be used
+
+    Multiple values can be specified, using a comma as a separator.
+
+.. warning::
+
+   Using multiple targets implies multiple executions of the same inventory ; this is not just a matter of targets. This can lead to different results, see :ref:`multiple-execution-targets`.
 
 .. _include:
 
