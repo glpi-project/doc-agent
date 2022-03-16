@@ -65,15 +65,23 @@ The only required configuration parameter is an execution target, which depends 
 
    About the server URL to use as ``server`` parameter, it will depends on you server and plugins installation:
 
-   * If you're using GLPI 9.5.x with FusionInventory for GLPI plugin 9.5+3.0:
-      Your URL will look like: ``https://glpi-server/plugins/fusioninventory/``
-   * If you're using `GLPI 10+ <https://glpi10.com/>`_, there are few cases to consider:
-      1. You're not using `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_:
-          Your URL will look like: ``https://glpi-server/front/inventory.php``
-      2. You installed `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_ via Marketplace:
-          Your URL will look like: ``https://glpi-server/marketplace/glpiinventory/``
-      3. You installed `GlpiInventory plugin <https://github.com/glpi-project/glpi-inventory-plugin>`_ manually under ``/plugins`` GLPI folder:
-          Your URL will look like: ``https://glpi-server/plugins/glpiinventory/``
+   * If you're using **GLPI 9.5.x** with **FusionInventory for GLPI plugin 9.5+3.0**:
+
+    Your server URL should look like: ``https://glpi-server/plugins/fusioninventory/``
+
+   * If you're using `GLPI 10+ <https://glpi10.com/>`_, there are few cases regarding `GlpiInventory plugin <https://plugins.glpi-project.org/#/plugin/glpiinventory>`_ usage:
+
+    1. If you're not using **GlpiInventory plugin**:
+
+     Your server URL should look like: ``https://glpi-server/``
+
+    2. If you have installed **GlpiInventory plugin** via **Marketplace**:
+
+     Your server URL should look like: ``https://glpi-server/marketplace/glpiinventory/``
+
+    3. If you have installed **GlpiInventory plugin** manually under ``/plugins`` GLPI folder:
+
+     Your server URL should look like: ``https://glpi-server/plugins/glpiinventory/``
 
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
