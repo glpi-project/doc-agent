@@ -12,7 +12,7 @@ On server-side, it only depends on GLPI starting from GLPI 10 version.
 For older GLPI version, it also depends on `FusionInventory for GLPI plugin <https://github.com/fusioninventory/fusioninventory-for-glpi>`_.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 5
    :includehidden:
 
    installation/index

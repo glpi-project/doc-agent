@@ -8,16 +8,6 @@ ToolBox is a simple HTTP user interface allowing to use some features when no GL
    or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugin
    but can be helpful where these can't be used for any reason.
 
-Context
-*******
-
-When run as a daemon or a service, by default, GLPI Agent can be reached on an HTTP interface.
-By default, GLPI Agent listens on port 62354, but this can be disabled by setting :ref:`no-httpd configuration <no-httpd>`
-or changed to listen on a different port using :ref:`httpd-port configuration <httpd-port>`.
-
-Purpose
-*******
-
 **ToolBox** is firstly a GLPI-Agent tool permitting to run netdiscovery and netinventory tasks over an
 isolated network using a simple HTTP interface. It allows you to setup SNMP credentials, IP Range and run tasks.
 

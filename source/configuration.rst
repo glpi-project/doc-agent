@@ -193,6 +193,8 @@ The only required configuration parameter is an execution target, which depends 
     Disables the embedded web interface, used to receive execution requests from the
     GLPI server or serve httpd plugins. The default is 0 (false).
 
+.. _httpd-ip:
+
 ``httpd-ip``
     Specifies the network interface to use for the embedded web interface. The
     default is to use all available ones.
