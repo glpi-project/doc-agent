@@ -94,6 +94,7 @@ The only required configuration parameter is an execution target, which depends 
 ``local``
     Write the results of tasks execution locally.
     Exact behaviour according to given path:
+
      * if parameter is a directory, a file will be created therein
      * if parameter is a file, it will be used directly
      * if parameter is ``-``, **STDOUT** will be used
