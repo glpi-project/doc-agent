@@ -61,6 +61,17 @@ The default configuration is self-explanatory:
    The path can be relative to the configuration folder or an absolute path. This
    path should be a secured location, not readable by simple local system users.
 
+.. note::
+
+   **ssl_cipher** option is available since GLPI Agent v1.2
+
+``ssl_cipher``
+   Set cipher to use for SSL support or set ciphers to disable. (By default: not defined)
+
+   You can for TLS v1.3 support by setting: ``ssl_cipher = TLSv13``
+
+   You disable SSL v3 and TLS v1.1 support by setting: ``ssl_cipher = !SSLv3:!TLSv11``
+
 .. rubric:: Footnotes
 
 .. [#f1] On windows, the configuration is also a file and it located under the ``etc`` sub-folder of the
