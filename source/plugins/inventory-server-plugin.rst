@@ -4,6 +4,38 @@ Inventory Server Plugin
 This plugin purpose is to permit requesting an inventory from a trusted remote computer knowing a shared secret.
 This is handy in the case the agent has no way to contact the GLPI server by itself.
 
+.. mermaid::
+   :caption: Inventory Server Plugin diagram
+
+   sequenceDiagram
+      participant A as Computer
+      participant B as Trusted computer
+      participant C as GLPI Server
+      activate B
+      Note over A: GLPI Agent
+      Note over A: HTTP port 62354
+      Note over B: Remote request for inventory
+      B->>A: Session request
+      deactivate B
+      activate A
+      A->>B: Shared secret challenge
+      deactivate A
+      activate B
+      B->>A: Request Inventory with honored challenge
+      deactivate B
+      activate A
+      A->>B: Returns Inventory
+      deactivate A
+      activate B
+      B->>C: Submit Inventory
+      deactivate B
+      activate C
+      C->>B: OK
+      deactivate C
+      activate B
+      Note over C: Inventory integrated in GLPI
+      deactivate B
+
 Setup
 *****
 
@@ -110,7 +142,32 @@ Use cases
 DMZ server inventory
 """"""""""""""""""""
 
-In the case you have a server in DMZ which cannot access the GLPI server, but the GLPI server is authorized to reach it. You still can install an agent on it.
+In the case you have a server in DMZ which cannot access the GLPI server, but the GLPI server is authorized to reach it.
+You still can install an agent on GLPI server to request remotely inventory to a listening remote agent.
+
+.. mermaid::
+
+   sequenceDiagram
+      participant A as Computer
+      participant B as GLPI Server
+      activate B
+      Note over A: Listening only GLPI Agent
+      Note over A: HTTP port 62354
+      Note over B: Remote request for inventory
+      B->>A: Session request
+      deactivate B
+      activate A
+      A->>B: Shared secret challenge
+      deactivate A
+      activate B
+      B->>A: Request Inventory with honored challenge
+      deactivate B
+      activate A
+      A->>B: Returns Inventory
+      deactivate A
+      activate B
+      Note over B: Inject Inventory in GLPI
+      deactivate B
 
 Then first, enable the plugin with such ``inventory-server-plugin.local`` configuration::
 

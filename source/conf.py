@@ -48,6 +48,7 @@ extensions = [
     'sphinx_substitution_extensions',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
+    'sphinxcontrib.mermaid',
 ]
 
 todo_include_todos = True

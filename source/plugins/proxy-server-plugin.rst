@@ -3,6 +3,33 @@ Proxy Server Plugin
 
 The purpose of this plugin is to enable a proxy mode on the embedded HTTP interface.
 
+.. mermaid::
+   :caption: Proxy Server Plugin diagram
+
+   sequenceDiagram
+      participant A as Isolated GLPI Agents
+      participant B as GLPI Proxy Agent
+      participant C as GLPI Server
+      activate B
+      Note over B: Proxy Server Plugin enabled
+      rect rgb(41, 128, 185)
+      Note left of B: Isolated network
+      activate A
+      Note over A: Inventory task
+      A->>B: Submit Inventory
+      deactivate A
+      end
+      rect rgb(0, 163, 245)
+      Note right of B: Intranet
+      B->>C: Transmit Inventory
+      activate C
+      C->>B: OK
+      deactivate C
+      end
+      B->>A: OK
+      Note over C: Inventory integrated in GLPI
+      deactivate B
+
 It can replace a proxy pass configuration on a http server or a complex proxy setup.
 It offers few other advantages and features that can be used in advanced setup.
 
@@ -153,6 +180,35 @@ Private network inventory storage
 """""""""""""""""""""""""""""""""
 
 In the case, you have a private network from where no device can access the GLPI server, you can:
+
+.. mermaid::
+
+   sequenceDiagram
+      participant A as Isolated GLPI Agents
+      participant B as GLPI Proxy Agent
+      actor C as Human or secured transport
+      participant D as GLPI Server
+      activate B
+      Note over B: Proxy Server Plugin enabled
+      rect rgb(41, 128, 185)
+      Note over A,B: Isolated network
+      activate A
+      Note over A: Inventory task
+      A->>B: Submit Inventory
+      B->>A: OK
+      deactivate A
+      deactivate B
+      Note over B: Inventory stored on Proxy system
+      end
+      B->>C: Copy Inventory
+      rect rgb(0, 163, 245)
+      Note over C,D: Intranet
+      C->>D: Inject Inventory
+      activate D
+      D->>C: OK
+      deactivate D
+      end
+      Note over D: Inventory integrated in GLPI
 
 First, store submitted inventory using a proxy agent with such ``proxy-server-plugin.local`` configuration::
 
