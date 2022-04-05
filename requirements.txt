@@ -3,3 +3,4 @@ docutils
 sphinx-rtd-theme
 sphinx-prompt
 sphinx-substitution-extensions
+sphinxcontrib-mermaid
