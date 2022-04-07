@@ -57,13 +57,28 @@ We support major distros as we provides generic packages for **RPM** and **DEB**
 
 .. hint::
 
-   When possible, prefer to use our :ref:`linux installer <linux-installer>` as it supports **RPM** and **DEB** based distros and there's a version also including the **Snap** package.
+   When possible, prefer to use our :ref:`linux perl installer <linux-installer>` as it supports **RPM** and **DEB** based distros. There's a version also including the **Snap** package.
    The linux installer accepts few options to configure the agent so it can simplify manual or automatic installation.
    It also can be handy for tools like `Puppet`_ or `Ansible`_.
 
 .. _Puppet: https://puppet.com/open-source/#osp
 
 .. _Ansible: https://www.ansible.com/community
+
+Linux AppImage installer
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 4
+   :hidden:
+
+   GLPI Agent AppImage <linux-appimage>
+
+.. hint::
+
+    When not sure or linux perl installer doesn't support your distro, try Linux AppImage installer.
+
+    See :doc:`Linux AppImage installer dedicated page <linux-appimage>`
 
 Snap
 ^^^^
@@ -97,8 +112,8 @@ Any supported glpi-agent option can be set this way. If you need to unset a conf
 
 .. _linux-installer:
 
-Linux Installer
-^^^^^^^^^^^^^^^
+Linux Perl Installer
+^^^^^^^^^^^^^^^^^^^^
 
 .. attention::
 

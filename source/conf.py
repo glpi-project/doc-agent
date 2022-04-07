@@ -24,9 +24,9 @@ import sphinx_rtd_theme
 # built documents.
 #
 # The short X.Y version.
-version = u'1.0-git*'
+version = u'1.2-git*'
 # The full version, including alpha/beta/rc tags.
-release = u'1.0-git*'
+release = u'1.2-git*'
 
 project = 'GLPI Agent'
 thisyear = datetime.datetime.now().year
@@ -88,7 +88,7 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 5,
+    'navigation_depth': 6,
     'includehidden': True,
     'titles_only': False,
     # Misc options

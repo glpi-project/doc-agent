@@ -117,12 +117,17 @@ The only required configuration parameter is an execution target, which depends 
 
 ``include``
     This directive can only be used from a configuration file and permits to specify a file or
-    a path from where to load any ``*.cfg`` files. The default is ``conf.d`` to load any
-    ``<INSTALLDIR>/etc/conf.d/*.cfg`` file.
+    a path from where to load any ``*.cfg`` files.
+
+    The default is ``conf.d`` to load any ``<INSTALLDIR>/etc/conf.d/*.cfg`` file.
+
+.. _conf-reload-interval:
 
 ``conf-reload-interval``
     Automatically reload agent configuration after the given delay in seconds. The default
     is 0 which value just disables the feature.
+
+.. _delaytime:
 
 ``delaytime``
     Specifies the upper limit, in seconds, for the initial delay before contacting
@@ -141,17 +146,34 @@ The only required configuration parameter is an execution target, which depends 
     This directive is used when the agent is run in the foreground (not as
     a daemon) only.
 
+.. _no-task:
+
 ``no-task``
     Disables given task.
 
     Multiple values can be specified, using a comma as a separator.
 
+.. _tasks:
+
+``tasks``
+    Define tasks to run and in which order.
+
+    Using ``...`` string in a list means run all remaining tasks.
+
+    Multiple values can be specified, using a comma as a separator.
+
+.. _proxy:
+
 ``proxy``
     Specifies the URL of the HTTP proxy to use. By default, the agent uses
     HTTP\_PROXY environment variable.
 
+.. _user:
+
 ``user``
     Specifies the user to use for HTTP authentication on the server.
+
+.. _password:
 
 ``password``
     Specifies the password to use for HTTP authentication on the server.
@@ -177,12 +199,24 @@ The only required configuration parameter is an execution target, which depends 
         b760f1ce
         * cp -a CA.crt $CA_CERT_DIR/b760f1ce.0
 
+.. _ca-cert-file:
+
 ``ca-cert-file``
     Specifies the file containing aggregated Certification Authority (CA)
     certificates.
 
+.. _ssl-cert-file:
+
+``ssl-cert-file``
+    Specifies the file containing SSL client certificate to use when connecting to
+    server target or for WinRM remote inventory.
+
+.. _no-ssl-check:
+
 ``no-ssl-check``
     Disables server SSL certificate validation. The default is 0 (false).
+
+.. _timeout:
 
 ``timeout``
     Specifies a timeout, in seconds, for server connections.
@@ -227,16 +261,24 @@ The only required configuration parameter is an execution target, which depends 
 
     Multiple values can be specified, using a comma as a separator.
 
+.. _logfile:
+
 ``logfile``
     Specifies the file to use for the file logger backend.
+
+.. _logfile-maxsize:
 
 ``logfile-maxsize``
     Specifies the maximum size for the log file, in MB.  When the max size is
     reached, the file is truncated. The default is unlimited.
 
+.. _logfacility:
+
 ``logfacility``
     Specifies the syslog facility to use for the syslog logger backend. The default
     is LOG\_USER.
+
+.. _color:
 
 ``color``
     Enables color display for the stderr logger backend.
@@ -252,10 +294,14 @@ The only required configuration parameter is an execution target, which depends 
     - 1: extended agent processing
     - 2: messages exchanged with the server and activates traces from Net::SSLeay if used
 
+.. _no-compression:
+
 ``no-compression``
     Disable compression when exchanging informations with GLPI Server. The default is to compress data.
 
     This directive is only supported when server option is set.
+
+.. _listen:
 
 ``listen``
     Force agent to always listen for requests on httpd interface, even when no target is defined with
@@ -304,11 +350,15 @@ Task-specific parameters
 
     This directive is used for inventory task only.
 
+.. _scan-homedirs:
+
 ``scan-homedirs``
     Enables scanning user home directories for virtual machines (Any OS) or licenses (MacOS X only) . The default is 0
     (false).
 
     This directive is used for inventory task only.
+
+.. _scan-profiles:
 
 ``scan-profiles``
     Enables scanning profiles for softwares installation (Win32). The default is 0
@@ -316,28 +366,43 @@ Task-specific parameters
 
     This directive is used for inventory task only.
 
+.. _force:
+
 ``force``
     Execute the task, even if not required by the server.
 
     This directive is used for inventory task only.
 
-``collect-timeout``
-    Specifies the timeout for task modules execution.
+.. _backend-collect-timeout:
+
+``backend-collect-timeout``
+    Specifies the timeout in seconds for task modules execution. The default is 300.
 
     This directive is used for inventory task only.
+
+.. _no-p2p:
 
 ``no-p2p``
     Disables peer to peer for downloading files.
 
     This directive is used for deploy task only.
 
+.. _html:
+
 ``html``
     Output inventory in HTML format.
 
     This directive is used for inventory task and for local target only.
 
+.. _json:
+
 ``json``
     Use JSON as inventory format.
 
     This directive is used for inventory task.
+
+.. _remote:
+
+``remote``
+    Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task.
 
