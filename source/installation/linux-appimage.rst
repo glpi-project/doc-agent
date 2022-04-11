@@ -292,3 +292,57 @@ To uninstall after a manual install, you need to run:
 
       sudo /usr/local/bin/glpi-agent-uninstall
       sudo rm -rf /opt/glpi-agent
+
+Portable installation
+'''''''''''''''''''''
+
+It is possible to use AppImage installer to create a portable linux glpi agent environment.
+
+Creation
+~~~~~~~~
+
+Here are the step to install such environment:
+
+1. Download `glpi-agent-portable.sh <https://raw.githubusercontent.com/glpi-project/glpi-agent/develop/contrib/unix/glpi-agent-portable.sh>`_
+2. Download a GLPI Agent AppImage
+3. Copy script and AppImage to a dedicated folder, for example at the root of an USB key or a network shared folder
+4. Make script and AppImage executable with:
+
+   .. prompt:: bash
+
+      sudo chmod +x glpi-agent-portable.sh glpi-agent*.AppImage
+
+5. Run one time ``glpi-agent-portable.sh`` to setup the environment.
+   This will create a ``etc/`` and a ``var/`` subfolder and all scripts at the same level.
+   Don't remove ``glpi-agent-portable.sh`` and AppImage.
+
+   .. prompt:: bash
+
+      sudo ./glpi-agent-portable.sh
+
+6. Create a ``.cfg`` file under ``etc/conf.g`` to configure your agent or
+   create dedicated script which start expected glpi-agent scripts with expected parameters.
+
+You're now ready to use the linux portable agent.
+
+.. note::
+
+   As installed scripts are using :ref:`--vardir=PATH <vardir>` option, agent deviceid will be defined depending on the current computer hostname.
+   So you can safely run it on different computers. The deviceid will even be reused later if you run it again on a given computer.
+
+.. hint::
+
+   You can also specify AppImage to use by defining ``APPIMAGE`` environment variable.
+
+Upgrade
+~~~~~~~
+
+It is really simple to upgrade a portable installation:
+
+1. Remove old AppImage from the folder
+2. Download and copy the newer AppImage
+3. Make AppImage executable
+
+   .. prompt:: bash
+
+      sudo chmod +x glpi-agent*.AppImage
