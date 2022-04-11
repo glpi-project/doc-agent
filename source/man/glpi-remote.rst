@@ -39,6 +39,7 @@ options]
        -A --add            add scanned remotes to target so they always be inventoried
                            by RemoteInventory task
        -U --useragent      set used HTTP User-Agent for requests
+       --vardir <PATH>     use specified path as storage folder for agent persistent datas
 
      Target definition options:
        -s --server=<URI>   agent will send tasks result to that server

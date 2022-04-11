@@ -17,8 +17,8 @@ glpi-injector [options] [--file <file>|--directory
 
      Options:
        -h --help      this menu
-       -d --directory load every .ocs files from a directory
-       -R --recursive recursively load .ocs files from <directory>
+       -d --directory load every inventory files from a directory
+       -R --recursive recursively load inventory files from <directory>
        -f --file      load a specific file
        -u --url       server URL
        -r --remove    remove succesfuly injected files
@@ -32,7 +32,7 @@ glpi-injector [options] [--file <file>|--directory
        -C --no-compression don't compress sent XML inventories
 
      Examples:
-       glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.ocs --url https://login:pw@example/front/inventory.php
+       glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.json --url https://login:pw@example/front/inventory.php
        glpi-injector -v -R -d /srv/ftp/fusion --url https://login:pw@example/front/inventory.php
 
 DESCRIPTION
