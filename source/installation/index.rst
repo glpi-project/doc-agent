@@ -96,7 +96,7 @@ After installation, you can easily configure the agent with the **set** ``snap``
 
 .. prompt:: bash
 
-   snap set glpi-agent server=http://myserver/front/inventory.php
+   snap set glpi-agent server=http://my-glpi-server/
 
 Any supported glpi-agent option can be set this way. If you need to unset a configuration parameter, just set it empty:
 
