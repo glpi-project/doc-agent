@@ -137,19 +137,19 @@ Target definition options
 
    ::
 
-          % --server=http://example/front/inventory.php
+          % --server=http://my-glpi-server/
 
    In general, GLPI server URL have this format:
 
    ::
 
-          http://example/front/inventory.php
+          http://my-glpi-server/
 
    and FusionInventory for GLPI this one:
 
    ::
 
-          http://example/glpi/plugins/fusioninventory
+          http://my-glpi-server/plugins/fusioninventory
 
    Multiple values can be specified, using comma as a separator.
 

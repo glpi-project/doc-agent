@@ -226,7 +226,7 @@ Finally, inject inventories into GLPI with ``glpi-injector`` script:
 
 .. prompt:: bash
 
-   glpi-injector -d /var/glpi-agent -r -R -u http://glpi-server/front/inventory.php
+   glpi-injector -d /var/glpi-agent -r -R -u http://my-glpi-server/
 
 Proxy with HTTP and HTTPS support
 """""""""""""""""""""""""""""""""
