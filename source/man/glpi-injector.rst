@@ -32,8 +32,8 @@ glpi-injector [options] [--file <file>|--directory
        -C --no-compression don't compress sent XML inventories
 
      Examples:
-       glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.json --url https://login:pw@example/front/inventory.php
-       glpi-injector -v -R -d /srv/ftp/fusion --url https://login:pw@example/front/inventory.php
+       glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.json --url https://login:pw@example/
+       glpi-injector -v -R -d /srv/ftp/fusion --url https://login:pw@example/
 
 DESCRIPTION
 -----------

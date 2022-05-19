@@ -111,7 +111,7 @@ Example:
 
 .. prompt:: bash
 
-   glpi-agent --server http://glpi/front/inventory.php --daemon
+   glpi-agent --server http://glpi/ --daemon
 
 That's the easiest mode to set up, offering (almost) complete control from a
 centralized point, fully compatible with all available agent features, and the
@@ -140,7 +140,7 @@ Example:
 
 .. prompt:: bash
 
-   glpi-agent --server http://glpi/front/inventory.php
+   glpi-agent --server http://glpi/
 
 This mode doesn't consume memory permanently, only during agent execution.
 However, it is also less flexible, as scheduling can't get changed without
@@ -161,7 +161,7 @@ everything the GLPI server wants, but only when the agent wants.
 
    .. prompt:: bash
 
-      glpi-agent --lazy --server http://glpi/front/inventory.php
+      glpi-agent --lazy --server http://glpi/
 
    See also :ref:`concurrent-executions` to use ``--wait`` option.
 
@@ -181,13 +181,13 @@ Deferred upload example:
 .. prompt:: bash
 
    glpi-inventory --json > inventory.json
-   glpi-injector --file inventory.json --url http://glpi/front/inventory.php
+   glpi-injector --file inventory.json --url http://glpi/
 
 Immediate upload example:
 
 .. prompt:: bash
 
-   glpi-inventory | curl --data @- http://glpi/front/inventory.php
+   glpi-inventory | curl --data @- http://glpi/
 
 This mode is the most complex to set-up, as you have to script the execution of
 multiple programs, this is not just a matter of configuration. It is also
@@ -233,7 +233,7 @@ The agent also has a dedicated executable for result injection:
 
 .. prompt:: bash
 
-   glpi-injector --file inventory.json --url http://glpi/front/inventory.php
+   glpi-injector --file inventory.json --url http://glpi/
 
 See glpi-injector man page for details.
 
@@ -245,13 +245,13 @@ installation has no SSL support, for instance:
 
 .. prompt:: bash
 
-   curl --header "Content-Type: Application/x-compress" --cacert your-ca.pem -u username:password --data @/tmp/inventory-file.json https://glpi/front/inventory.php
+   curl --header "Content-Type: Application/x-compress" --cacert your-ca.pem -u username:password --data @/tmp/inventory-file.json https://glpi/
 
 With no SSL check and no authentication:
 
 .. prompt:: bash
 
-   curl --header "Content-Type: Application/x-compress" -k --data @/tmp/inventory-file.json https://glpi/front/inventory.php
+   curl --header "Content-Type: Application/x-compress" -k --data @/tmp/inventory-file.json https://glpi/
 
 Usage caution
 -------------
@@ -295,5 +295,5 @@ and then upload the results multiple times:
 .. prompt:: bash
 
    glpi-inventory --json > inventory.json
-   glpi-injector --file inventory.json --url http://my.first.glpi/front/inventory.php
-   glpi-injector --file inventory.json --url http://my.second.glpi/front/inventory.php
+   glpi-injector --file inventory.json --url http://my.first.glpi/
+   glpi-injector --file inventory.json --url http://my.second.glpi/

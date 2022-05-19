@@ -184,7 +184,7 @@ On the GLPI server, create a script you would want to put in ``/etc/cron.daily``
    #!/bin/bash
    sleep $((RANDOM/100))
    glpi-remote -T 5c9898f9-e619-4bdb-8e29-6a20766ab760 agent <dmz-server-ip> | \
-      glpi-injector -url http://127.0.0.1/front/inventory.php >/var/tmp/server-inventory.log 2>&1
+      glpi-injector -url http://127.0.0.1/ >/var/tmp/server-inventory.log 2>&1
 
 Adapt this shell script to your needs.
 
@@ -217,7 +217,7 @@ On the GLPI server, create a script you would want to put in ``/etc/cron.daily``
    #!/bin/bash
    sleep $((RANDOM/100))
    glpi-remote -T 2b0a48a2-6eb1-4e8f-bf8c-41f461b58ef1 -p 54443 --ssl --no-ssl-check -b /2cd3a12ac1c4 agent <internet-server-ip> | \
-      glpi-injector -url http://127.0.0.1/front/inventory.php >/var/tmp/internet-server-inventory.log 2>&1
+      glpi-injector -url http://127.0.0.1/ >/var/tmp/internet-server-inventory.log 2>&1
 
 Adapt this shell script to your needs.
 

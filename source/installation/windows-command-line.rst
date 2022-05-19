@@ -179,12 +179,12 @@ Command line parameters
    .. code::
 
        ... HTTPD_TRUST="127.0.0.1/32,itms.acme.org" \
-           SERVER="http://itms.acme.org/glpi/front/inventory.php"
+           SERVER="http://itms.acme.org/glpi/"
 
    .. code::
 
        ... HTTPD_TRUST="127.0.0.1/32" \
-           SERVER="http://itms.acme.org/glpi/front/inventory.php"
+           SERVER="http://itms.acme.org/glpi/"
 
 ``INSTALLDIR=pathname``
    Sets the installation base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent``)

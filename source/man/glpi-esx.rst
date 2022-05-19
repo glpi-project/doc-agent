@@ -40,7 +40,7 @@ glpi-injector tool.
 
 .. code-block:: text
 
-       % glpi-injector -v --file /tmp/*.xml -u https://example/front/inventory.php
+       % glpi-injector -v --file /tmp/*.xml -u https://example/
 
 DESCRIPTION
 -----------
