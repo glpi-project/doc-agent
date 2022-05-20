@@ -192,7 +192,7 @@ Command line parameters
    *pathname* must be an absolute path.
 
 ``LAZY=1``
-   Contact server only if the server expiration delay has been reached. (By default: ``0``)
+   Contact server only if the server expiration delay has been reached. (By default: ``1``)
 
    This option is only used if you set ``EXECMODE=2`` to use Windows Task scheduling.
 
