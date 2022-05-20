@@ -48,6 +48,11 @@ Command line parameters
 ``ADD_FIREWALL_EXCEPTION=1``
    Adds GLPI Agent to the Windows Firewall exception list. (By default: ``0`` for No)
 
+``ADDITIONAL_CONTENT=filename`` (needs MSI installer >= 1.3)
+   Specifies an XML file whose content will be automatically merged with output.
+   If inventory format is JSON, you can also specify a JSON file from which ``content`` base node will be merged.
+   (By default: empty)
+
 ``ADDLOCAL=feature[,feature[...]]``
    This parameter permits to select features to install. (By default: "feat_DEPLOY,feat_COLLECT")
 
@@ -146,8 +151,8 @@ Command line parameters
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
 
-``HTML=value``
-   Save the inventory as HTML instead of XML. (By default: ``0`` for No)
+``HTML=1``
+   Save the inventory as HTML instead of XML or JSON. (By default: ``0`` for No)
 
    The ``HTML`` parameter comes into play only if you have also indicated a
    value for the ``LOCAL`` parameter.
@@ -191,10 +196,22 @@ Command line parameters
 
    *pathname* must be an absolute path.
 
+``JSON=0`` (needs MSI installer >= 1.3)
+   Don't save the local inventory as JSON instead of XML. (By default: ``1`` for Yes)
+
+   The ``JSON`` parameter comes into play only if you have also indicated a
+   value for the ``LOCAL`` parameter.
+
 ``LAZY=1``
    Contact server only if the server expiration delay has been reached. (By default: ``1``)
 
    This option is only used if you set ``EXECMODE=2`` to use Windows Task scheduling.
+
+``LISTEN=1`` (needs MSI installer >= 1.3)
+   Force agent to always listen for requests on httpd interface, even when no target is defined with
+   server or local option. (By default: ``0`` for No)
+
+   Very useful in combination with `Inventory Server plugin </plugins/inventory-server-plugin.html>`_.
 
 ``LOCAL=pathname``
    Writes the results of tasks execution into the given directory. (By default: empty)
@@ -232,6 +249,9 @@ Command line parameters
 
       "C:\Program Files\GLPI-Agent\glpi-agent" --list-categories
 
+``NO_COMPRESSION=1`` (needs MSI installer >= 1.3)
+   Disable compression when exchanging informations with GLPI Server. (By default: ``0``)
+
 ``NO_HTTPD=1``
    Disables the embedded web server. (By default: ``0``)
 
@@ -267,6 +287,9 @@ Command line parameters
 ``QUICKINSTALL=1``
    Don't ask for detailed configurations during graphical install. (By default: ``0``)
 
+``REMOTE=remote:definition`` (needs MSI installer >= 1.3)
+   Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task. (By default: empty)
+
 ``RUNNOW=1``
    Launches the agent immediately after its installation. (By default: ``0``)
 
@@ -280,6 +303,11 @@ Command line parameters
    will not be written remotely.
 
    You can use the ``SERVER`` and ``LOCAL`` parameters simultaneously.
+
+``SSL_CERT_FILE=filename`` (needs MSI installer >= 1.3)
+   Specifies the file containing SSL client certificate to use when connecting to
+   server target or for WinRM remote inventory.
+   (By default: empty)
 
 ``TAG=tag``
    Marks the computer with the tag *tag* . (By default: empty)
