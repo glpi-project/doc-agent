@@ -211,6 +211,14 @@ The only required configuration parameter is an execution target, which depends 
     Specifies the file containing SSL client certificate to use when connecting to
     server target or for WinRM remote inventory.
 
+.. _ssl-fingerprint:
+
+``ssl-fingerprint``
+    Specifies the fingerprint of the ssl server certificate to trust.
+
+    The fingerprint to use can be retrieved in agent log by temporarily enabling
+    `no-ssl-check` option.
+
 .. _no-ssl-check:
 
 ``no-ssl-check``

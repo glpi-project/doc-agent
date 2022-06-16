@@ -62,6 +62,8 @@ glpi-agent [options] [--server server|--local path]
        --ca-cert-file=FILE            CA certificates file
        --no-ssl-check                 do not check server SSL certificate
                                         (false)
+       --ssl-fingerprint=FINGERPRINT  Trust server certificate if its SSL fingerprint
+                                        matches the given one
        -C --no-compression            do not compress communication with server
                                         (false)
        --timeout=TIME                 connection timeout, in seconds (180)

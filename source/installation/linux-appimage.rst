@@ -195,6 +195,9 @@ Network options
 :ref:`--ssl-cert-file=FILE <ssl-cert-file>`
    Client certificate file
 
+:ref:`--ssl-fingerprint=FINGERPRINT <ssl-fingerprint>`
+   Fingerprint of SSL certificate to trust
+
 :ref:`--no-ssl-check <no-ssl-check>`
    do not check server SSL certificate
 

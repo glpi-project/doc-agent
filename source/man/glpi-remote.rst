@@ -26,6 +26,8 @@ options]
        --no-ssl-check      do not check agent SSL certificate (winrm or agent sub-command)
        --ca-cert-dir <PATH> CA certificates directory
        --ca-cert-file <FILE> CA certificates file (winrm or for agent sub-command)
+       --ssl-fingerprint <FINGERPRINT>
+                           Trust server certificate if its SSL fingerprint matches the given one
        --ssl-cert-file     Client certificate file (winrm)
        -u --user           authentication user
        -P --password       authentication password
