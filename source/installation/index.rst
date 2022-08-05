@@ -145,6 +145,15 @@ or if you use the installer embedding **snap** package:
 
 If your GNU/Linux distro is not supported, you still can :ref:`install it from sources <install-from-sources>`.
 
+Unofficial repositories
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. attention::
+
+   Unofficial repositories are not supported by GLPI-Agent editor. Use them at your own risk.
+
+Thanks to ligenix, a COPR repository can be use to install glpi-agent on Fedora 35 & 36, CentOS Stream 8 & 9, EPEL 7, 8 & 9: `ligenix/enterprise-glpi10  <https://copr.fedorainfracloud.org/coprs/ligenix/enterprise-glpi10/>`_
+
 .. _install-from-sources:
 
 From sources
