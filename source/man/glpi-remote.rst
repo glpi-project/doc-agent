@@ -149,7 +149,6 @@ General options
    Set the timeout for network requests (defaults to 10 seconds).
 
 **-p**, **--port**\ =\ *LIST*
-   Do not contact the target before next scheduled time.
 
    A list of ports used when making a scan and to discover remote
    computers. The defaults is to scan the standard ssh port and winrm
@@ -177,7 +176,7 @@ General options
 **-u** *USER*, **--user**\ =\ *USER*
    Use *USER* for remote authentication.
 
-**-p**, **--password**\ =\ *PASSWORD*
+**-P**, **--password**\ =\ *PASSWORD*
    Use *PASSWORD* for remote authentication.
 
 **-X**, **show-passwords**
