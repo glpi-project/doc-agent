@@ -117,3 +117,18 @@ You can try to run only RemoteInventory task with:
    glpi-agent --logger=stderr --tasks remoteinventory
 
 You may have to run again the agent if another **remote** is expected to be inventoried. Just run ``glpi-remote list`` to verify if a **remote** has to be inventoried.
+
+Without remote registration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You also can use the ``--remote`` option of glpi-agent to process a remote without registering it:
+
+.. prompt:: bash
+
+   glpi-agent --logger=stderr --tasks remoteinventory --remote=ssh://admin:pass@192.168.43.237
+
+``--remote`` option can be handy to schedule a remote inventory via crontab or windows job scheduling.
+
+.. hint::
+
+   ``--remote`` value can be a list of remote url separated by commas. So commas are prohibited in passwords.
