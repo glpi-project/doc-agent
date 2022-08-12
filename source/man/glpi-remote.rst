@@ -149,7 +149,6 @@ General options
    Set the timeout for network requests (defaults to 10 seconds).
 
 **-p**, **--port**\ =\ *LIST*
-
    A list of ports used when making a scan and to discover remote
    computers. The defaults is to scan the standard ssh port and winrm
    ports: *22,5985,5986*.
