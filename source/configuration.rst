@@ -213,7 +213,7 @@ The only required configuration parameter is an execution target, which depends 
 
 .. _ssl-fingerprint:
 
-``ssl-fingerprint``
+``ssl-fingerprint`` (Available since GLPI Agent v1.3)
     Specifies the fingerprint of the ssl server certificate to trust.
 
     The fingerprint to use can be retrieved in agent log by temporarily enabling
@@ -414,3 +414,7 @@ Task-specific parameters
 ``remote``
     Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task.
 
+``remote-workers`` (Available since GLPI Agent v1.5)
+    Specify the maximum number of remote inventory the agent can process at the same time.
+
+    By default, only one remote inventory can be processed at a given time.

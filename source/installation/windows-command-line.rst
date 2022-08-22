@@ -290,6 +290,9 @@ Command line parameters
 ``REMOTE=remote:definition`` (needs MSI installer >= 1.3)
    Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task. (By default: empty)
 
+``REMOTE_WORKERS=max`` (needs MSI installer >= v1.5)
+    Set the maximum number of remote inventory to process at the same time. (By default: ``1``)
+
 ``RUNNOW=1``
    Launches the agent immediately after its installation. (By default: ``0``)
 
