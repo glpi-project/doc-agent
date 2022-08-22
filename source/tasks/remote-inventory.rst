@@ -132,3 +132,16 @@ You also can use the ``--remote`` option of glpi-agent to process a remote witho
 .. hint::
 
    ``--remote`` value can be a list of remote url separated by commas. So commas are prohibited in passwords.
+
+Performance with X remotes defined
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, only one remote inventory can be run at a time.
+
+Since GLPI-Agent 1.5, you can use ``--remote-workers`` option to set the maximum number of worker the remote inventory task can run at the same time, each worker processing one remote.
+
+For example, the following command will process 2 remote inventory at the same time:
+
+.. prompt:: bash
+
+   glpi-agent --logger=stderr --tasks remoteinventory --remote=ssh://admin:pass@192.168.43.237,ssh://admin:pass@192.168.77.252 --remote-workers=2
