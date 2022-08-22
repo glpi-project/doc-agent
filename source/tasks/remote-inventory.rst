@@ -145,3 +145,20 @@ For example, the following command will process 2 remote inventory at the same t
 .. prompt:: bash
 
    glpi-agent --logger=stderr --tasks remoteinventory --remote=ssh://admin:pass@192.168.43.237,ssh://admin:pass@192.168.77.252 --remote-workers=2
+
+Caveats
+-------
+
+As the inventory is run remotely, you may not obtain exactly the same inventory as if the agent was run locally.
+
+For ``winrm`` remotes, the informations may miss or may differ from locally run inventory:
+
+ * software installation date,
+ * bios informations (as we can't run dmidecode),
+ * devices name, type or description (mostly not localized via winrm),
+ * databases services.
+
+For ``ssh`` remotes, the informations may miss or may differ from locally run inventory:
+
+ * printers,
+ * databases services.
