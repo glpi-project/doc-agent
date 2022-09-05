@@ -125,7 +125,7 @@ You also can use the ``--remote`` option of glpi-agent to process a remote witho
 
 .. prompt:: bash
 
-   glpi-agent --logger=stderr --tasks remoteinventory --remote=ssh://admin:pass@192.168.43.237
+   glpi-agent --remote=ssh://admin:pass@192.168.43.237 --logger=stderr --tasks remoteinventory
 
 ``--remote`` option can be handy to schedule a remote inventory via crontab or windows job scheduling.
 
@@ -144,7 +144,39 @@ For example, the following command will process 2 remote inventory at the same t
 
 .. prompt:: bash
 
-   glpi-agent --logger=stderr --tasks remoteinventory --remote=ssh://admin:pass@192.168.43.237,ssh://admin:pass@192.168.77.252 --remote-workers=2
+   glpi-agent --remote-workers=2 --remote=ssh://192.168.43.237,ssh://192.168.77.252 --logger=stderr --tasks remoteinventory
+
+Modes
+^^^^^
+
+In some context, you may need to change the way remote inventory is processed. In that case, you can configure your remote to use modes.
+
+Modes must be set with the remote url itself to only be applied on one remote. The syntax is similar to the URL query string one by adding ``?mode=xxxx`` where **xxxx** is the mode to use.
+
+For **winrm**, only one mode can be used to require SSL access to remote: ``mode=ssl``.
+
+For example, the following command will process a winrm remote inventory over SSL (default port becomes 5986):
+
+.. prompt:: bash
+
+   glpi-agent --remote=winrm://admin:pass@192.168.47.237?mode=ssl --logger=stderr --tasks remoteinventory
+
+For **ssh**, 3 modes are available:
+
+ 1. ``mode=perl`` can be set if perl is available on the remote to try using it for few specific cases (fqdn and domain),
+ 2. ``mode=ssh`` can be set to not try to use **libssh2** for remote access,
+ 3. ``mode=libssh2`` can be set to not try to use **ssh** command access if **libssh2** fails.
+
+You can combine modes. To do so, you just need to concatenate them using the underscore sign as separator: ``mode=perl_ssh`` or ``mode=ssh_perl`` are valid syntax
+
+By default, the **ssh** mode is: ``mode=libssh2_ssh``. So you don't need to specify both and they are still set if **perl** mode is set.
+**libssh2** and **ssh** modes only need to be used if you have an issue with the other mode.
+
+For example, the following command will process a ssh remote inventory using only libssh2 and enabling perl mode:
+
+.. prompt:: bash
+
+   glpi-agent --remote=ssh://admin:pass@192.168.43.237?mode=perl_ssh --logger=stderr --tasks remoteinventory
 
 Caveats
 -------
