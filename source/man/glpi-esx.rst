@@ -11,8 +11,8 @@ glpi-esx - vCenter/ESX/ESXi remote inventory from command line
 SYNOPSIS
 --------
 
-glpi-esx --host <host> --user <user> --password <password> --directory
-<directory>
+glpi-esx --host <host> --user <user> --password <password> --path
+<directory or file>
 
 .. code-block:: text
 
@@ -21,8 +21,10 @@ glpi-esx --host <host> --user <user> --password <password> --directory
        --host hostname        ESX server hostname
        --user username        user name
        --password xxxx        user password
-       --directory directory  output directory
+       --path path            output directory or file
+       --stdout               dump inventory on stdout (enabled by default if no path is set)
        --tag tag              tag for the inventoried machine
+       --json                 use json as format for generated inventories
 
      Advanced options:
        --dump                 also dump esx host full info datas in a *-hostfullinfo.dump file
@@ -33,14 +35,14 @@ EXAMPLES
 
 .. code-block:: text
 
-       % glpi-esx --host myesx --user foo --password bar --directory /tmp
+       % glpi-esx --host myesx --user foo --password bar --path /tmp --json
 
-You can import the .xml file in your inventory server with the
+You can import the .json file in your inventory server with the
 glpi-injector tool.
 
 .. code-block:: text
 
-       % glpi-injector -v --file /tmp/*.xml -u https://example/
+       % glpi-injector -v --file /tmp/*.json -u https://example/
 
 DESCRIPTION
 -----------
