@@ -18,7 +18,7 @@ do
     SRCPAGE="$SRCPATH/bin/$PAGE"
     DSTPAGE="source/man/$PAGE.rst"
 
-    echo "   $PAGE"   >> $IDXPAGE
+    echo "   $PAGE <$PAGE>"   >> $IDXPAGE
 
     echo $PAGE        >  $DSTPAGE
     echo ${PAGE//?/=} >> $DSTPAGE
