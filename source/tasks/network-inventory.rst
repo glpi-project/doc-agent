@@ -30,6 +30,15 @@ The agent performing the task needs network access the target devices, with
 proper access control: just being able to send UDP packets to a device is not
 enough, if this device is configured to ignore them.
 
+.. _snmpv3-caution:
+
+.. caution::
+
+   If a device requires SNMP v3 access, you may need to install **Crypt::Rijndael** perl module.
+   This module is not installed by default with the agent on linux systems. On a debian-based
+   system, you just have to run ``apt install libcrypt-rijndael-perl``. On a RPM-based system,
+   running ``dnf install perl-Crypt-Rijndael`` is the right command.
+
 The target device should be associated with proper SNMP credentials in GLPI.
 
 As for any other server controlled task, the agent should use either managed or

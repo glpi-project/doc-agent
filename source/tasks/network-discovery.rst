@@ -56,6 +56,15 @@ to send UDP packets to a device is not enough, if this device is configured to
 ignore them. It is even best to use an agent from the same network than the scanned
 devices so it can access the local system arp table.
 
+.. _snmpv3-caution:
+
+.. caution::
+
+   If a device requires SNMP v3 access, you may need to install **Crypt::Rijndael** perl module.
+   This module is not installed by default with the agent on linux systems. On a debian-based
+   system, you just have to run ``apt install libcrypt-rijndael-perl``. On a RPM-based system,
+   running ``dnf install perl-Crypt-Rijndael`` is the right command.
+
 As for any other server controlled task, the agent should use either managed or
 half-managed mode, as explained in :ref:`execution-modes`. If
 the task is server-triggered, the agent must run in managed mode, and
