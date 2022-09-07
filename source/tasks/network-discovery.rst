@@ -65,10 +65,10 @@ Command-line execution
 ^^^^^^^^^^^^^^^^^^^^^^
 
 A network discovery task can be also performed without a GLPI server, allowing
-easier control and troubleshooting, with the ``glpi-netdiscovery`` command-line tool.
+easier control and troubleshooting, with the :doc:`../man/glpi-netdiscovery` command-line tool.
 
 However, this command generates files which will have to be injected in GLPI server
-using ``glpi-injector`` command.
+using :doc:`../man/glpi-injector` command.
 
 Efficiency concerns
 ^^^^^^^^^^^^^^^^^^^
@@ -114,7 +114,7 @@ Troubleshooting
 
    The agent probably lacks the device SNMP identifier in its internal database.
 
-   Use ``glpi-netdiscovery`` executable with debug option on the device,
+   Use :doc:`../man/glpi-netdiscovery` executable with debug option on the device,
    get the value from its output, and add it to the ``sysobject.ids`` file, as
    described in :ref:`sysobject.ids` to fix the issue.
 

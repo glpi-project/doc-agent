@@ -41,10 +41,10 @@ Command-line execution
 ^^^^^^^^^^^^^^^^^^^^^^
 
 A network inventory task can be also performed without a GLPI server, allowing
-easier control and troubleshooting, with the ``glpi-netinventory`` command-line tool.
+easier control and troubleshooting, with the :doc:`../man/glpi-netinventory` command-line tool.
 
 However, this command generates files which will have to be injected in GLPI server
-using ``glpi-injector`` command.
+using :doc:`../man/glpi-injector` command.
 
 Troubleshooting
 ---------------

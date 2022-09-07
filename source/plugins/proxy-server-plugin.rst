@@ -123,7 +123,7 @@ The default configuration is self-explanatory:
    Set to ``yes`` to only store locally submitted inventories. (By default: no)
 
    This can be handy if the only purpose is to collect inventories and no GLPI server
-   is reachable. Stored inventories could then be passed later to ``glpi-injector``.
+   is reachable. Stored inventories could then be passed later to :doc:`../man/glpi-injector`.
 
 ``local_store``
    This is a full path where to store submitted inventories. If set, the proxy agent will
@@ -222,7 +222,7 @@ Then, from GLPI server or a dedicated platform with GLPI server access possible,
 
 * using an USB key
 
-Finally, inject inventories into GLPI with ``glpi-injector`` script:
+Finally, inject inventories into GLPI with :doc:`../man/glpi-injector` script:
 
 .. prompt:: bash
 

@@ -235,7 +235,7 @@ The agent also has a dedicated executable for result injection:
 
    glpi-injector --file inventory.json --url http://glpi/
 
-See glpi-injector man page for details.
+See :doc:`man/glpi-injector` man page for details.
 
 curl
 """"

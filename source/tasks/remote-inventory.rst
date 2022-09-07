@@ -121,7 +121,7 @@ You may have to run again the agent if another **remote** is expected to be inve
 Without remote registration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You also can use the ``--remote`` option of glpi-agent to process a remote without registering it:
+You also can use the ``--remote`` option of :doc:`../man/glpi-agent` to process a remote without registering it:
 
 .. prompt:: bash
 
