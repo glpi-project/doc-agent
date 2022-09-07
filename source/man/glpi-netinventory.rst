@@ -1,6 +1,8 @@
 glpi-netinventory
 =================
 
+.. include:: glpi-netinventory.inc
+
 NAME
 ----
 
@@ -58,14 +60,37 @@ OPTIONS
 **--communty** *STRING*
    Use given string as SNMP community (assume SNMPv1)
 
+**--v1**
+   Use SNMP v1. This is the default.
+
+**--v2c**
+   Use SNMP v2c.
+
 **--credentials** *STRING*
    Use given string as SNMP credentials specification. This
    specification is a comma-separated list of key:value authentication
    parameters, such as:
 
    -  version:2c,community:public
-   -  version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
+   -  version:3,username:admin,authpassword:s3cr3t,privpassword:s3cr3t
    -  etc.
+
+   Supported keys are:
+
+   -  version with value set to 1, 2c or 3
+
+   In the case version is set to 1 or 2c:
+
+   -  community
+
+   In the case version is set to 3:
+
+   -  username (required)
+   -  authpassword
+   -  authprotocol with value set to md5 (the default if not set) or sha
+   -  privpassword (required if authpassword is set)
+   -  privprotocol with value set to des (the default if not set), aes
+      or 3des
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
@@ -108,4 +133,4 @@ authentication and forcing its type:
 .. code-block:: text
 
        $> glpi-netinventory --host my.device --type NETWORKING \
-       --credentials version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
+       --credentials version:3,username:admin,authpassword:s3cr3t,privpassword:s3cr3t

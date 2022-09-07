@@ -1,6 +1,8 @@
 glpi-netdiscovery
 =================
 
+.. include:: glpi-netdiscovery.inc
+
 NAME
 ----
 
@@ -20,6 +22,8 @@ glpi-netdiscovery [options] --first <address> --last <address>
        --port <PORT[,PORT2]>  SNMP port (161)
        --protocol <PROT[,P2]> SNMP protocol/domain (udp/ipv4)
        --community <STRING>   SNMP community string (public)
+       --v1                   select SNMP version 1 (the default)
+       --v2c                  select SNMP version 2c (1 by default)
        --credentials <STRING> SNMP credentials (version:1,community:public)
        --timeout <TIME        SNMP timeout, in seconds (1)
        --entity <ENTITY>      GLPI entity
@@ -69,7 +73,16 @@ OPTIONS
    scan.
 
 **--community** *STRING*
-   Use given string as SNMP community (assume SNMPv1).
+   Use given string as SNMP community (assume SNMPv1). This option can
+   be used multiple times to try different communities.
+
+**--v1**
+   Use SNMP v1. This is the default, but you can use the option to try
+   SNMP v1 & SNMP v2c.
+
+**--v2c**
+   Use SNMP v2c. Can be used in combination with --v1 to try the 2
+   versions.
 
 **--credentials** *STRING*
    Use given string as SNMP credentials specification. This
@@ -77,8 +90,25 @@ OPTIONS
    parameters, such as:
 
    -  version:2c,community:public
-   -  version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
+   -  version:3,username:admin,authpassword:s3cr3t,privpassword:s3cr3t
    -  etc.
+
+   Supported keys are:
+
+   -  version with value set to 1, 2c or 3
+
+   In the case version is set to 1 or 2c:
+
+   -  community
+
+   In the case version is set to 3:
+
+   -  username (required)
+   -  authpassword
+   -  authprotocol with value set to md5 (the default if not set) or sha
+   -  privpassword (required if authpassword is set)
+   -  privprotocol with value set to des (the default if not set), aes
+      or 3des
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
@@ -113,7 +143,7 @@ credentials:
 
        $> glpi-netdiscovery --first 192.168.0.1 --last 192.168.0.254 \
        --credentials version:2c,community:public \
-       --credentials version:3,username:admin,authprotocol:sha,authpassword:s3cr3t
+       --credentials version:3,username:admin,authpassword:s3cr3t,privpassword:s3cr3t
 
 Emulate discovery using a snmpwalk file:
 
