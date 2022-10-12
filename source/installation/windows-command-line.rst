@@ -34,6 +34,10 @@ All options can be defined in several places; the last taking precedence on all 
    * if a value contains a space, it must be surrounded with single ``'`` or double quotes ``"``,
    * if you want to set a empty value, put an empty string (``LOCAL=`` or ``LOCAL=""``).
 
+.. attention::
+
+   Don't use **PowerShell** as commandline interpreter: it changes some environment context the installer doesn't handle well.
+
 Command line parameters
 -----------------------
 

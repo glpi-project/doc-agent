@@ -21,6 +21,10 @@ Agent can also be executed from command line, using one of available executables
 Windows
 """""""
 
+.. attention::
+
+   Don't use **PowerShell** as commandline interpreter: it changes some environment context the agent doesn't handle well.
+
 Open a command interpreter windows (``cmd.exe``), with administrator privileges
 (*right click*, *Run as Administrator*).
 
