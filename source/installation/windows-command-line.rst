@@ -291,6 +291,9 @@ Command line parameters
 ``QUICKINSTALL=1``
    Don't ask for detailed configurations during graphical install. (By default: ``0``)
 
+``REINSTALL=feat_AGENT``
+   Use this option only in the case you need to change the agent configuration using the same installer. (Not used by default)
+
 ``REMOTE=remote:definition`` (needs MSI installer >= 1.3)
    Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task. (By default: empty)
 
