@@ -63,12 +63,13 @@ Command line parameters
    The *feature* can take the following values:
 
    * ``ALL``: All included tasks are selected for installation
+   * ``feat_AGENT``: to restrict to the minimum installation with agent and Inventory task
    * ``feat_NETINV``: to select NetDiscovery and NetInventory tasks for installation
    * ``feat_DEPLOY``: to select Deploy task for installation
    * ``feat_COLLECT``: to select Collect task for installation
    * ``feat_WOL``: to select WakeOnLan task for installation
 
-   The base feature is feat_AGENT which is always selected and includes Inventory task. By
+   The base feature is ``feat_AGENT`` which is always selected and includes Inventory task. By
    default, Deploy and Collect tasks are also selected.
 
 ``BACKEND_COLLECT_TIMEOUT=180``
