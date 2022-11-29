@@ -73,7 +73,9 @@ The only required configuration parameter is an execution target, which depends 
 
     1. If you're not using **GlpiInventory plugin**:
 
-     Your server URL should look like: ``https://my-glpi-server/``, or ``https://my-glpi-server/front/inventory.php``
+     Your server URL should look like: ``https://my-glpi-server/front/inventory.php``
+     
+     Using ``https://my-glpi-server/`` seems possible but in facts cause issues that are impossible to track. Please do not use that URL.
 
     2. If you have installed **GlpiInventory plugin** via **Marketplace**:
 
