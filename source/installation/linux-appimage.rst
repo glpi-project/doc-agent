@@ -15,6 +15,14 @@ To install the agent, just run:
 At this point, if you obtain an error explaining ``AppImages require FUSE to run.``,
 you still can try a :ref:`manual install <manual-install>`.
 
+.. hint::
+
+   On Ubuntu, starting with Ubuntu 22.04, fuse3 is installed, but AppImage requires libfuse2. So you should install it with:
+
+   .. prompt:: bash
+
+      sudo apt install libfuse2
+
 To upgrade the agent if you still installed glpi-agent linux appimage, just run:
 
 .. prompt:: bash
