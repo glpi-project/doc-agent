@@ -9,6 +9,7 @@ and report your issue with all the requested informations. This requires an GitH
 
 .. hint:: Before reporting your problem, always take a look at the `opened and closed GitHub issues <https://github.com/glpi-project/glpi-agent/issues?q=is%3Aissue+is%3Aopen+is%3Aclosed>`_
    by updating the `Filters` field and check if your problem has still not been addressed.
+   You should also search for `any GLPI-Agent discussion <https://github.com/glpi-project/glpi-agent/discussions>`_ that could be related to your problem.
 
 Problem description
 -------------------
