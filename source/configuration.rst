@@ -85,6 +85,12 @@ The only required configuration parameter is an execution target, which depends 
 
      Your server URL should look like: ``https://my-glpi-server/plugins/glpiinventory/``
 
+.. caution::
+
+   In the case you installed your GLPI on IIS, you may need to add ``index.php`` at the end of your ``server`` parameter to use the right handler.
+   But as explained by `@SteadEXE in an issue <https://github.com/glpi-project/glpi-agent/issues/314#issuecomment-1378421565>`_,
+   you can fix this problem updating your IIS configuration.
+
 ``server``
     Specifies the server to use both as a controller for the agent, and as a
     recipient for task execution output.
