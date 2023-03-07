@@ -50,6 +50,10 @@ You can for example create a ``local.cfg`` file and :
 * eventually set ``debug = 1`` to generate some debug in logs,
 * set a ``tag`` like ``tag = MyLovelyTag``.
 
+.. hint::
+
+   A MacOSX installation video tutorial is available here: `GLPI Agent Demonstration - macOS Monterey - Apple M1 <https://www.youtube.com/watch?v=zFYcURQNh9k>`_
+
 GNU/Linux
 ---------
 
