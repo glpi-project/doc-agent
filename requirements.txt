@@ -3,4 +3,4 @@ docutils
 sphinx-rtd-theme
 sphinx-prompt
 sphinx-substitution-extensions
-sphinxcontrib-mermaid
+git+https://github.com/brownsarahm/sphinxcontrib-mermaid@cdnupdate
