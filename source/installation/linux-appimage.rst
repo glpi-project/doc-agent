@@ -23,6 +23,11 @@ you still can try a :ref:`manual install <manual-install>`.
 
       sudo apt install libfuse2
 
+.. caution::
+
+   As `reported by MarcSamD <https://github.com/glpi-project/glpi-agent/issues/391>`_, if you have a message telling ``libcrypt.so.1 is missing``,
+   you will need to install a compatibility package providing that library. On RPM based distro, you probably just need to install ``libxcrypt-compat`` package.
+
 To upgrade the agent if you still installed glpi-agent linux appimage, just run:
 
 .. prompt:: bash
