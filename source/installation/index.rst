@@ -37,6 +37,19 @@ Large Installations
 A VBScript (Visual Basic Script) is provided to deploy the installer on a network:
 :download:`glpi-agent-deployment.vbs <https://raw.github.com/glpi-project/glpi-agent/develop/contrib/windows/glpi-agent-deployment.vbs>`.
 
+Contributions
+^^^^^^^^^^^^^
+
+Glpi-Agent Monitor
+~~~~~~~~~~~~~~~~~~
+
+`Leonardo Bernardes <https://github.com/redddcyclone>`_ published **Glpi-Agent Monitor** tool which provides a systray icon to survey the agent status and permit to ask a tasks run.
+
+You can download it from the `Glpi-Agent Monitor <https://github.com/glpi-project/glpi-agentmonitor/releases>`_ project release page.
+You simply have to download the exe into any folder (the Glpi-Agent installation folder is just fine) and start it.
+
+If you want to add it to all users auto-started softwares, you can directly install it into the **C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp** folder.
+
 MacOS
 -----
 
