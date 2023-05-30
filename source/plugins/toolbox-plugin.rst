@@ -19,7 +19,7 @@ The tool can also be used to review and update inventory with custom fields whic
 using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_.
 
 .. note::
-   Since GLPI Agent v1.5, **ToolBox** also permits to manage :doc:`../tasks/remote-inventory` task by defining and updating remotes.
+   Since GLPI Agent 1.5 nightly, **ToolBox** also permits to manage :doc:`../tasks/remote-inventory` task by defining and updating remotes.
    It can also be used to expire remotes and require a remoteinventory task start to handle any expired remotes right now.
    The interface is really basic: it doens't show the status of a remote and you'll still have to audit your agent log
    if some remotes are failing to upload an inventory in GLPI.
@@ -37,7 +37,7 @@ This way, the agent will start to accept toolbox request on its current port and
 
 .. warning::
    As the only current security is a "by trusted IP address" filtering, you should not enable **ToolBox** on an
-   unsecure network. Anyway, **since GLPI Agent v1.5**, you can enable :doc:`basic-authentication-server-plugin`
+   unsecure network. Anyway, **since GLPI Agent 1.5 nightly**, you can enable :doc:`basic-authentication-server-plugin`
    and :doc:`ssl-server-plugin` to completely secure the **ToolBox** interface.
 
 By default and for security reasons, you only have a very restricted interface this way.

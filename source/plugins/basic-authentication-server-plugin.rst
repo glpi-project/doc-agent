@@ -7,7 +7,7 @@ The purpose of this plugin is to enable basic authentication on the embedded HTT
 
 .. note::
 
-   **Basic Authentication Server Plugin** is available since GLPI Agent v1.5
+   **Basic Authentication Server Plugin** is available since GLPI Agent 1.5 nightly
 
 Setup
 *****

@@ -422,7 +422,7 @@ Task-specific parameters
 ``remote``
     Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task.
 
-``remote-workers`` (Available since GLPI Agent v1.5)
+``remote-workers`` (Available since GLPI Agent v1.5 nightly)
     Specify the maximum number of remote inventory the agent can process at the same time.
 
     By default, only one remote inventory can be processed at a given time.
