@@ -72,6 +72,10 @@ Command line parameters
    The base feature is ``feat_AGENT`` which is always selected and includes Inventory task. By
    default, Deploy and Collect tasks are also selected.
 
+``AGENTMONITOR=1`` (needs MSI installer >= v1.5 or nightly)
+   Install Glpi-AgentMonitor (See `GLPI-Agent Monitor project <https://github.com/glpi-project/glpi-agentmonitor>`_).
+   Only applicable if GLPI-Agent is installed as a service (i.e. ``EXECMODE=1``).
+
 ``BACKEND_COLLECT_TIMEOUT=180``
    Timeout for task ``Inventory`` modules execution. (By default: ``180`` seconds)
 
