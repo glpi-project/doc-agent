@@ -138,7 +138,7 @@ Performance with X remotes defined
 
 By default, only one remote inventory can be run at a time.
 
-Since GLPI-Agent 1.5 nightly, you can use ``--remote-workers`` option to set the maximum number of worker the remote inventory task can run at the same time, each worker processing one remote.
+Since GLPI-Agent 1.5, you can use ``--remote-workers`` option to set the maximum number of worker the remote inventory task can run at the same time, each worker processing one remote.
 
 For example, the following command will process 2 remote inventory at the same time:
 

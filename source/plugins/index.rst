@@ -30,7 +30,7 @@ The GLPI server ip is always added to the trusted ip list.
 
 GLPI Agent is provided with few HTTP server plugins which are all disabled by default but can extend the HTTP interface with few nice features.
 Regarding security, the `SSL Server plugin <ssl-server-plugin.html>`_ can be used to encrypt HTTP exchange using SSL protocol and
-with GLPI Agent 1.5 nightly, the `Basic Authentication Server Plugin <basic-authentication-server-plugin.html>`_ can be used in combination
+with GLPI Agent 1.5, the `Basic Authentication Server Plugin <basic-authentication-server-plugin.html>`_ can be used in combination
 to require authentication (See :ref:`basic-authentication-use-cases`).
 
 Plugins
