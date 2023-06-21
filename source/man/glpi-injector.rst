@@ -1,6 +1,8 @@
 glpi-injector
 =============
 
+.. include:: glpi-injector.inc
+
 NAME
 ----
 
@@ -30,6 +32,7 @@ glpi-injector [options] [--file <file>|--directory
        -x --json-ua   use Client version found in JSON as User-Agent for POST
        --no-ssl-check do not check server SSL certificate
        -C --no-compression don't compress sent XML inventories
+       -P --proxy=PROXY proxy address
 
      Examples:
        glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.json --url https://login:pw@example/
