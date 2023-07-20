@@ -38,6 +38,20 @@ Setup
 
 Remote computers will be known as **remotes** on GLPI agent side.
 
+.. _remote-targets:
+
+Targets
+^^^^^^^
+
+A remote will have to be associated to a target which can be a GLPI server or a local directory. The target to use will have to be specified by its alias, like ``server0``, ``local0`` or ``server1``.
+Only previously known targets can be used. So to define a new target, first run glpi-agent with the required target.
+
+You can check what are known targets by running:
+
+.. prompt:: bash
+
+   glpi-remote list targets
+
 .. _remote-registration:
 
 Remote registration
