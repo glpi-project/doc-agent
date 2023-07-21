@@ -72,6 +72,8 @@ Command line parameters
    The base feature is ``feat_AGENT`` which is always selected and includes Inventory task. By
    default, Deploy and Collect tasks are also selected.
 
+.. _agent-monitor:
+
 ``AGENTMONITOR=1`` (needs MSI installer >= v1.5)
    Install Glpi-AgentMonitor (See `GLPI-Agent Monitor project <https://github.com/glpi-project/glpi-agentmonitor>`_).
    Only applicable if GLPI-Agent is installed as a service (i.e. ``EXECMODE=1``).

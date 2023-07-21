@@ -50,6 +50,10 @@ You simply have to download the exe into any folder (the Glpi-Agent installation
 
 If you want to add it to all users auto-started softwares, you can directly install it into the **C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp** folder.
 
+.. hint::
+
+   **Glpi-Agent Monitor** has been integrated in **GLPI-Agent MSI installer** and can be enabled with using :ref:`AGENTMONITOR=1 <agent-monitor>` on MSI commandline. When installed this way, you don't need to copy it manually and it starts while a user is logging in.
+
 MacOS
 -----
 
