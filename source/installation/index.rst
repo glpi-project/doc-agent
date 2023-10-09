@@ -34,8 +34,27 @@ By default, it will perform a graphical installation, unless you use the msiexec
 Large Installations
 ^^^^^^^^^^^^^^^^^^^
 
+Consider a scenario where the GLPI Agent application needs to be installed on large and diverse range of Windows systems. A VBScript can be useful in this scenario to perform the following tasks:
+
+- Install it silently taking variables from the installation script previously configured.
+- Check for the presence of FusionInventory and OCS Inventory agents and uninstall them if you need it.
+- Configure application settings based on `commands that can be explored here <https://glpi-agent.readthedocs.io/en/latest/installation/windows-command-line.html#command-line-parameters>`.
+- Log installation progress and errors for review and analysis.
+
 A VBScript (Visual Basic Script) is provided to deploy the installer on a network:
 :download:`glpi-agent-deployment.vbs <https://raw.github.com/glpi-project/glpi-agent/develop/contrib/windows/glpi-agent-deployment.vbs>`.
+
+In this script you'll find some variables that can be changed to your environment needings (uncomment what is commented and you need. Comment what you don't need.):
+- GLPI Agent Version hereby named ``SetupVersion``
+- Setup the Location from where the script will download the MSI hereby named ``SetupLocation``
+ - If it's HTTP, HTTPS, CIFS
+- Setup the Architecture of your systems (if you need it to be x86, x64, or if you want to let the it be installed according to the system Architecture) hereby named ``SetupArchitecture``
+- Setup Options from the `command line paramenters <https://glpi-agent.readthedocs.io/en/latest/installation/windows-command-line.html#command-line-parameters>`
+ - It is recommended to keep the ``/quiet`` parameter so the user will not be bothered with wizard or command line messages or windows
+- Reconfigure
+- Repair
+- Verbose
+- Run uninstall
 
 Contributions
 ^^^^^^^^^^^^^
