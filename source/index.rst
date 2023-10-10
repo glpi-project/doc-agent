@@ -5,6 +5,7 @@ GLPI Agent documentation
 GLPI Agent is essentially a program used to run automatic inventory and works with `GLPI ITSM software tool <https://glpi-project.org/>`_.
 It also supports running few other tasks like package deployment, information collect, network devices discovery and inventory, ESX remote inventory.
 It also supports agentless inventory through its remoteinventory task.
+It was developed to allow you to run tasks that can currently only be run manually or using glpi-inventory plugin.
 
 GLPI Agent is the successor of `FusionInventory Agent <https://github.com/fusioninventory/fusioninventory-agent>`_.
 It is based on the same code and it can be easily used in place of FusionInventory.
