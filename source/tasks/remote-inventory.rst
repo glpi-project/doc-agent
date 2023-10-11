@@ -17,7 +17,7 @@ Pre-requisite
 To remotely inventory unix/linux computers supporting ssh, GLPI Agent needs to make network requests on ssh port. The remote ssh user **must** have administration privileges.
 
 For windows computers, WinRM **must** be enabled on targeted computers. You can follow `Microsoft official documentation <https://docs.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management>`_ to enable WinRM.
-But the short way to enable it with minimal security is to run from an administor console:
+But the short way to enable it with minimal security is to run from an administrator console:
 
 .. prompt:: batch
 
