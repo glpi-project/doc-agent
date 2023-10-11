@@ -49,7 +49,7 @@ In this script you'll find some variables that can be changed to your environmen
 - Setup the **Location** from where the script will download the MSI hereby named ``SetupLocation``
  - If it's HTTP, HTTPS, CIFS
 - Setup the **Architecture of your systems** (if you need it to be x86, x64, or if you want to let the it be installed according to the system Architecture) hereby named ``SetupArchitecture``
-- **Setup Options** from the `command line paramenters <https://glpi-agent.readthedocs.io/en/latest/installation/windows-command-line.html#command-line-parameters>`
+- **Setup Options** from the :ref:`command line paramenters <windows-command-line-parameters>`
  - It is recommended to keep the ``/quiet`` parameter so the user will not be bothered with wizard or command line messages or windows
  - If you want to follow all the steps of installations, don't add the ``\quiet`` paramenter.
 - **Reconfigure**
