@@ -45,7 +45,7 @@ To be able to enable all **ToolBox** features, you also need to edit the ``toolb
    configuration:
      updating_support: yes
 
-After you have restarted GLPI-Agent service, you'll see you can edit everything under setup page clicking on the top right gear icon.
+After you have restarted GLPI-Agent service, you'll see you can edit everything under setup page clicking on the top right gear icon. That is where you can activate additional configurations.
 
 The first thing you'll want to enable is probably all **ToolBox** navigation bar entries.
 
