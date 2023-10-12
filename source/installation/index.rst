@@ -38,7 +38,7 @@ Consider a scenario where the GLPI Agent application needs to be installed on la
 
 - Install it silently taking variables from the installation script previously configured.
 - Check for the presence of FusionInventory and OCS Inventory agents and uninstall them if you need it.
-- Configure application settings based on `commands that can be explored here <https://glpi-agent.readthedocs.io/en/latest/installation/windows-command-line.html#command-line-parameters>`.
+- Configure application settings based on `command line parameters that can be explored here <windows-command-line.html#command-line-parameters>`_.
 - Log installation progress and errors for review and analysis.
 
 A VBScript (Visual Basic Script) is provided to deploy the installer on a network:

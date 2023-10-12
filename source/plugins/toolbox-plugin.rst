@@ -3,7 +3,7 @@ ToolBox interface
 
 **ToolBox** is a simple web interface embedded into GLPI Agent that allows users to configure some features when there is no GLPI server available. For example:
 
-- When you have an isolated network that cannot or should not be connected to a GLPI Server or a GLPI Proxy :doc:`../proxy-server-plugin` for any reason but you still need to run a network discovery or a network inventory.
+- When you have an isolated network that cannot or should not be connected to a GLPI Server or via GLPI Agent :doc:`proxy-server-plugin` for any reason but you still need to run a network discovery or a network inventory.
 - When you need to review and update the inventory with custom fields which can be setup using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_.
 
 .. note::
