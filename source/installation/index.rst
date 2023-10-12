@@ -34,6 +34,8 @@ By default, it will perform a graphical installation, unless you use the msiexec
 Large Installations
 ^^^^^^^^^^^^^^^^^^^
 
+.. cssclass:: no-bottom-margin
+
 Consider a scenario where the GLPI Agent application needs to be installed on large and diverse range of Windows systems. A VBScript can be useful in this scenario to perform the following tasks:
 
 - Install it silently taking variables from the installation script previously configured.
@@ -44,6 +46,8 @@ Consider a scenario where the GLPI Agent application needs to be installed on la
 A VBScript (Visual Basic Script) is provided to deploy the installer on a network:
 :download:`glpi-agent-deployment.vbs <https://raw.github.com/glpi-project/glpi-agent/develop/contrib/windows/glpi-agent-deployment.vbs>`.
 
+.. cssclass:: no-bottom-margin
+
 In this script you'll find some variables that can be changed to your environment needings (uncomment what is commented and you need. Comment what you don't need.):
 
 - **GLPI Agent Version** hereby named ``SetupVersion``
@@ -53,17 +57,21 @@ In this script you'll find some variables that can be changed to your environmen
 
   - It is recommended to keep the ``/quiet`` parameter so the user will not be bothered with wizard or command line messages or windows
   - If you want to follow all the steps of installations, don't add the ``/quiet`` parameter.
+
 - **Reconfigure**:
 
   - You will just set this up to Yes if the current installed agent has the same version you have configured on the ``SetupVersion`` above. This option, when activated, is going to reconfigure the new options for the same Agent.
   - It's useful when you just need to change a parameter like GLPI ``SERVER`` url, for example.
+
 - **Repair**:
 
   - This option will unregister and register the MSI service DLL, and reinstall it with the options selected on the script.
   - It works just when the Setup is still installed.
+
 - **Verbose**:
 
   - It Enables or Disables
+
 - **Run uninstall**:
 
   - Here you can uncomment the deprecated agents you want the script to uninstall (FusionInventory Agent or OCSInventory Agent)
@@ -96,7 +104,9 @@ The installer integrates its native, although reduced but recent, version of `Pe
 
 Get the latest ``.pkg`` package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. After installing it, you'll have to configure the agent to your needs by creating a dedicated ``.cfg`` file under the ``/Applications/GLPI-Agent/etc/conf.d`` folder.
 
-You can for example create a ``local.cfg`` file and :
+.. cssclass:: no-bottom-margin
+
+You can for example create a ``local.cfg`` file and:
 
 * add the ``server = GLPI_URL`` line to point to your GLPI server,
 * eventually set ``debug = 1`` to generate some debug in logs,
@@ -174,6 +184,8 @@ Linux Perl Installer
 .. attention::
 
    The **linux installer** main requirement is the **perl** command.
+
+   .. cssclass:: no-bottom-margin
 
    It also requires one of the following command, depending on the targeted system:
 
