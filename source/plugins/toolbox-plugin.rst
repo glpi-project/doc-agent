@@ -1,22 +1,19 @@
 ToolBox interface
 =================
 
-ToolBox is a simple HTTP user interface allowing to use some features when no GLPI server is available.
+**ToolBox** is a simple web interface embedded into GLPI Agent that allows users to configure some features when there is no GLPI server available. For example:
+
+- When you have an isolated network that cannot or should not be connected to a GLPI Server or via GLPI Agent :doc:`proxy-server-plugin` for any reason but you still need to run a network discovery or a network inventory.
+- When you need to review and update the inventory with custom fields which can be setup using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_.
 
 .. note::
    **ToolBox** is not intended to replace a plugin like `GlpiInventory <https://github.com/glpi-project/glpi-inventory-plugin/>`_
    or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugin
    but can be helpful where these can't be used for any reason.
 
-**ToolBox** is firstly a GLPI-Agent tool permitting to run netdiscovery and netinventory tasks over an
-isolated network using a simple HTTP interface. It allows you to setup SNMP credentials, IP Range and run tasks.
+- It allows you to setup SNMP credentials, IP Range and run tasks in order to have access to agentless network devices. In this case, results are stored in the agent environment and you can show them in on dedicated pages to make checks.
+- Some MIB-Support rules can also be applied to tune the results as the tasks are run.
 
-Run tasks results are stored in the agent environment and you can show them in on dedicated pages to make checks.
-
-Some MIB-Support rules can also be applied to tune the results as the tasks are run.
-
-The tool can also be used to review and update inventory with custom fields which can be setup
-using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_.
 
 .. note::
    Since GLPI Agent 1.5, **ToolBox** also permits to manage :doc:`../tasks/remote-inventory` task by defining and updating remotes.
@@ -27,13 +24,13 @@ using a YAML file exported from `GLPI Fields plugin <https://github.com/pluginsG
 Setup
 *****
 
-By default, this plugin is disabled. The first step is to enable it creating a dedicated configuration:
+By default, **this plugin is disabled**. So the first step needed is to enable it creating a dedicated configuration:
 
 #. Locate the ``toolbox-plugin.cfg`` file under the GLPI agent :ref:`configuration folder <system-location>` [#f1]_,
-#. Make a copy of this file in the same folder by just changing the file extension from ``.cfg`` to ``.local``.
+#. **Make a copy** - avoid renaming it - of this file in the same folder by just changing the file extension from ``.cfg`` to ``.local``.
 #. Edit the ``toolbox-plugin.local`` and set ``disabled`` to ``no``
 
-This way, the agent will start to accept toolbox request on its current port and on ``/toolbox`` as base url.
+This way, the agent will start to accept toolbox requests on its current port and on ``/toolbox`` as base url.
 
 .. warning::
    As the only current security is a "by trusted IP address" filtering, you should not enable **ToolBox** on an
@@ -49,7 +46,7 @@ To be able to enable all **ToolBox** features, you also need to edit the ``toolb
    configuration:
      updating_support: yes
 
-After you have restarted GLPI-Agent service, you'll see you can edit everything under setup page clicking on the top right gear icon.
+After you have restarted GLPI-Agent service, you'll see you can edit everything under setup page clicking on the top right gear icon. That is where you can activate additional configurations.
 
 The first thing you'll want to enable is probably all **ToolBox** navigation bar entries.
 
