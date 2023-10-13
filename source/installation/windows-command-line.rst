@@ -6,7 +6,7 @@ By default, the installer will bring you to the graphical user interface unless 
 .. prompt:: batch
    :substitutions:
 
-   GLPI-Agent-|version|-x64.msi /i /quiet SERVER=<URL>
+   GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
 
 or:
 
