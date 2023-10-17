@@ -74,7 +74,7 @@ By default, **this plugin is disabled**. So the first required step is to enable
 This way, the agent will start to accept toolbox requests on its current port and on ``/toolbox`` as base url, by default: `http://127.0.0.1:62354/toolbox`
 
 .. warning::
-   By default, anybody can access this feature after is has been enabled. You should first set ``forbid_not_trusted = yes`` in your ``toolbox-plugin.local``
+   By default, anybody can access this feature after it has been enabled. You should first set ``forbid_not_trusted = yes`` in your ``toolbox-plugin.local``
    to enable a "by trusted IP address" filtering, authorizing IP only enabled with the :ref:`httpd-trust` option.
 
    You **MUST** not enable **ToolBox** on an unsecure network.
@@ -124,7 +124,7 @@ Create a credential
 
 .. cssclass:: no-bottom-margin
 
-You can quickly create a new credentila after you have clicked on the ``Add Credential`` button:
+You can quickly create a new credential after you have clicked on the ``Add Credential`` button:
 
 .. image:: /_static/images/credentials-new.png
 
