@@ -39,6 +39,7 @@ Here are the main features **ToolBox** provides:
 * manage mibsupport rules to tune the results for SNMP network devices
 
 .. note::
+
    **ToolBox** is not intended to replace a plugin like `GlpiInventory <https://github.com/glpi-project/glpi-inventory-plugin/>`_
    or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugins
    but can be helpful where none of these plugin can or should be used for any reason.
@@ -51,6 +52,7 @@ Run tasks results can be stored in the agent environment and you can browse them
 You can indeed select as job target any glpi-agent configured target (local or server) or the local glpi-agent installation folder.
 
 .. note::
+
    Since GLPI Agent 1.5, **ToolBox** also permits to manage :doc:`RemoteInventory task <../tasks/remote-inventory>` by defining and updating remotes.
    It can also be used to expire remotes and require a remoteinventory task run to handle any expired remotes right now.
    The interface is really basic: it doens't show the status of a remote and you'll still have to audit your agent log
@@ -74,6 +76,7 @@ By default, **this plugin is disabled**. So the first required step is to enable
 This way, the agent will start to accept toolbox requests on its current port and on ``/toolbox`` as base url, by default: `http://127.0.0.1:62354/toolbox`
 
 .. warning::
+
    By default, anybody can access this feature after it has been enabled. You should first set ``forbid_not_trusted = yes`` in your ``toolbox-plugin.local``
    to enable a "by trusted IP address" filtering, authorizing IP only enabled with the :ref:`httpd-trust` option.
 
@@ -97,6 +100,7 @@ You should enable the following pages:
 You can disable the **Results** page if your glpi-agent will directly submit inventories to a GLPI server and you won't use the local agent installation folder as target.
 
 .. note::
+
    After you have configured your interface, you can disable any further online configuration to avoid mistake by disabling the ``Configuration update authorized`` checkbox in the ``Toolbox plugin configuration`` section.
 
    If you need to tune again the configuration, you need to edit the ``toolbox.yaml`` file and change the ``updating_support`` line in the ``configuration`` section like:
@@ -113,18 +117,18 @@ Credentials
 
 .. cssclass:: no-bottom-margin
 
-Initially, the credentials page will show you an empty list of credentials:
+Initially, the credentials page will show you it found no credential:
 
 .. image:: /_static/images/credentials.png
 
-It essentially shows you can navigate between **SNMP Credentials v1 and v2c**, **SNMP Credentials v3** and **Remote Credentials** sections.
+So it essentially gives you access to the ``Add Credential`` button.
 
 Create a credential
 """""""""""""""""""
 
 .. cssclass:: no-bottom-margin
 
-You can quickly create a new credential after you have clicked on the ``Add Credential`` button:
+You can quickly create a new credential after you have clicked on the ``Add Credential`` button on the Credentials list page:
 
 .. image:: /_static/images/credentials-new.png
 
@@ -143,12 +147,12 @@ You have then a simple form permitting you to set a **Name**, choose a **Type** 
 #. Set the SNMP privacy protocol for SNMP v3
 #. Set the username for a remote credential (ssh, winrm or esx)
 #. Set the authentication password for a remote credential
-#. Set the remote authentication port if different than the defaults: 22 for ssh, 5985 for winrm
+#. Set the remote authentication port if different than the defaults: 22 for ssh, 5985 for winrm or 5986 for winrm with ssl mode enabled
 #. Enable one or more remote inventory mode for ssh or winrm
 
 You can also define a description for this credentials if this can help you to manage them. It is not used by GLPI Agent and it's up to you to use it.
 
-The **name** is free but **mandatory** and will be used as key name to associate it to IP ranges. So choose it to be meaningful for your credentials management.
+The **name** is free but **mandatory** and will be used as key name to associate it to IP ranges. So choose it carefully to be meaningful for your credentials management.
 
 .. note::
 
@@ -162,30 +166,36 @@ When you click on ``Create Credential``, the agent will check few field and will
 
 From the credentials list, you'll always have the option to edit or delete a credential.
 
+.. cssclass:: no-bottom-margin
+
+You also can move you mouse pointer other the config column to check few details. Passwords won't be shown:
+
+.. image:: /_static/images/credentials-config.png
+
 Update a credential
 """""""""""""""""""
 
 .. cssclass:: no-bottom-margin
 
-To update a credential, you simply can click on the ``Credential name`` in the **Credentials** list:
+To update a credential, you simply can click on the ``Credential name`` in the **Credentials** list page:
 
 .. image:: /_static/images/credentials-edit.png
 
 You obtain the same form as for `creation <#create-a-credential>`_. And from here, you can:
 
-#. Rename a credential
-#. Update any credential element
-#. Click on ``Update`` to save your change
-#. Click on ``Cancel`` or on ``Credentials`` in the navigation bar to return to the list.
-
-.. note::
-
-   If you click on ``Cancel`` after you have first click on ``Update``, this won't revert your saved changes.
+#. Rename the credential
+#. Update any credential setting
+#. Click on ``Update`` to save your changes
+#. Click on ``Go back to list`` or on ``Credentials`` in the navigation bar to return to the list.
 
 Delete a credential
 """""""""""""""""""
 
 For credential deletion, from the ``Credentials`` list, you have to click on the related checkbox, and click on the ``Delete`` button.
+
+.. warning::
+
+   Deletion will be **forbidden** in the case a credential is still in use. If you really need to remove a credential, first remove it from all associated IP ranges.
 
 .. _toolbox-ip-ranges:
 
@@ -194,13 +204,79 @@ IP Ranges
 
 .. cssclass:: no-bottom-margin
 
-Initially, the IP ranges page will show you an empty list of ranges:
+Initially, the IP ranges page will show you it found no IP range:
 
 .. image:: /_static/images/ip_ranges.png
 
-.. todo::
+So it essentially gives you access to the ``Add new IP range`` button.
 
-   Explain IP ranges management
+Create an IP range
+""""""""""""""""""
+
+.. cssclass:: no-bottom-margin
+
+You can quickly create a new IP range after you have clicked on the ``Add new IP range`` button on the IP range list page:
+
+.. image:: /_static/images/ip_ranges-new.png
+
+You have then a simple form permitting you to first set:
+
+#. the IP range **Name**
+#. the **IP range start**
+#. the **IP range end**
+
+These fields are all **mandatory** to define an IP range.
+
+The **name** format is free and will be used as a key name to associate it to an inventory job. So choose it carefully to be meaningful for you.
+
+You can also define a description for this IP range if this can help you to manage them. It is not used by GLPI Agent and it's up to you to use it.
+
+.. note::
+
+   If you only need to scan one IP, just use this ip as first and end ip of the range.
+
+   Also you should use an explicit name which will permit you to identify this ip range as targetting only one IP.
+
+You would like also to associate one or more credentials to this new IP range. In **ToolBox**, an IP range without at least one credential will be useless during netscan, so you should at least `have created a first credential <#create-a-credential>`_ before.
+
+When you click on ``Add IP range``, the agent will check few fields and will add it to the list unless something is wrong:
+
+.. image:: /_static/images/ip_ranges-added.png
+
+From the IP Ranges list, you'll always have the option to edit or delete an IP range. But you'll also have a mass action to add or remove one credential to your IP ranges. This is handy when you want to quickly update a lot of IP ranges.
+
+.. cssclass:: no-bottom-margin
+
+You also can move you mouse pointer other the credentials column to check related associated credential details. Passwords won't be shown:
+
+.. image:: /_static/images/ip_ranges-credential-details.png
+
+Update an IP range
+""""""""""""""""""
+
+.. cssclass:: no-bottom-margin
+
+To update an IP range, you simply can click on the ``IP range name`` in the **IP Ranges** list page:
+
+.. image:: /_static/images/ip_ranges-edit.png
+
+You obtain the same form as for `creation <#create-an-ip-range>`_. And from here, you can:
+
+#. Rename the IP range
+#. Change the start and the end of the IP range
+#. Unselect any associated credential
+#. Associate another credential, only if another credential is available
+#. Click on ``Update`` to save your changes
+#. Click on ``Go back to list`` or on ``IP Ranges`` in the navigation bar to return to the list.
+
+Delete an IP range
+""""""""""""""""""
+
+For IP range deletion, from the ``IP Ranges`` list, you have to click on the related checkbox, and click on the ``Delete`` button.
+
+.. warning::
+
+   Deletion will be **forbidden** in the case an IP range is still in use. If you really need to remove an IP range, first remove it from all associated netscan inventory tasks.
 
 .. _toolbox-scheduling:
 
@@ -209,13 +285,85 @@ Scheduling
 
 .. cssclass:: no-bottom-margin
 
-Initially, the scheduling page will show you an empty list of scheduling:
+Initially, the scheduling page will show you it found no scheduling:
 
 .. image:: /_static/images/scheduling.png
 
-.. todo::
+So it essentially gives you access to the ``Add new scheduling`` button.
 
-   Explain scheduling management
+Create a scheduling
+"""""""""""""""""""
+
+.. cssclass:: no-bottom-margin
+
+You can quickly create a new scheduling after you have clicked on the ``Add new scheduling`` button on the Scheduling list page:
+
+.. image:: /_static/images/scheduling-new.png
+
+You have then a simple form permitting you to first set:
+
+#. the scheduling **Name**
+#. the **Type**
+#. the `delay configuration <#create-a-delay-scheduling>`_ or `timeslot configuration <#create-a-timeslot-scheduling>`_
+
+The name remains **mandatory** to define a scheduling.
+
+The **name** format is free and will be used as a key name to associate it to an inventory job. So choose it carefully to be meaningful for you.
+
+You can also define a description for this scheduling if this can help you to manage them. It is not used by GLPI Agent and it's up to you to use it.
+
+.. cssclass:: no-bottom-margin
+
+When you click on ``Add``, the agent will check few fields and will add it to the list unless something is wrong:
+
+.. image:: /_static/images/scheduling-added.png
+
+From the Scheduling list, you'll always have the option to edit or delete a scheduling. The scheduling details are shown in the configuration column.
+
+Create a delay scheduling
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. cssclass:: no-bottom-margin
+
+When you `create a scheduling <#create-a-scheduling>`_, you have to choose the **delay** type.
+You can than configure the delay choosing a number for the delay and select a time unit from the given list:
+
+.. image:: /_static/images/scheduling-delay-configuration.png
+
+Create a timeslot scheduling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. cssclass:: no-bottom-margin
+
+When you `create a scheduling <#create-a-scheduling>`_, you have to choose the **timeslot** type.
+You can than configure the timeslot choosing a week day or **all**, a day time start hour and minute, a duration number and a time unit for the duration to choose between **minute** or **hour**:
+
+.. image:: /_static/images/scheduling-timeslot-configuration.png
+
+Update a scheduling
+"""""""""""""""""""
+
+.. cssclass:: no-bottom-margin
+
+To update a scheduling, you simply can click on the ``Scheduling name`` in the **Scheduling** list page:
+
+.. image:: /_static/images/scheduling-edit.png
+
+You obtain the same form as for `creation <#create-a-scheduling>`_. And from here, you can:
+
+#. Rename a scheduling
+#. Update the delay duration or the timeslot configuration
+#. Click on ``Update`` to save your changes
+#. Click on ``Go back to list`` or on ``Scheduling`` in the navigation bar to return to the list.
+
+Delete a scheduling
+"""""""""""""""""""
+
+For scheduling deletion, from the ``Scheduling`` list, you have to click on the related checkbox, and click on the ``Delete`` button.
+
+.. warning::
+
+   Deletion will be **forbidden** in the case a scheduling is still in use. If you really need to remove a scheduling, first remove it from all associated inventory tasks.
 
 .. _inventory-tasks:
 
@@ -224,7 +372,7 @@ Inventory tasks
 
 .. cssclass:: no-bottom-margin
 
-Initially, the inventory page will show you an empty list of inventory jobs:
+Initially, the inventory page will show you it found no inventory task:
 
 .. image:: /_static/images/inventory.png
 
