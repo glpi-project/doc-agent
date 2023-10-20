@@ -376,9 +376,92 @@ Initially, the inventory page will show you it found no inventory task:
 
 .. image:: /_static/images/inventory.png
 
-.. todo::
+So it essentially gives you access to the ``Add new inventory task`` button.
 
-   Explain inventory tasks management
+Create an inventory task
+""""""""""""""""""""""""
+
+.. cssclass:: no-bottom-margin
+
+You can quickly create a new inventory task after you have clicked on the ``Add new inventory task`` button on the Inventory tasks list page:
+
+.. image:: /_static/images/inventory-new.png
+
+You have then a simple form permitting you to first set:
+
+#. the inventory task **Name**
+#. the **Type** between **Local inventory** and **Network scan**
+#. a target to choose between **Agent folder** and the configured ones via ``server`` or ``local`` parameters
+#. a scheduling type
+#. a delay or one or more timeslots depending on the choosen scheduling type
+#. an optionnal tag to use on computers inventory
+#. an IP range to associate if the task type is **Network scan**
+#. a threads count if the task type is **Network scan** and to parallelize the task run
+#. a connection timeout to use during **Network scan**
+
+The name remains **mandatory** to define an inventory task.
+
+The **name** format is free but choose it carefully to be meaningful for your tasks management.
+
+You can also define a description for this inventory task if this can help you to manage them. It is not used by GLPI Agent and it's up to you to use it.
+
+.. warning::
+
+   ``Local inventory`` task should not be configured via **ToolBox** as this remains the first GLPI Agent role
+   when **inventory** task is not disabled in agent configuration.
+
+   This inventory task type should probably only be used for tests or when you need to run it manually from a portable installation, for example using an usb disk on a computer in an isolated networtk.
+
+.. cssclass:: no-bottom-margin
+
+When you click on ``Create inventory task``, the agent will check fields and will add it to the list unless something is wrong:
+
+.. image:: /_static/images/inventory-task-added.png
+
+From the Inventory tasks list, you'll always have the option to edit or delete a task. Some task details are shown in the configuration column.
+You can now select the task and ask a run. You can also enable or disable the task. The scheduling will only be used when the task is enabled.
+
+Run an inventory task
+"""""""""""""""""""""
+
+An inventory task can be run in 2 cases:
+
+#. manually after it has been selected in the ``Inventory tasks`` list and the ``Run task`` button is clicked
+#. after the task has been enabled (select the task and click on ``Enable``) and the agent finds the task scheduling configuration triggers the task
+
+.. image:: /_static/images/inventory-task-run.png
+
+.. cssclass:: no-bottom-margin
+
+After a task has been run, you can see a progression bar. You can click on the eye or report icons to develop the task and access more details or features:
+
+.. image:: /_static/images/inventory-task-run-details.png
+
+Update an inventory task
+""""""""""""""""""""""""
+
+To update an inventory task, you simply can click on the ``Task name`` in the **Inventory task** list page.
+
+.. cssclass:: no-bottom-margin
+
+You obtain the same form as for `creation <#create-a-inventory-task>`_. And from here, you can:
+
+#. Rename the inventory task
+#. Change the target
+#. Change the used scheduling
+#. Change the tag
+#. Change the ip range if the task type in **Network scan**
+#. Click on ``Update`` to save your changes
+#. Click on ``Go back to list`` or on ``Inventory tasks`` in the navigation bar to return to the list.
+
+Delete an inventory task
+""""""""""""""""""""""""
+
+For inventory task deletion, from the ``Inventory tasks`` list, you simply have to click on the related checkbox, and click on the ``Delete`` button.
+
+.. note::
+
+   You can also prefer to just disable the task and only delete it after you're sure it won't be used anymore.
 
 Configuration files
 *******************
@@ -392,16 +475,18 @@ There are few files used to configure **ToolBox**:
   **ToolBox** experience but it will also contain your inventory, credentials, ip ranges & scheduling configurations.
   As such this file **MUST** be secured as much as possible as it will include very sensible data like you defined credentials.
 
+  .. note::
+
+   The ``toolbox.yaml`` file can be backed up when clicking on the ``Backup YAML`` button in the ``ToolBox plugin Configuration`` page.
+   This eventually creates a ``backup`` folder at the same level if it doesn't exist.
+   And it creates a copy renamed with a timestamp in that ``backup`` sub-folder.
+
   A **container** can also be setup to support *Custom Fields* but you can also just
   copy the file downloaded from `GLPI Fields plugin <https://github.com/pluginsGLPI/fields>`_
   and select it in the dedicated `Custom fields YAML file` entry in configuration page.
   Be aware, this feature only make sens if you planned to edit locally stored *network inventories*
   before injecting it manually to a GLPI server. This feature has been developed to help people needing
   to scan a private network. It permits to edit manually few custom datas before uploading.
-
-  This file can be backed up when clicking on the ``Backup YAML`` button in the ``ToolBox plugin Configuration`` page.
-  This eventually creates a ``backup`` folder at the same level if it doesn't exist.
-  And it creates a copy renamed with a timestamp in that ``backup`` sub-folder.
 
 .. rubric:: Footnotes
 
