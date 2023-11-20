@@ -1,22 +1,6 @@
 ToolBox interface
 =================
 
-.. todo::
-
-   This page describes a new feature which will be released with the next GLPI Agent 1.6 release.
-
-   You still can test the feature and this documentation by installing a `nightly built GLPI-Agent <https://nightly.glpi-project.org/glpi-agent/>`_.
-
-   And of course, you're welcome to :doc:`submit any issue <../bug-reporting>` discovered on nightly builds and related to this new feature.
-
-   .. cssclass:: no-bottom-margin
-
-   Here is a short list of required update to apply on this documentation after the GLPI-Agent 1.6 release:
-
-   #. replace "(available in nightly builds)" notes by "(available since GLPI Agent 1.6)"
-   #. update all "will be deprecated" occurence to "deprecated" or "is deprecated" and adapt the sentence context if necessary
-   #. remove or update this **Todo** note
-
 **ToolBox** is a simple web interface embedded into GLPI Agent that allows users to configure some features when there is no GLPI server available.
 
 .. cssclass:: no-bottom-margin
@@ -30,12 +14,12 @@ For example:
 
 Here are the main features **ToolBox** provides:
 
-* manage inventory task jobs (available in nightly builds)
+* manage inventory task jobs (available since GLPI Agent 1.6)
 * manage credentials definitions
 * manage ip range definitions
-* manage scheduling definitions (available in nightly builds)
+* manage scheduling definitions (available since GLPI Agent 1.6)
 * display light inventory results and eventually edit custom fields
-* manage remotes definition (will be deprecated in 1.6)
+* manage remotes definition (deprecated since GLPI Agent 1.6)
 * manage mibsupport rules to tune the results for SNMP network devices
 
 .. note::
@@ -46,9 +30,9 @@ Here are the main features **ToolBox** provides:
 
 Again **ToolBox** is mainly a GLPI-Agent based tool allowing to run a netscan tasks over a network only using a glpi-agent and a browser.
 Netscan task is firstly used to discover and inventory networks devices or printer supporting SNMP,
-but now (available in nightly builds), it also supports to discover and inventory computers like ESX, Unix/Linux supporting ssh and windows computers supporting WinRM using :doc:`RemoteInventory task <../tasks/remote-inventory>`.
+but now (available since GLPI Agent 1.6), it also supports to discover and inventory computers like ESX, Unix/Linux supporting ssh and windows computers supporting WinRM using :doc:`RemoteInventory task <../tasks/remote-inventory>`.
 
-Run tasks results can be stored in the agent environment and you can browse them on **Results** dedicated pages. But (available in nightly builds) you can also simply and directly send them to a GLPI server, without storing them locally.
+Run tasks results can be stored in the agent environment and you can browse them on **Results** dedicated pages. But (available since GLPI Agent 1.6) you can also simply and directly send them to a GLPI server, without storing them locally.
 You can indeed select as job target any glpi-agent configured target (local or server) or the local glpi-agent installation folder.
 
 .. note::
@@ -58,7 +42,7 @@ You can indeed select as job target any glpi-agent configured target (local or s
    The interface is really basic: it doens't show the status of a remote and you'll still have to audit your agent log
    if some remotes are failing to upload an inventory in GLPI.
 
-   For this reason, and as GLPI Agent 1.6 will provide a netscan feature supporting RemoteInventory task, the remotes page will be **deprecated**
+   For this reason, and as GLPI Agent 1.6 will provide a netscan feature supporting RemoteInventory task, the remotes page is **deprecated**
    and will be *removed* in a future version.
 
 Setup
