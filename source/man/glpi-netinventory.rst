@@ -23,6 +23,8 @@ glpi-netinventory [options] [--host <host>|--file <file>]
        --community <STRING>   community string (public)
        --credentials <STRING> SNMP credentials (version:1,community:public)
        --timeout <TIME>       SNMP timeout, in seconds (15)
+       --backend-collect-timeout <TIME>
+                              base expiration timeout, in seconds (180)
        --type <TYPE>          force device type
        --threads <COUNT>      number of inventory threads (1)
        --control              output control messages
@@ -94,6 +96,10 @@ OPTIONS
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
+
+**--backen-collect-timeout** *TIME*
+   Set base expiration timeout, in seconds. It is used to set one device
+   scan: 180 by default, means 900 (5x180) by device.
 
 **--type** *TYPE*
    Force device type, instead of relying on automatic identification.

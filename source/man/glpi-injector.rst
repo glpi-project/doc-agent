@@ -31,6 +31,7 @@ glpi-injector [options] [--file <file>|--directory
        -x --xml-ua    use Client version found in XML as User-Agent for POST
        -x --json-ua   use Client version found in JSON as User-Agent for POST
        --no-ssl-check do not check server SSL certificate
+       --ssl-cert-file client certificate file
        -C --no-compression don't compress sent XML inventories
        -P --proxy=PROXY proxy address
 

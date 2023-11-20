@@ -25,7 +25,9 @@ glpi-netdiscovery [options] --first <address> --last <address>
        --v1                   select SNMP version 1 (the default)
        --v2c                  select SNMP version 2c (1 by default)
        --credentials <STRING> SNMP credentials (version:1,community:public)
-       --timeout <TIME        SNMP timeout, in seconds (1)
+       --timeout <TIME>       SNMP timeout, in seconds (1)
+       --backend-collect-timeout <TIME>
+                              base expiration timeout, in seconds (180)
        --entity <ENTITY>      GLPI entity
        --threads <COUNT>      number of discovery threads (1)
        --control              output control messages
@@ -112,6 +114,10 @@ OPTIONS
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
+
+**--backen-collect-timeout** *TIME*
+   Set base expiration timeout, in seconds. Global task expiration will
+   depend on the number of ips.
 
 **--entity** *ENTITY*
    Set GLPI entity.

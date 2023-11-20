@@ -18,6 +18,7 @@ glpi-esx --host <host> --user <user> --password <password> --path
 
      Options:
        --help                 this menu
+       --debug                debug mode (false)
        --host hostname        ESX server hostname
        --user username        user name
        --password xxxx        user password
