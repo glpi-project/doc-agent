@@ -426,3 +426,22 @@ Task-specific parameters
     Specify the maximum number of remote inventory the agent can process at the same time.
 
     By default, only one remote inventory can be processed at a given time.
+
+.. _assetname-support:
+
+``assetname-support`` (Available since GLPI Agent v1.5)
+   On unix/linux, this option permits to decide how the computer should be named while
+   referencing the computer name. This option can be set to a numeric value:
+
+       - ``1`` (the default) means to use the short name
+       - ``2`` means to leave the found hostname unchanged, this can be a Fully Qualified Domain Name (FQDN)
+         or a short name depending on the system
+       - ``3`` means to always try to use the FQDN (this support case will be available in next version or can be available in nightly builds)
+
+   MacOSX & Win32 platforms don't support this option.
+
+   For remoteinventory, this option in not supported until v1.6.1. And later, the ``3`` value support for FQDN needs
+   `perl` to be installed on the remote computer and ``perl`` mode enabled on the defined remote for the RemoteInventory task.
+
+   Until v1.6.1, this option only affect the computer name as seen in GLPI Assets list. After, it will also be used
+   to decide how agent reports its `deviceid` to GLPI.
