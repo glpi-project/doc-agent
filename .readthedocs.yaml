@@ -17,7 +17,6 @@ sphinx:
 formats:
   - htmlzip
   - pdf
-  - epub
 
 # Declare the Python requirements required to build the documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
