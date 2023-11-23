@@ -28,6 +28,13 @@ Here are the main features **ToolBox** provides:
    or `FusionInventory for GLPI <https://github.com/fusioninventory/fusioninventory-for-glpi>`_ plugins
    but can be helpful where none of these plugin can or should be used for any reason.
 
+.. seealso::
+
+   Don't miss the `Unlocking Efficient Network Inventory Management with the GLPI Agent Toolbox Plugin <https://glpi-project.org/unlocking-efficient-network-inventory-management-with-the-glpi-agent-toolbox-plugin/>`_
+   blog post including this demo video by Arthur Schaefer:
+
+   ..  youtube:: xNfqKTp9LN8
+
 Again **ToolBox** is mainly a GLPI-Agent based tool allowing to run a netscan tasks over a network only using a glpi-agent and a browser.
 Netscan task is firstly used to discover and inventory networks devices or printer supporting SNMP,
 but now (available since GLPI Agent 1.6), it also supports to discover and inventory computers like ESX, Unix/Linux supporting ssh and windows computers supporting WinRM using :doc:`RemoteInventory task <../tasks/remote-inventory>`.
@@ -244,7 +251,7 @@ To update an IP range, you simply can click on the ``IP range name`` in the **IP
 
 .. image:: /_static/images/ip_ranges-edit.png
 
-You obtain the same form as for `creation <#create-an-ip-range>`_. And from here, you can:
+You obtain the same form as for `ip range creation <#create-an-ip-range>`_. And from here, you can:
 
 #. Rename the IP range
 #. Change the start and the end of the IP range
@@ -333,7 +340,7 @@ To update a scheduling, you simply can click on the ``Scheduling name`` in the *
 
 .. image:: /_static/images/scheduling-edit.png
 
-You obtain the same form as for `creation <#create-a-scheduling>`_. And from here, you can:
+You obtain the same form as for `scheduling creation <#create-a-scheduling>`_. And from here, you can:
 
 #. Rename a scheduling
 #. Update the delay duration or the timeslot configuration
@@ -428,7 +435,7 @@ To update an inventory task, you simply can click on the ``Task name`` in the **
 
 .. cssclass:: no-bottom-margin
 
-You obtain the same form as for `creation <#create-a-inventory-task>`_. And from here, you can:
+You obtain the same form as for `inventory task creation <#create-a-inventory-task>`_. And from here, you can:
 
 #. Rename the inventory task
 #. Change the target

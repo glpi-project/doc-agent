@@ -49,6 +49,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mermaid',
+    'sphinxcontrib.youtube',
 ]
 
 todo_include_todos = True

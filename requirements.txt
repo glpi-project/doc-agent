@@ -4,3 +4,4 @@ sphinx-rtd-theme
 sphinx-prompt
 sphinx-substitution-extensions
 git+https://github.com/brownsarahm/sphinxcontrib-mermaid@cdnupdate
+sphinxcontrib-youtube
