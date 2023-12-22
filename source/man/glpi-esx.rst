@@ -23,6 +23,7 @@ glpi-esx --host <host> --user <user> --password <password> --path
        --user username        user name
        --password xxxx        user password
        --path path            output directory or file
+       -t --timeout sec       connection attempt timeout in seconds (defaults to 180)
        --stdout               dump inventory on stdout (enabled by default if no path is set)
        --tag tag              tag for the inventoried machine
        --json                 use json as format for generated inventories

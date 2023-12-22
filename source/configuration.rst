@@ -436,7 +436,7 @@ Task-specific parameters
        - ``1`` (the default) means to use the short name
        - ``2`` means to leave the found hostname unchanged, this can be a Fully Qualified Domain Name (FQDN)
          or a short name depending on the system
-       - ``3`` means to always try to use the FQDN (this support case will be available in next version or can be available in nightly builds)
+       - ``3`` means to always try to use the FQDN (this support case is available since GLPI Agent v1.7)
 
    MacOSX & Win32 platforms don't support this option.
 

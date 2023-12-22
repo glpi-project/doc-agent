@@ -12,8 +12,11 @@ compatible server.
 SYNOPSIS
 --------
 
-glpi-injector [options] [--file <file>|--directory
-<directory>|--stdin|--useragent <user-agent>]
+glpi-injector [-h|--help] [-R|--recursive] [-r|--remove] [-v|--verbose]
+[--debug] [--useragent <user-agent>|-x|--xml-ua|--json-ua]
+[-C|--no-compression] [--no-ssl-check] [--ssl-cert-file <private
+certificate file>] [[-P|--proxy] <proxy url>] [[-f|--file]
+<file>|[-d|--directory] <directory>|--stdin] [-u|--url] <url>
 
 .. code-block:: text
 
@@ -28,8 +31,8 @@ glpi-injector [options] [--file <file>|--directory
        --debug        debug mode to output server answer
        --stdin        read data from STDIN
        --useragent    set used HTTP User-Agent for POST
-       -x --xml-ua    use Client version found in XML as User-Agent for POST
-       -x --json-ua   use Client version found in JSON as User-Agent for POST
+       -x --xml-ua --json-ua
+                      use Client version found in XML or JSON as User-Agent for POST
        --no-ssl-check do not check server SSL certificate
        --ssl-cert-file client certificate file
        -C --no-compression don't compress sent XML inventories

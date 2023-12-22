@@ -24,6 +24,8 @@ options]
        --ssh               connect using SSH
        --ssl               connect using SSL (winrm or with agent sub-command)
        --no-ssl-check      do not check agent SSL certificate (winrm or agent sub-command)
+       --stricthostkeychecking <yes|no|off|accept-new|ask> (defaults to 'accept-new')
+                           use given option when checking hostkey during ssh remote add
        --ca-cert-dir <PATH> CA certificates directory
        --ca-cert-file <FILE> CA certificates file (winrm or for agent sub-command)
        --ssl-fingerprint <FINGERPRINT>
@@ -80,6 +82,7 @@ options]
        glpi-remote list
        glpi-remote list targets
        glpi-remote add ssh://admin:pass@192.168.43.237
+       glpi-remote add ssh://admin:pass@192.168.43.237 --stricthostkeychecking=no
        glpi-remote add ssh://admin:pass@192.168.43.238 --no-check
        glpi-remote add winrm://admin:pass@192.168.48.250 --no-check --target server0
        glpi-remote delete 1
