@@ -197,7 +197,7 @@ Linux Perl Installer
 We also provide a dedicated linux installer which includes all the packages we build (**RPM** & **DEB**) and eventually the `snap <#snap>`_ one.
 On supported distros (**DEB** & **RPM** based), the installer will also eventually try to enable third party repositories, like EPEL on CentOS if they are required.
 
-The installer is a simple perl script. It supports few options to configure the agent during installation. You can check all supported options by running:
+The installer is a simple perl script. It supports various options to configure the agent during installation. If no options are specified, the default is for the installer to configure glpi-agent to not scan user home directories or profiles, to run inventory modules with a 30 minute timeout, to allow HTTP requests to port 62354 only from the GLPI server, to setup the glpi-agent as a service and to install only the Computer Inventory and Remote Inventory tasks. You can check all supported options by running:
 
 .. prompt:: bash
    :substitutions:
