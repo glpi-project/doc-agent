@@ -313,6 +313,9 @@ Command line parameters
 ``SCAN_HOMEDIRS=1``
    Allows the agent to scan home directories for virtual machines. (By default: ``0``)
 
+``SCAN_PROFILES=1``
+   Allows the agent to scan softwares installed in users profiles. (By default: ``0``)
+
 ``SERVER=URI[,URI[...]]``
    Sends results of tasks execution to given servers. (By default: empty)
 
