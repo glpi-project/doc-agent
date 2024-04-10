@@ -31,6 +31,43 @@ By default, it will perform a graphical installation, unless you use the msiexec
 
    All graphical installer options are related to a command line one. Check :doc:`./windows-command-line` if you need help.
 
+Winget
+^^^^^^
+
+You can also use `Winget tool <https://learn.microsoft.com/en-us/windows/package-manager/winget/>`_ to install or update GLPI-Agent on Windows 10 and Windows 11.
+
+You can check glpi-agent availability from the command line:
+
+.. prompt:: batch
+
+   winget search glpi-agent
+
+During first installation, you can trigger interactive installation running:
+
+.. prompt:: batch
+
+   winget install -i glpi-agent
+
+To install without configuration or update using current configuration, just run:
+
+.. prompt:: batch
+
+   winget install glpi-agent
+
+.. note::
+
+   As it is installed at machine level and requires administrative privileges, an `UAC prompt <https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works#uac-elevation-prompts>`_ should be triggered if you don't start the installation from an administrative console.
+
+During first installation, you can use `--custom` option to configure glpi-agent as expected, for example for a quiet installation. You can use all parameters described in :doc:`./windows-command-line` page:
+
+.. prompt:: batch
+
+   winget install glpi-agent --custom="SERVER='https://my-glpi-server/' RUNNOW=1"
+
+.. note::
+
+   If you didn't configure during first installation, you still can edit configuration in registry under `HKEY_LOCAL_MACHINE\\SOFTWARE\\GLPI-Agent` registry key. Don't forget to restart the service if installed as a service (by default, it is).
+
 Large Installations
 ^^^^^^^^^^^^^^^^^^^
 
