@@ -358,6 +358,17 @@ Task-specific parameters
 
     This directive is used for inventory task only.
 
+.. _full-inventory-postpone:
+
+``full-inventory-postpone`` (Available since GLPI Agent v1.8)
+    Specifies the number of times the agent can decide to report a full inventory and produce a partial inventory
+    which only includes changed categories. The default is 14.
+
+    This feature is only supported when using json as inventory format so GLPI 10 is required as server. This can reduce
+    a lot the GLPI workload and can help to reduce GLPI server carbon footprint.
+
+    It can be set to 0 to disable the feature and to always produce full inventory as before 1.8.
+
 .. _additional-content:
 
 ``additional-content``

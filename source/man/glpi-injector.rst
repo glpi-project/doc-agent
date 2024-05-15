@@ -12,11 +12,12 @@ compatible server.
 SYNOPSIS
 --------
 
-glpi-injector [-h|--help] [-R|--recursive] [-r|--remove] [-v|--verbose]
-[--debug] [--useragent <user-agent>|-x|--xml-ua|--json-ua]
-[-C|--no-compression] [--no-ssl-check] [--ssl-cert-file <private
-certificate file>] [[-P|--proxy] <proxy url>] [[-f|--file]
-<file>|[-d|--directory] <directory>|--stdin] [-u|--url] <url>
+glpi-injector [-h\|--help] [-R\|--recursive] [-r\|--remove]
+[-v\|--verbose] [--debug] [--useragent
+<user-agent>\|-x\|--xml-ua\|--json-ua] [-C\|--no-compression]
+[--no-ssl-check] [--ssl-cert-file <private certificate file>]
+[[-P\|--proxy] <proxy url>] [[-f\|--file] <file>|[-d\|--directory]
+<directory>\|--stdin] [-u\|--url] <url>
 
 .. code-block:: text
 

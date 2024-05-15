@@ -11,7 +11,7 @@ glpi-netinventory - Standalone network inventory
 SYNOPSIS
 --------
 
-glpi-netinventory [options] [--host <host>|--file <file>]
+glpi-netinventory [options] [--host <host>\|--file <file>]
 
 .. code-block:: text
 

@@ -11,7 +11,7 @@ glpi-agent - GLPI perl agent For Linux/UNIX, Windows and MacOSX
 SYNOPSIS
 --------
 
-glpi-agent [options] [--server server|--local path]
+glpi-agent [options] [--server server\|--local path]
 
 .. code-block:: text
 
@@ -52,6 +52,8 @@ glpi-agent [options] [--server server|--local path]
        --partial=CATEGORY             make a partial inventory of given category
                                         items, this option implies --json
        --credentials                  set credentials to support database inventory
+       --full-inventory-postpone=NUM  set number of possible full inventory postpone (14)
+       --full                         force inventory task to generate a full inventory
 
      RemoteInventory task specific options:
        --remote=REMOTE[,REMOTE]...    specify a list of remotes to process in place
@@ -275,7 +277,17 @@ Inventory task specific options
 
    CREDENTIALS should be a list of "key:value" separated by commas like
    in: For example:
-   --credentials="type:login_password,login:root,password:********,use:postgresql,params_id:0"
+   --credentials="type:login_password,login:root,password:\*******\*,use:postgresql,params_id:0"
+
+**--full-inventory-postpone**\ =\ *NUM*
+   Set the number of time the agent can decide to generate a partial
+   inventory with only changed category before generating a full
+   inventory.
+
+**--full**
+   Force inventory task to generate a full inventory even if
+   **full-inventory-postpone** option is set. Indeed this is equivalent
+   to set **--full-inventory-postpone=0**.
 
 **--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.
@@ -283,7 +295,7 @@ Inventory task specific options
 **--scan-profiles**
    Allow the agent to scan user profiles for software.
 
-**--html|--json**
+**--html\|--json**
    Save the inventory as HTML or JSON.
 
    This is only used for local inventories.

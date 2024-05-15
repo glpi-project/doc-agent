@@ -49,7 +49,7 @@ a GLPI server.
 OPTIONS
 -------
 
-**--first|--host** *ADDRESS*
+**--first\|--host** *ADDRESS*
    Set the first IP address of the network range to scan.
 
 **--last** *ADDRESS*

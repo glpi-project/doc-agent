@@ -12,7 +12,7 @@ agents
 SYNOPSIS
 --------
 
-glpi-remote [options] [--server server|--local path] [command] [command
+glpi-remote [options] [--server server\|--local path] [command] [command
 options]
 
 .. code-block:: text
@@ -246,7 +246,7 @@ Sub-commands
    -  list index
    -  given deviceid
    -  current and only one known when no index is given
-   -  all known remotes while using the **\__ALL_\_** magic word as
+   -  all known remotes while using the **\__ALL\_\_** magic word as
       index
 
 -  **scan** *first* [*last*]

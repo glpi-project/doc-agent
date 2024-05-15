@@ -11,7 +11,7 @@ glpi-win32-service - GLPI perl Agent service for Windows
 SYNOPSIS
 --------
 
-glpi-win32-service [--register|--delete|--help] [options]
+glpi-win32-service [--register\|--delete\|--help] [options]
 
 .. code-block:: text
 

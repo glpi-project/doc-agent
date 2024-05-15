@@ -76,10 +76,21 @@ Command line parameters
 
 ``AGENTMONITOR=1`` (needs MSI installer >= v1.5)
    Install Glpi-AgentMonitor (See `GLPI-Agent Monitor project <https://github.com/glpi-project/glpi-agentmonitor>`_).
+
    Only applicable if GLPI-Agent is installed as a service (i.e. ``EXECMODE=1``).
+
+``AGENTMONITOR_NEWTICKET_URL=URL`` (needs MSI installer >= v1.8)
+   Sets Glpi-AgentMonitor URL for new ticket feature. (By default: empty string)
+
+   You only need to set this URL if the Glpi-AgentMonitor guessed one is not the expected one.
+
+   Only applicable if GLPI-Agent is installed as a service and Glpi-AgentMonitor installed (i.e. ``EXECMODE=1`` and ``AGENTMONITOR=1``).
 
 ``BACKEND_COLLECT_TIMEOUT=180``
    Timeout for task ``Inventory`` modules execution. (By default: ``180`` seconds)
+
+   It is also used as based timeout for ``RemoteInventory`` timeouts computation. You may experience
+   datas loss during ``RemoteInventory`` task if this value is too short.
 
 ``CA_CERT_DIR=pathname``
    Absolute path to the standard certificate directory of certificate
@@ -161,6 +172,11 @@ Command line parameters
 
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
+
+``FULL_INVENTORY_POSTPONE=value``` (needs MSI installer >= v1.8)
+   Sets the expected number of full inventory postpone. (By default: ``14``)
+
+   See :ref:`full-inventory-postpone <full-inventory-postpone>` configuration for more details.
 
 ``HTML=1``
    Save the inventory as HTML instead of XML or JSON. (By default: ``0`` for No)
