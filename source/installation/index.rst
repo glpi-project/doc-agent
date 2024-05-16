@@ -23,7 +23,11 @@ Windows
 
 The installer integrates its native, although reduced but recent, version of `Strawberry Perl <https://strawberryperl.com/>`_ including recent `OpenSSL support <https://www.openssl.org/>`_.
 
-You can download the lastest `GLPI Agent installer <https://github.com/glpi-project/glpi-agent/releases>`_ or `current nightly build <https://nightly.glpi-project.org/glpi-agent>`_. It is available for both 32 and 64 bits systems and provides a graphical interface as well as command line facilities.
+You can download the lastest `GLPI Agent installer <https://github.com/glpi-project/glpi-agent/releases>`_ or `current nightly build <https://nightly.glpi-project.org/glpi-agent>`_. It is available for 64 bits systems and provides a graphical interface as well as command line facilities.
+
+.. note::
+
+   Since GLPI-Agent 1.8, no more installer is provided for 32 bits systems. The latest version supporting 32 systems is 1.7.3.
 
 By default, it will perform a graphical installation, unless you use the msiexec `/i` and `/quiet` options. All installer parameters are described in :doc:`./windows-command-line` dedicated page.
 
@@ -35,6 +39,10 @@ Winget
 ^^^^^^
 
 You can also use `Winget tool <https://learn.microsoft.com/en-us/windows/package-manager/winget/>`_ to install or update GLPI-Agent on Windows 10 and Windows 11.
+
+.. note::
+
+   Winget provides 1.7.3 x64 & x86 packages. It will soon provides 1.8 x64 package.
 
 You can check glpi-agent availability from the command line:
 
