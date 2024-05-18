@@ -42,7 +42,7 @@ You can also use `Winget tool <https://learn.microsoft.com/en-us/windows/package
 
 .. note::
 
-   Winget provides 1.7.3 x64 & x86 packages. It will soon provides 1.8 x64 package.
+   Winget provides 1.7.3 x64 & x86 packages. Starting from 1.8, only x64 package is provided.
 
 You can check glpi-agent availability from the command line:
 
