@@ -456,3 +456,14 @@ Task-specific parameters
 
    Until v1.6.1, this option only affect the computer name as seen in GLPI Assets list. After, it will also be used
    to decide how agent reports its `deviceid` to GLPI.
+
+.. _snmp-retries:
+
+``snmp-retries`` (Available since GLPI Agent v1.9)
+    Set the maximum number of time a SNMP request could be retried again after no device response. The default is 0.
+
+    This directive is used for netdiscovery et netinventory tasks.
+
+.. caution::
+
+    ``snmp-retries`` can make snmp inventories more longer to achieve. Use only if you find a device sometime is really not answering in time.

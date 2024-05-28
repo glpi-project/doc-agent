@@ -23,6 +23,7 @@ glpi-netinventory [options] [--host <host>\|--file <file>]
        --community <STRING>   community string (public)
        --credentials <STRING> SNMP credentials (version:1,community:public)
        --timeout <TIME>       SNMP timeout, in seconds (15)
+       --retries              SNMP requets maximum retries (0)
        --backend-collect-timeout <TIME>
                               base expiration timeout, in seconds (180)
        --type <TYPE>          force device type
@@ -96,6 +97,10 @@ OPTIONS
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
+
+**--retries** *NUMBER*
+   Set maximum number of retries a SNMP request can be sent again after
+   no response.
 
 **--backen-collect-timeout** *TIME*
    Set base expiration timeout, in seconds. It is used to set one device

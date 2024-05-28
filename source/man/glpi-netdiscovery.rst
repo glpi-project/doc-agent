@@ -26,6 +26,7 @@ glpi-netdiscovery [options] --first <address> --last <address>
        --v2c                  select SNMP version 2c (1 by default)
        --credentials <STRING> SNMP credentials (version:1,community:public)
        --timeout <TIME>       SNMP timeout, in seconds (1)
+       --retries              SNMP requets maximum retries (0)
        --backend-collect-timeout <TIME>
                               base expiration timeout, in seconds (180)
        --entity <ENTITY>      GLPI entity
@@ -114,6 +115,10 @@ OPTIONS
 
 **--timeout** *TIME*
    Set SNMP timeout, in seconds.
+
+**--retries** *NUMBER*
+   Set maximum number of retries a SNMP request can be sent again after
+   no response.
 
 **--backen-collect-timeout** *TIME*
    Set base expiration timeout, in seconds. Global task expiration will

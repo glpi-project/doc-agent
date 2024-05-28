@@ -340,6 +340,11 @@ Command line parameters
 
    You can use the ``SERVER`` and ``LOCAL`` parameters simultaneously.
 
+``SNMP_RETRIES=max`` (needs MSI installer >= v1.9)
+   Set the maximum number of time a SNMP request could be retried again on no device response. (By default: ``0``)
+
+   Only used by NetDiscovery and NetInventory tasks.
+
 ``SSL_CERT_FILE=filename`` (needs MSI installer >= 1.3)
    Specifies the file containing SSL client certificate to use when connecting to
    server target or for WinRM remote inventory.
