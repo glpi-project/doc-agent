@@ -58,7 +58,7 @@ Command line parameters
    (By default: empty)
 
 ``ADDLOCAL=feature[,feature[...]]``
-   This parameter permits to select features to install. (By default: "feat_DEPLOY,feat_COLLECT")
+   This parameter permits to select features to install. (By default: empty string)
 
    The *feature* can take the following values:
 
@@ -69,8 +69,8 @@ Command line parameters
    * ``feat_COLLECT``: to select Collect task for installation
    * ``feat_WOL``: to select WakeOnLan task for installation
 
-   The base feature is ``feat_AGENT`` which is always selected and includes Inventory task. By
-   default, Deploy and Collect tasks are also selected.
+   The base feature is ``feat_AGENT`` which is always selected and includes Inventory task.
+   Since v1.8, no other task is selected by default.
 
 .. _agent-monitor:
 
