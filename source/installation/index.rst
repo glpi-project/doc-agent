@@ -131,6 +131,10 @@ Contributions
 Glpi-Agent Monitor
 ~~~~~~~~~~~~~~~~~~
 
+.. note::
+
+   This application requires that you have enabled the embedded http server
+
 `Leonardo Bernardes <https://github.com/redddcyclone>`_ published **Glpi-Agent Monitor** tool which provides a systray icon to survey the agent status and permit to ask a tasks run.
 
 You can download it from the `Glpi-Agent Monitor <https://github.com/glpi-project/glpi-agentmonitor/releases>`_ project release page.
