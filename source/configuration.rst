@@ -186,6 +186,26 @@ The only required configuration parameter is an execution target, which depends 
 ``password``
     Specifies the password to use for HTTP authentication on the server.
 
+.. _oauth-client-id:
+
+``oauth-client-id`` (Available since GLPI Agent v1.10)
+    Specifies the GLPI OAuth2 client ID for server authentication.
+
+.. attention::
+
+    **OAuth2 authentication support** in GLPI for inventory submission is planned to
+    be release with next GLPI major release, GLPI 11. The feature can be tested
+    with `GLPI main version nightly builds <https://nightly.glpi-project.org/glpi/>`_.
+
+    **OAuth clients credentials** have to be created in the dedicated **Configuration**
+    panel in **GLPI 11** and greater with "**Client credentials**" as **Grants** value
+    and "**inventory**" as **Scope** value.
+
+.. _oauth-client-secret:
+
+``oauth-client-secret`` (Available since GLPI Agent v1.10)
+    Specifies the GLPI OAuth2 client secret for server authentication.
+
 .. _ca-cert-dir:
 
 ``ca-cert-dir``

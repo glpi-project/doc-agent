@@ -302,6 +302,22 @@ Command line parameters
 
    If you indicate an empty string (""), all tasks will be executed.
 
+``OAUTH_CLIENT_ID=id`` (needs MSI installer >= v1.10)
+   Specifies the GLPI OAuth2 client ID for server authentication.
+
+.. attention::
+
+   **OAuth2 authentication support** in GLPI for inventory submission is planned to
+   be release with next GLPI major release, GLPI 11. The feature can be tested
+   with `GLPI main version nightly builds <https://nightly.glpi-project.org/glpi/>`_.
+
+   **OAuth clients credentials** have to be created in the dedicated **Configuration**
+   panel in **GLPI 11** and greater with "**Client credentials**" as **Grants** value
+   and "**inventory**" as **Scope** value.
+
+``OAUTH_CLIENT_SECRET=secret`` (needs MSI installer >= v1.10)
+   Specifies the GLPI OAuth2 client secret for server authentication.
+
 ``PASSWORD=password``
    Uses *password* as password for server authentication. (By default: empty)
 
