@@ -101,6 +101,9 @@ Installer parameters
    Install agent as cron task (no by default).
    ``SCHED`` can only be set to ``daily`` or ``hourly``.
 
+``--wait=DELAY`` (available since GLPI-Agent v1.10)
+   delay the tasks run by ``DELAY`` seconds when installed with ``--cron`` option.
+
 ``--version``
    Output the installer version and exit.
 
