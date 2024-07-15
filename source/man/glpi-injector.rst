@@ -38,6 +38,10 @@ glpi-injector [-h\|--help] [-R\|--recursive] [-r\|--remove]
        --ssl-cert-file client certificate file
        -C --no-compression don't compress sent XML inventories
        -P --proxy=PROXY proxy address
+       --oauth-client-id
+                      oauth client id to request oauth access token
+       --oauth-client-secret
+                      oauth client secret to request oauth access token
 
      Examples:
        glpi-injector -v -f /tmp/toto-2010-09-10-11-42-22.json --url https://login:pw@example/
