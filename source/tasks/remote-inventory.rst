@@ -25,6 +25,13 @@ But the short way to enable it with minimal security is to run from an administr
    winrm set winrm/config/service/auth @{Basic="true"}
    winrm set winrm/config/service @{AllowUnencrypted="true"}
 
+If you're using PowerShell, you need to enclose the confguration value in single quotes, such as this:
+
+.. prompt:: batch
+
+   winrm set winrm/config/service/auth '@{Basic="true"}'
+   winrm set winrm/config/service '@{AllowUnencrypted="true"}'
+
 You may probably need to also create a dedicated user with administrative privileges and enable the ``windows remote management`` firewall rule.
 
 For WinRM, GLPI Agent must be able to make network http requests on WinRM dedicated ports, by default 5985 for HTTP and 5986 for HTTPS. The remote WinRM user **must** have administration privileges.
