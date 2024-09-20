@@ -15,7 +15,7 @@ This documentation provides a comprehensive coverage of the GLPI Agent, includin
 Compatibility and main purpose
 ------------------------------
 
-GLPI Agent is the successor of `FusionInventory Agent <https://github.com/fusioninventory/fusioninventory-agent>`_, since it's based on the same code and it can be easily used in place of FusionInventory.
+GLPI Agent is the successor of `FusionInventory Agent <https://github.com/fusioninventory/fusioninventory-agent>`_, since it's based on the same code and it can be easily used in place of any FusionInventory agent.
 
 - It is used to run automatic inventory and works with `GLPI ITSM software tool <https://glpi-project.org/>`_.
 - It also supports running few other tasks like package deployment, information collect, network devices discovery and inventory, ESX remote inventory.
