@@ -79,6 +79,11 @@ Command line parameters
 
    Only applicable if GLPI-Agent is installed as a service (i.e. ``EXECMODE=1``).
 
+``AGENTMONITOR_NEWTICKET_SCREENSHOT=0|1`` (needs MSI installer >= v1.11)
+   Sets Glpi-AgentMonitor flag to enable or not automatic screenshot on new ticket request. (By default: 1)
+
+   Only applicable if GLPI-Agent is installed as a service and Glpi-AgentMonitor installed (i.e. ``EXECMODE=1`` and ``AGENTMONITOR=1``).
+
 ``AGENTMONITOR_NEWTICKET_URL=URL`` (needs MSI installer >= v1.8)
    Sets Glpi-AgentMonitor URL for new ticket feature. (By default: empty string)
 
