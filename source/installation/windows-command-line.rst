@@ -372,6 +372,11 @@ Command line parameters
    The fingerprint to use can be retrieved in agent log by temporarily enabling
    `no-ssl-check` option.
 
+``SSL_KEYSTORE=[none|key[,key[,...]]]`` (needs MSI installer >= 1.11)
+   Can be used to disable keystore if set to ``none``.
+
+   Specifies a comma-separated list of Keystore stores. See :ref:`ssl-keystore <ssl-keystore>` for possible key values and explanation.
+
 ``TAG=tag``
    Marks the computer with the tag *tag* . (By default: empty)
 
