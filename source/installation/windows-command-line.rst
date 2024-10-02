@@ -178,7 +178,7 @@ Command line parameters
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
 
-``FULL_INVENTORY_POSTPONE=value``` (needs MSI installer >= v1.8)
+``FULL_INVENTORY_POSTPONE=value`` (needs MSI installer >= v1.8)
    Sets the expected number of full inventory postpone. (By default: ``14``)
 
    See :ref:`full-inventory-postpone <full-inventory-postpone>` configuration for more details.
