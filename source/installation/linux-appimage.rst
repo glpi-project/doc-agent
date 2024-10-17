@@ -7,7 +7,6 @@ It has the advantage to work on any linux supporting AppImage format (most linux
 To install the agent, just run:
 
 .. prompt:: bash
-   :substitutions:
 
    chmod +x glpi-agent-|version|-x86_64.AppImage
    sudo ./glpi-agent-|version|-x86_64.AppImage --install --server <URL>
@@ -31,7 +30,6 @@ you still can try a :ref:`manual install <manual-install>`.
 To upgrade the agent if you still installed glpi-agent linux appimage, just run:
 
 .. prompt:: bash
-   :substitutions:
 
    chmod +x glpi-agent-|version|-x86_64.AppImage
    sudo ./glpi-agent-|version|-x86_64.AppImage --upgrade
@@ -58,7 +56,6 @@ Installer parameters
    You can retrieve all available parameters running:
 
    .. prompt:: bash
-      :substitutions:
 
       ./glpi-agent-|version|-x86_64.AppImage --help
 
@@ -285,7 +282,6 @@ you still can install GLPI Agent manually by following these steps:
 * Extract AppImage content:
 
    .. prompt:: bash
-      :substitutions:
 
       ./glpi-agent-|version|-x86_64.AppImage --appimage-extract
 

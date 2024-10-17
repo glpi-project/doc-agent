@@ -24,18 +24,14 @@ import sphinx_rtd_theme
 # built documents.
 #
 # The short X.Y version.
-version = u'1.10'
+version = u'1.11'
 # The full version, including alpha/beta/rc tags.
-release = u'1.10'
+release = u'1.11'
 
 project = 'GLPI Agent'
 thisyear = datetime.datetime.now().year
 copyright = u'2016-%s, GLPI Project, Teclib\'' % thisyear
 author = u'GLPI Project, Teclib\''
-
-rst_prolog = """
-.. |version| replace:: %s
-""" % version
 
 # -- General configuration ---------------------------------------------------
 
@@ -45,7 +41,6 @@ rst_prolog = """
 extensions = [
     'sphinx_rtd_theme',
     'sphinx-prompt',
-    'sphinx_substitution_extensions',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mermaid',

@@ -203,7 +203,6 @@ The `Snapcraft`_ **Snap** package integrates its native, although reduced but re
 If your system support **Snap**, you can simply install the agent with the ``snap`` command after getting the **Snap** package from `our releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_. Then, you just have to run:
 
 .. prompt:: bash
-   :substitutions:
 
    snap install --classic --dangerous GLPI-Agent-|version|_amd64.snap
 
@@ -249,14 +248,12 @@ On supported distros (**DEB** & **RPM** based), the installer will also eventual
 The installer is a simple perl script. It supports various options to configure the agent during installation. If no options are specified, the default is for the installer to configure glpi-agent to not scan user home directories or profiles, to run inventory modules with a 30 minute timeout, to allow HTTP requests to port 62354 only from the GLPI server, to setup the glpi-agent as a service and to install only the Computer Inventory and Remote Inventory tasks. You can check all supported options by running:
 
 .. prompt:: bash
-   :substitutions:
 
    perl glpi-agent-|version|-linux-installer.pl --help
 
 or if you use the installer embedding **snap** package:
 
 .. prompt:: bash
-   :substitutions:
 
    perl glpi-agent-|version|-with-snap-linux-installer.pl --help
 
@@ -284,7 +281,6 @@ From sources
 First, you need to extract the source and change the current directory.
 
 .. prompt:: bash
-   :substitutions:
 
    tar xfz GLPI-Agent-|version|.tar.gz
    cd GLPI-Agent-|version|
@@ -349,7 +345,6 @@ Offline installations
 First grab the tarball from the website and extract it:
 
 .. prompt:: bash
-   :substitutions:
 
    tar xzf GLPI-Agent-|version|.tar.gz
    cd GLPI-Agent-|version|

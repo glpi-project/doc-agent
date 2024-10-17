@@ -4,14 +4,12 @@ Windows installer
 By default, the installer will bring you to the graphical user interface unless you use the `/i /quiet` options, calling it from command line.
 
 .. prompt:: batch
-   :substitutions:
 
    GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
 
 or:
 
 .. prompt:: batch
-   :substitutions:
 
    msiexec /i GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
 
