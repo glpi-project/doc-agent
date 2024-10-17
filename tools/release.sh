@@ -65,6 +65,22 @@ if !(( FORCE )); then
     fi
 fi
 
+# On master, still update version in source/conf.py
+if [ "$BRANCH" == "master" ]; then
+    # Fix version & release in conf.py
+    sed -i -r \
+        -e "s/^version = u'.*'.*/version = u'$VERSION'/" \
+        -e "s/^release = u'.*'.*/release = u'$VERSION'/" \
+        source/conf.py
+
+    # Make commit, tag it as nightly & push it, tag will be published later in this script
+    if git status -s | grep -q -E '^ ?M+ '; then
+        git commit -a -m "Update version in conf"
+        git tag -f nightly
+        (( PUSH )) && git push
+    fi
+fi
+
 # Check we are in a dedicated branch
 case "$BRANCH" in
     "")
@@ -90,12 +106,6 @@ case "$BRANCH" in
         fi
         ;;
 esac
-
-# Fix version & release in conf.py
-sed -i -r \
-    -e "s/^version = u'.*'.*/version = u'$VERSION'/" \
-    -e "s/^release = u'.*'.*/release = u'$VERSION'/" \
-    source/conf.py
 
 # Update any |version| found
 grep -lr '|version|' source | grep -v source/conf.py | \
