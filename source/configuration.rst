@@ -267,13 +267,13 @@ The only required configuration parameter is an execution target, which depends 
       * ``Enterprise-My``, ``Enterprise-CA``, ``Enterprise-Root`` for machine enterprise store
       * ``GroupPolicy-My``, ``GroupPolicy-CA``, ``GroupPolicy-Root`` for machine group policy store
 
-    * Only on MacOSX, you can specify multiple keychain filepaths, otherwise a personal keychain is used.
+    * Only on MacOSX, you can specify multiple keychain filepaths, otherwise all keychains will be used.
 
-    By default, only ``CA`` and ``Root`` keystores from machine's default, user, service, enterprise and 
+    By default, only ``CA`` and ``Root`` keystores for the machine's default, user, service, enterprise and 
     group policy stores are exported on Windows.
 
     GLPI-Agent will use `certutil command <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil>`_
-    to extract certificates from related store.
+    and `security find-certificates command <https://ss64.com/mac/security-find-cert.html>`_ to extract certificates from related store.
 
 .. _no-ssl-check:
 
