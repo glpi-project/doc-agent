@@ -65,7 +65,8 @@ Command line parameters
    * ``feat_NETINV``: to select NetDiscovery and NetInventory tasks for installation
    * ``feat_DEPLOY``: to select Deploy task for installation
    * ``feat_COLLECT``: to select Collect task for installation
-   * ``feat_WOL``: to select WakeOnLan task for installation
+   * ``feat_ESX``: to select ESX task for installation
+   * ``feat_WOL``: to select WakeOnLan task for installation (indeed not supported)
 
    The base feature is ``feat_AGENT`` which is always selected and includes Inventory task.
    Since v1.8, no other task is selected by default.
