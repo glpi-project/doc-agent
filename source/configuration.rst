@@ -276,6 +276,8 @@ The only required configuration parameter is an execution target, which depends 
     GLPI-Agent will use `certutil command <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil>`_
     and `security find-certificates command <https://ss64.com/mac/security-find-cert.html>`_ to extract certificates from related store.
 
+    This option cannot be used with ``ca-cert-dir``, ``ca-cert-file`` and ``ssl-fingerprint`` options.
+
 .. _no-ssl-check:
 
 ``no-ssl-check``
