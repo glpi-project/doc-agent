@@ -266,10 +266,11 @@ The only required configuration parameter is an execution target, which depends 
       * ``Enterprise-My``, ``Enterprise-CA``, ``Enterprise-Root`` for machine enterprise store
       * ``GroupPolicy-My``, ``GroupPolicy-CA``, ``GroupPolicy-Root`` for machine group policy store
 
+    * Only on MacOSX, the user ('root' as a daemon) keychain will be used. You can use only the system keychain by using the ``system-ssl-ca`` key. (this option in not supported until v1.12)
+
     By default, only ``CA`` and ``Root`` keystores for the machine's default, user ('LocalSystem' as a service), service, enterprise and 
     group policy stores are exported on Windows.
 
-    Only on MacOSX, the user ('root' as a daemon) and system keychains will be used.
     On Unix/Linux, the agent uses the OpenSSL CA trust store (/etc/ssl/certs/ca-certificates.crt). (this option in not supported until v1.12)
 
     GLPI-Agent will use `certutil command <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil>`_
