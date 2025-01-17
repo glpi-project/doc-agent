@@ -250,15 +250,14 @@ The only required configuration parameter is an execution target, which depends 
 .. _ssl-keystore:
 
 ``ssl-keystore`` (Available since GLPI Agent v1.11)
-    This option is only usable on Windows or MacOSX.
-
-    Keystore support on Windows and Keychain support on MacOSX are enabled by default
-    to provide a way to authentify SSL GLPI server if CA certificate or server certificate
-    is integrated there.
+    Keystore support on Windows, Keychain support on MacOSX and CA trust store support on Unix/Linux 
+    are enabled by default to provide a way to authentify SSL GLPI server if CA certificate or server 
+    certificate is integrated there. The default CA bundle from Mozilla's is always included if the
+    Mozilla::CA CPAN module is installed. (this support case is available since GLPI Agent v1.12)
 
     It takes as argument a string which can be a list separated by commas:
 
-    * ``none``: just disable keystore support on Windows or keychain support on MacOSX
+    * ``none``: just disable Mozilla::CA bundle and keystore support on Windows, keychain support on MacOSX or CA trust store on Unix/Linux.
     * Only on Windows, any combination of the following **case-sensitive** keys:
 
       * ``My``, ``CA``, ``Root`` for default machine store
@@ -267,10 +266,11 @@ The only required configuration parameter is an execution target, which depends 
       * ``Enterprise-My``, ``Enterprise-CA``, ``Enterprise-Root`` for machine enterprise store
       * ``GroupPolicy-My``, ``GroupPolicy-CA``, ``GroupPolicy-Root`` for machine group policy store
 
-    * Only on MacOSX, you can specify multiple keychain filepaths, otherwise root (user) and system keychains will be used.
-
-    By default, only ``CA`` and ``Root`` keystores for the machine's default, user, service, enterprise and 
+    By default, only ``CA`` and ``Root`` keystores for the machine's default, user ('LocalSystem' as a service), service, enterprise and 
     group policy stores are exported on Windows.
+
+    Only on MacOSX, the user ('root' as a daemon) and system keychains will be used.
+    On Unix/Linux, the agent uses the OpenSSL CA trust store (/etc/ssl/certs/ca-certificates.crt). (this option in not supported until v1.12)
 
     GLPI-Agent will use `certutil command <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil>`_
     and `security find-certificates command <https://ss64.com/mac/security-find-cert.html>`_ to extract certificates from related store.
