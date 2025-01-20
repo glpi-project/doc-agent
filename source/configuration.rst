@@ -250,14 +250,15 @@ The only required configuration parameter is an execution target, which depends 
 .. _ssl-keystore:
 
 ``ssl-keystore`` (Available since GLPI Agent v1.11)
-    Keystore support on Windows, Keychain support on MacOSX and CA trust store support on Unix/Linux 
-    are enabled by default to provide a way to authentify SSL GLPI server if CA certificate or server 
-    certificate is integrated there. The default CA bundle from Mozilla's will be included only if the
-    GLPI-Agent is unable to extract certificates from the operating system. (this support case is available since GLPI Agent v1.12)
+    This option is only usable on Windows or MacOSX.
+
+    Keystore support on Windows and Keychain support on MacOSX are enabled by default
+    to provide a way to authentify SSL GLPI server if CA certificate or server certificate
+    is integrated there.
 
     It takes as argument a string which can be a list separated by commas:
 
-    * ``none``: just disable keystore support on Windows, keychain support on MacOSX or CA trust store on Unix/Linux.
+    * ``none``: just disable keystore support on Windows or keychain support on MacOSX
     * Only on Windows, any combination of the following **case-sensitive** keys:
 
       * ``My``, ``CA``, ``Root`` for default machine store
