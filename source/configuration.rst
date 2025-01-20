@@ -257,7 +257,7 @@ The only required configuration parameter is an execution target, which depends 
 
     It takes as argument a string which can be a list separated by commas:
 
-    * ``none``: just disable Mozilla::CA bundle and keystore support on Windows, keychain support on MacOSX or CA trust store on Unix/Linux.
+    * ``none``: just disable keystore support on Windows, keychain support on MacOSX or CA trust store on Unix/Linux.
     * Only on Windows, any combination of the following **case-sensitive** keys:
 
       * ``My``, ``CA``, ``Root`` for default machine store
