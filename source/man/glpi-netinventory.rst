@@ -102,7 +102,7 @@ OPTIONS
    Set maximum number of retries a SNMP request can be sent again after
    no response.
 
-**--backen-collect-timeout** *TIME*
+**--backend-collect-timeout** *TIME*
    Set base expiration timeout, in seconds. It is used to set one device
    scan: 180 by default, means 900 (5x180) by device.
 
