@@ -64,7 +64,7 @@ Windows registry content can be exported with ``regedit`` tool:
 
    regedit /e <somefile.reg> <somekey>
 
-dmidedoce output
+dmidecode output
 """"""""""""""""
 
 ``dmidecode`` output can be generated on any system, including windows, as we ship a ``dmidecode`` executable in the agent windows packaging, under the ``perl\bin`` subdirectory.
