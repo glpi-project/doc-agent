@@ -266,13 +266,11 @@ The only required configuration parameter is an execution target, which depends 
       * ``Enterprise-My``, ``Enterprise-CA``, ``Enterprise-Root`` for machine enterprise store
       * ``GroupPolicy-My``, ``GroupPolicy-CA``, ``GroupPolicy-Root`` for machine group policy store
 
-    * Only on MacOSX, the user ('root' as a daemon) keychain will be used. You can use only the system keychain by using the ``system-ssl-ca`` key. (this option in not supported until v1.12)
+    * Only on MacOSX, the user ('root' as a daemon) keychain will be used.
 
-    By default, only ``CA`` and ``Root`` keystores for the machine's default, user ('LocalSystem' as a service), service, enterprise and 
-    group policy stores are exported on Windows.
+      * You can force to use the system SSL CA keychain by using the ``system-ssl-ca`` key (Available since GLPI Agent v1.12)
 
-    On Unix/Linux, the agent uses the OpenSSL CA trust store (/etc/ssl/certs/ca-certificates.crt). (this option in not supported until v1.12)
-
+    This can help if your certificate authority is not known by glpi-agent default SSL store based on `Mozilla::CA <https://metacpan.org/pod/Mozilla::CA>`_ but it is by system SSL CA.
     GLPI-Agent will use `certutil command <https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil>`_
     and `security find-certificates command <https://ss64.com/mac/security-find-cert.html>`_ to extract certificates from related store.
 
