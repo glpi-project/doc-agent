@@ -27,6 +27,7 @@ glpi-inventory [options]
        -t --tag=TAG                   mark the machine with given tag
        --backend-collect-timeout=TIME timeout for inventory modules
                                         execution (30)
+       --glpi-version=VERSION         set targeted glpi version to enable supported features
        --additional-content=FILE      additional inventory content file
        --assetname-support=1|2        [unix/linux only] set the asset name depending on the given value:
                                        - 1 (the default), the short hostname is used as asset name

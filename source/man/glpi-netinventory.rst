@@ -26,6 +26,7 @@ glpi-netinventory [options] [--host <host>\|--file <file>]
        --retries              SNMP requets maximum retries (0)
        --backend-collect-timeout <TIME>
                               base expiration timeout, in seconds (180)
+       --glpi-version VERSION set targeted glpi version to enable supported features
        --type <TYPE>          force device type
        --threads <COUNT>      number of inventory threads (1)
        --control              output control messages

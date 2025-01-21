@@ -27,6 +27,7 @@ glpi-esx --host <host> --user <user> --password <password> --path
        --stdout               dump inventory on stdout (enabled by default if no path is set)
        --tag tag              tag for the inventoried machine
        --json                 use json as format for generated inventories
+       --glpi-version VERSION set targeted glpi version to enable supported features
 
      Advanced options:
        --dump                 also dump esx host full info datas in a *-hostfullinfo.dump file

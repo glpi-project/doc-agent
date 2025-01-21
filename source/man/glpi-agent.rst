@@ -116,6 +116,7 @@ glpi-agent [options] [--server server\|--local path]
        --vardir=PATH                  use specified path as storage folder for agent
                                         persistent datas
 
+       --glpi-version=<VERSION>       set targeted glpi version to enable supported features
        --version                      print the version and exit
        --no-win32-ole-workaround      [win32 only] disable win32 work-around
                                         used to better handle Win32::OLE apis.
