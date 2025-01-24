@@ -8,8 +8,8 @@ To install the agent, just run:
 
 .. prompt:: bash
 
-   chmod +x glpi-agent-|version|-x86_64.AppImage
-   sudo ./glpi-agent-|version|-x86_64.AppImage --install --server <URL>
+   chmod +x glpi-agent-1.12-x86_64.AppImage
+   sudo ./glpi-agent-1.12-x86_64.AppImage --install --server <URL>
 
 At this point, if you obtain an error explaining ``AppImages require FUSE to run.``,
 you still can try a :ref:`manual install <manual-install>`.
@@ -31,8 +31,8 @@ To upgrade the agent if you still installed glpi-agent linux appimage, just run:
 
 .. prompt:: bash
 
-   chmod +x glpi-agent-|version|-x86_64.AppImage
-   sudo ./glpi-agent-|version|-x86_64.AppImage --upgrade
+   chmod +x glpi-agent-1.12-x86_64.AppImage
+   sudo ./glpi-agent-1.12-x86_64.AppImage --upgrade
 
 By default, the agent is installed under ``/usr/local/bin`` and dedicated configuration is created under ``/etc/glpi-agent/conf.d``.
 
@@ -57,7 +57,7 @@ Installer parameters
 
    .. prompt:: bash
 
-      ./glpi-agent-|version|-x86_64.AppImage --help
+      ./glpi-agent-1.12-x86_64.AppImage --help
 
 ``--install``
    Install the agent by coping AppImage to install path, creating binding scripts
@@ -283,7 +283,7 @@ you still can install GLPI Agent manually by following these steps:
 
    .. prompt:: bash
 
-      ./glpi-agent-|version|-x86_64.AppImage --appimage-extract
+      ./glpi-agent-1.12-x86_64.AppImage --appimage-extract
 
    This will extract the content into a ``squashfs-root`` subfolder.
 
