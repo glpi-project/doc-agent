@@ -182,6 +182,14 @@ Command line parameters
 
    See :ref:`full-inventory-postpone <full-inventory-postpone>` configuration for more details.
 
+``GLPI_VERSION=version``
+   Set expected GLPI version to enable specifically required features. (By default: empty)
+
+   This can be required if you miss a GLPI-version dependent feature in few context like generating
+   locally an inventory or not using native inventory.
+
+   See :ref:`glpi-version <glpi-version>` configuration for more details.
+
 ``HTML=1``
    Save the inventory as HTML instead of XML or JSON. (By default: ``0`` for No)
 

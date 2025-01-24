@@ -419,6 +419,18 @@ Task-specific parameters
 
     It can be set to 0 to disable the feature and to always produce full inventory as before 1.8.
 
+.. _glpi-version:
+
+``glpi-version`` (Available since GLPI Agent v1.12)
+    Specifies for which GLPI server version we should handle tasks
+
+    This feature is intended to permit to use features depending on the GLPI server version when GLPI Agent is not aware
+    of this version. If you're using native inventory in json format, you don't need to set this option as the serve
+    will tell to GLPI Agent which version is installed on server-side.
+
+    This can be the case when you use scripts to locally generate inventory before sending them to GLPI or if you don't
+    use native inventory to send XML files.
+
 .. _additional-content:
 
 ``additional-content``
