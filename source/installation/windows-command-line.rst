@@ -163,6 +163,13 @@ Command line parameters
    The ``DELAYTIME`` parameter comes into play only if GLPI Agent
    runs in *server mode* (see ``EXECMODE``).
 
+``ESX_ITEMTYPE=type`` (needs MSI installer >= 1.13)
+   Sets ESX inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
+
+   When empty, asset itemtype in ESX inventory will still be set to ``Computer` to keep compatibility with GLPI 10.
+
+   See also :ref:`esx-itemtype <esx-itemtype>` configuration for more details.
+
 ``EXECMODE=value``
    Sets the agent execution mode. (By default: ``1``)
 
@@ -234,6 +241,13 @@ Command line parameters
    Sets the installation base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent``)
 
    *pathname* must be an absolute path.
+
+``ITEMTYPE=type`` (needs MSI installer >= 1.13)
+   Sets inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
+
+   When empty, asset itemtype in inventory will still be set to ``Computer` to keep compatibility with GLPI 10.
+
+   See also :ref:`itemtype <itemtype>` configuration for more details.
 
 ``JSON=0`` (needs MSI installer >= 1.3)
    Don't save the local inventory as JSON instead of XML. (By default: ``1`` for Yes)

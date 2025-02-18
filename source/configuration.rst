@@ -445,6 +445,19 @@ Task-specific parameters
     This can be the case when you use scripts to locally generate inventory before sending them to GLPI or if you don't
     use native inventory to send XML files.
 
+.. _itemtype:
+
+``itemtype`` (Available since GLPI Agent v1.13)
+    Specifies the inventory itemtype to set in inventory and supported by GLPI 11+ genericity feature.
+
+    By default, it is empty and itemtype will still be set to ``Computer` to keep compatibility with GLPI 10.
+
+    The itemtype must be supported in GLPI 11+ or inventory import will be refused.
+
+    Itemtype can only be set when generating a JSON inventory.
+
+    This directive is used for inventory and remoteinventory tasks only.
+
 .. _additional-content:
 
 ``additional-content``
@@ -482,6 +495,19 @@ Task-specific parameters
     Specifies the timeout in seconds for task modules execution. The default is 300.
 
     This directive is used for inventory task only.
+
+.. _esx-itemtype:
+
+``esx-itemtype`` (Available since GLPI Agent v1.13)
+    Specifies the inventory itemtype to set in ESX inventory and supported by GLPI 11+ genericity feature.
+
+    By default, it is empty and itemtype will still be set to ``Computer` to keep compatibility with GLPI 10.
+
+    The itemtype must be supported in GLPI 11+ or inventory import will be refused.
+
+    Itemtype can only be set when generating a JSON inventory.
+
+    This directive is used for esx task only.
 
 .. _no-p2p:
 
