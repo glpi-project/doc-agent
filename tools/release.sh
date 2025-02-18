@@ -5,6 +5,10 @@ let FORCE=0 REBASE=0 PUSH=1 NIGHTLY=0
 while [ -n "$1" ]
 do
     case "$1" in
+        --help)
+            echo "$0 [--help] [--force] [--rebase] [--no-push|--dry-run] nightly|<VERSION>"
+            exit 0
+            ;;
         --force)
             let FORCE=1
             ;;
@@ -49,11 +53,11 @@ if (( NIGHTLY )); then
         echo "nightly can only be set on master branch" >&2
         exit 1
     fi
-    git tag -f nightly
-    if (( PUSH )); then
-        git push
-        git push --tags --force
-    fi
+    (( PUSH )) && git push
+    git tag -d nightly
+    (( PUSH )) && git push --tags --prune
+    git tag nightly
+    (( PUSH )) && git push --tags
     exit 0
 fi
 
