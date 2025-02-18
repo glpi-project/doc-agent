@@ -166,7 +166,7 @@ Command line parameters
 ``ESX_ITEMTYPE=type`` (needs MSI installer >= 1.13)
    Sets ESX inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
 
-   When empty, asset itemtype in ESX inventory will still be set to ``Computer` to keep compatibility with GLPI 10.
+   When empty, asset itemtype in ESX inventory will still be set to ``Computer`` to keep compatibility with GLPI 10.
 
    See also :ref:`esx-itemtype <esx-itemtype>` configuration for more details.
 
@@ -245,7 +245,7 @@ Command line parameters
 ``ITEMTYPE=type`` (needs MSI installer >= 1.13)
    Sets inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
 
-   When empty, asset itemtype in inventory will still be set to ``Computer` to keep compatibility with GLPI 10.
+   When empty, asset itemtype in inventory will still be set to ``Computer`` to keep compatibility with GLPI 10.
 
    See also :ref:`itemtype <itemtype>` configuration for more details.
 
