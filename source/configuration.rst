@@ -450,7 +450,7 @@ Task-specific parameters
 ``itemtype`` (Available since GLPI Agent v1.13)
     Specifies the inventory itemtype to set in inventory and supported by GLPI 11+ genericity feature.
 
-    By default, it is empty and itemtype will still be set to ``Computer` to keep compatibility with GLPI 10.
+    By default, it is empty and itemtype will still be set to `Computer` to keep compatibility with GLPI 10.
 
     The itemtype must be supported in GLPI 11+ or inventory import will be refused.
 
@@ -501,7 +501,7 @@ Task-specific parameters
 ``esx-itemtype`` (Available since GLPI Agent v1.13)
     Specifies the inventory itemtype to set in ESX inventory and supported by GLPI 11+ genericity feature.
 
-    By default, it is empty and itemtype will still be set to ``Computer` to keep compatibility with GLPI 10.
+    By default, it is empty and itemtype will still be set to `Computer` to keep compatibility with GLPI 10.
 
     The itemtype must be supported in GLPI 11+ or inventory import will be refused.
 
