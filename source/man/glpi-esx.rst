@@ -28,6 +28,7 @@ glpi-esx --host <host> --user <user> --password <password> --path
        --tag tag              tag for the inventoried machine
        --json                 use json as format for generated inventories
        --glpi-version VERSION set targeted glpi version to enable supported features
+       --esx-itemtype=TYPE    set ESX asset type for target supporting genericity like GLPI 11+
 
      Advanced options:
        --dump                 also dump esx host full info datas in a *-hostfullinfo.dump file

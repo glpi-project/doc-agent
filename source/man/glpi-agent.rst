@@ -54,6 +54,12 @@ glpi-agent [options] [--server server\|--local path]
        --credentials                  set credentials to support database inventory
        --full-inventory-postpone=NUM  set number of possible full inventory postpone (14)
        --full                         force inventory task to generate a full inventory
+       --required-category=CATEGORY   list of category required even when postponing full inventory
+       --itemtype=TYPE                set asset type for target supporting genericity like GLPI 11+
+                                      Remark: This option is also used by RemoteInventory task
+
+     ESX task specific options:
+       --esx-itemtype=TYPE            set ESX asset type for target supporting genericity like GLPI 11+
 
      RemoteInventory task specific options:
        --remote=REMOTE[,REMOTE]...    specify a list of remotes to process in place
@@ -294,6 +300,20 @@ Inventory task specific options
    **full-inventory-postpone** option is set. Indeed this is equivalent
    to set **--full-inventory-postpone=0**.
 
+**--required-category**\ =\ *CATEGORY*
+   Force inventory task to always include given category if
+   **full-inventory-postpone** option is set and the current inventory
+   task run involves to generate a partial inventory.
+
+   Multiple values can be specified, using comma as a separator. List of
+   categories is the same than the one for *--no-category* option, but
+   *bios* and *harware* categories are always implied and can be omitted
+   as they are still required for normal inventory import.
+
+**--itemtype**\ =\ *TYPE*
+   Allow to set JSON inventory itemtype to *TYPE*. This feature requires
+   a target supporting genericity, like GLPI 11+.
+
 **--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.
 
@@ -317,6 +337,13 @@ Inventory task specific options
 
    This file should be an XML file, using same syntax as the one
    produced by the agent.
+
+ESX task specific options
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**--esx-itemtype**\ =\ *TYPE*
+   Allow to set ESX JSON inventory itemtype to *TYPE*. This feature
+   requires a target supporting genericity, like GLPI 11+.
 
 Package deployment task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
