@@ -345,6 +345,11 @@ Command line parameters
 ``REINSTALL=feat_AGENT``
    Use this option only in the case you need to change the agent configuration using the same installer. (Not used by default)
 
+``REQUIRED_CATEGORY=category[,category[...]]`` (needs MSI installer >= v1.13)
+   Sets categories to always include in partial inventory when postponing a full inventory. (By default: empty)
+
+   See :ref:`required-category <required-category>` configuration for more details.
+
 ``REMOTE=remote:definition`` (needs MSI installer >= 1.3)
    Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task. (By default: empty)
 

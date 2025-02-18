@@ -419,6 +419,20 @@ Task-specific parameters
 
     It can be set to 0 to disable the feature and to always produce full inventory as before 1.8.
 
+.. _required-category:
+
+``required-category`` (Available since GLPI Agent v1.13)
+    This option modifies how full-inventory-postpone generates partial inventory by always including listed categories even
+    if the related section in inventory didn't change since the last inventory.
+    For example, this may be required in the case you're using business rules in GLPI which is based on a category content.
+    Typically, you'll always require the ``network`` category if you have rules based on ip range analysis.
+
+    The possible values can be listed running ``glpi-agent --list-categories``.
+
+    Multiple values can be specified, using a comma as a separator.
+
+    This directive is used for inventory task only and is only relevant if :ref:`full-inventory-postpone <full-inventory-postpone>` is not disabled.
+
 .. _glpi-version:
 
 ``glpi-version`` (Available since GLPI Agent v1.12)
