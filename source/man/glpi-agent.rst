@@ -314,6 +314,9 @@ Inventory task specific options
    Allow to set JSON inventory itemtype to *TYPE*. This feature requires
    a target supporting genericity, like GLPI 11+.
 
+   When expected asset itemtype in GLPI 11+ is **Server**, *itemtype*
+   option value must be set to **\\Glpi\\CustomAsset\\Server**.
+
 **--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.
 
@@ -345,6 +348,10 @@ ESX task specific options
    Allow to set ESX JSON inventory itemtype to *TYPE*. This feature
    requires a target supporting genericity, like GLPI 11+.
 
+   When expected ESX asset itemtype in GLPI 11+ is **Esx**,
+   *esx-itemtype* option value must be set to
+   **\\Glpi\\CustomAsset\\Esx**.
+
 Package deployment task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -357,7 +364,8 @@ Server target specific options
 **-P**, **--proxy**\ =\ *PROXY*
    Use *PROXY* as HTTP proxy.
 
-   By default, the agent uses HTTP_PROXY environment variable.
+   By default, the agent uses HTTP_PROXY environment variable unless
+   option value is defined to **none**.
 
 **-u** *USER*, **--user**\ =\ *USER*
    Use *USER* for server authentication.
