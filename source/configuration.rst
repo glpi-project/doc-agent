@@ -176,6 +176,9 @@ The only required configuration parameter is an execution target, which depends 
     Specifies the URL of the HTTP proxy to use. By default, the agent uses
     HTTP\_PROXY environment variable.
 
+    Since GLPI Agent v1.13, you can set ``proxy`` value to ``none`` to even not use
+    HTTP\_PROXY environment variable.
+
 .. _user:
 
 ``user``
