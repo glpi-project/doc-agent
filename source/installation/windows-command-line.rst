@@ -5,13 +5,13 @@ By default, the installer will bring you to the graphical user interface unless 
 
 .. prompt:: batch
 
-   GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
+   GLPI-Agent-1.13-x64.msi /quiet SERVER=<URL>
 
 or:
 
 .. prompt:: batch
 
-   msiexec /i GLPI-Agent-|version|-x64.msi /quiet SERVER=<URL>
+   msiexec /i GLPI-Agent-1.13-x64.msi /quiet SERVER=<URL>
 
 All options can be defined in several places; the last taking precedence on all others:
 

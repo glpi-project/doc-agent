@@ -204,7 +204,7 @@ If your system support **Snap**, you can simply install the agent with the ``sna
 
 .. prompt:: bash
 
-   snap install --classic --dangerous GLPI-Agent-|version|_amd64.snap
+   snap install --classic --dangerous GLPI-Agent-1.13_amd64.snap
 
 After installation, you can easily configure the agent with the **set** ``snap`` sub-command:
 
@@ -249,13 +249,13 @@ The installer is a simple perl script. It supports various options to configure 
 
 .. prompt:: bash
 
-   perl glpi-agent-|version|-linux-installer.pl --help
+   perl glpi-agent-1.13-linux-installer.pl --help
 
 or if you use the installer embedding **snap** package:
 
 .. prompt:: bash
 
-   perl glpi-agent-|version|-with-snap-linux-installer.pl --help
+   perl glpi-agent-1.13-with-snap-linux-installer.pl --help
 
 If your GNU/Linux distro is not supported, you still can :ref:`install it from sources <install-from-sources>`.
 
@@ -282,8 +282,8 @@ First, you need to extract the source and change the current directory.
 
 .. prompt:: bash
 
-   tar xfz GLPI-Agent-|version|.tar.gz
-   cd GLPI-Agent-|version|
+   tar xfz GLPI-Agent-1.13.tar.gz
+   cd GLPI-Agent-1.13
 
 Executing ``Makefile.PL`` will verify all the required dependencies are available
 and prepare the build tree.
@@ -346,8 +346,8 @@ First grab the tarball from the website and extract it:
 
 .. prompt:: bash
 
-   tar xzf GLPI-Agent-|version|.tar.gz
-   cd GLPI-Agent-|version|
+   tar xzf GLPI-Agent-1.13.tar.gz
+   cd GLPI-Agent-1.13
 
 We use ``cpanm`` to fetch and extract the dependencies in the extlib directory:
 
