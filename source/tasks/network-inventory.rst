@@ -55,6 +55,11 @@ easier control and troubleshooting, with the :doc:`../man/glpi-netinventory` com
 However, this command generates files which will have to be injected in GLPI server
 using :doc:`../man/glpi-injector` command.
 
+Advanced Configuration
+----------------------
+
+See :ref:`NetDiscovery Advanced Configuration <advanced_configuration>`.
+
 Troubleshooting
 ---------------
 

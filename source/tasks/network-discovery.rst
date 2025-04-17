@@ -98,6 +98,33 @@ In order to scan multiple addresses simultaneously, the agent can use multiple
 discovery threads. This allow multiple simultaneous request, but also increase
 resource usage on agent host.
 
+.. _advanced-configuration:
+
+Advanced Configuration
+----------------------
+
+Since GLPI-Agent 1.14, glpi-agent can use a dedicated configuration file to tune the way
+snmp discovery works. The file is named ``snmp-advanced-support.cfg`` and you should
+create the ``snmp-advanced-support.local`` which is by default included from the ``.cfg``
+file to update the configuration.
+
+As of 1.14, you can only change one configuration value: ``oids``
+
+.. _oids:
+
+``oids``
+   ``oids`` is a comma-separated list of oids used during session testing. All oids will be requested
+   and only one has to respond to validate a snmp session. If none provides any answer, this will mean
+   there's no device or the device is not reachable.
+
+   The default is to only check for device sysDescr (``.1.3.6.1.2.1.1.1.0``). It means netdiscovery task
+   will only discover by default snmp devices supporting this oid.
+
+   Fortunately, a manufacturer may decide to not support that standard oid. If this is the case, you can add
+   a well-known supported oid to make your device discovered. As an example, this is exactly the case for
+   Snom IP phones and you can simply add ``.1.3.6.1.2.1.7526.2.4`` as described in the default advanced
+   configuration.
+
 .. _troubleshooting:
 
 Troubleshooting
