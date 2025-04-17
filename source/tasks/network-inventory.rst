@@ -58,7 +58,7 @@ using :doc:`../man/glpi-injector` command.
 Advanced Configuration
 ----------------------
 
-See :ref:`NetDiscovery Advanced Configuration <advanced_configuration>`.
+See :ref:`NetDiscovery Advanced Configuration <advanced-configuration>`.
 
 Troubleshooting
 ---------------
