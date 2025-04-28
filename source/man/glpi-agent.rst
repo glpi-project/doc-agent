@@ -244,6 +244,7 @@ Inventory task specific options
    available categories are:
 
    -  accesslog
+   -  antivirus
    -  battery
    -  bios
    -  controller
@@ -251,6 +252,7 @@ Inventory task specific options
    -  database
    -  drive
    -  environment
+   -  firewall
    -  hardware
    -  input
    -  licenseinfo
