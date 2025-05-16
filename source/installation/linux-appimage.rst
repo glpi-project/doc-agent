@@ -72,7 +72,7 @@ Installer parameters
    Try to just upgrade the currently installed agent, keeping configuration and
    trying to restart the agent.
 
-``--upgrade``
+``--reinstall``
    Like upgrade but involves ``--clean`` option to make a clean install, resetting
    the configuration.
 
