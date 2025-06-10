@@ -90,7 +90,7 @@ options]
        glpi-remote scan 10.0.0.1 10.0.10.254 --inventory -s https://myglpi/
        glpi-remote scan 10.0.0.1 10.0.10.254 --inventory -l /var/tmp/remotes
        glpi-remote scan --inventory
-       glpi-remote scan 192.168.48.99 | glpi-injector -url https://myglpi/
+       glpi-remote scan 192.168.48.99 | glpi-injector --url https://myglpi/
 
      Examples for agent command:
        glpi-remote -T strong-shared-secret agent 192.168.43.236
