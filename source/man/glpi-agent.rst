@@ -317,7 +317,7 @@ Inventory task specific options
    a target supporting genericity, like GLPI 11+.
 
    When expected asset itemtype in GLPI 11+ is **Server**, *itemtype*
-   option value must be set to **Glpi/CustomAsset/Server**.
+   option value must be set to **Glpi\\CustomAsset\\Server**.
 
 **--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.
@@ -352,7 +352,7 @@ ESX task specific options
 
    When expected ESX asset itemtype in GLPI 11+ is **Esx**,
    *esx-itemtype* option value must be set to
-   **Glpi/CustomAsset/Esx**.
+   **Glpi\\CustomAsset\\Esx**.
 
 Package deployment task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
