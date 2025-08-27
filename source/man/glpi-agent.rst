@@ -316,8 +316,12 @@ Inventory task specific options
    Allow to set JSON inventory itemtype to *TYPE*. This feature requires
    a target supporting genericity, like GLPI 11+.
 
-   When expected asset itemtype in GLPI 11+ is **Server**, *itemtype*
-   option value must be set to **Glpi\\CustomAsset\\Server**.
+   When the expected asset itemtype in GLPI 11+ is **Server**, *itemtype*
+   option value must be set to **Glpi\\CustomAsset\\ServerAsset**.
+
+.. note::
+
+    The suffix ``Asset`` must always be added at the end of the class name to avoid conflicts with PHP reserved keywords.
 
 **--scan-homedirs**
    Allow the agent to scan home directories for virtual machines.

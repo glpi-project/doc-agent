@@ -456,11 +456,15 @@ Task-specific parameters
     By default, it is empty and itemtype will still be set to ``Computer`` to keep compatibility with GLPI 10.
 
     The itemtype must be supported in GLPI 11+ or inventory import will be refused. When itemtype in GLPI is, as example, ``Server``,
-    ``itemtype`` value in glpi-agent must be set to ``\Glpi\CustomAsset\Server``.
+    ``itemtype`` value in glpi-agent must be set to ``\Glpi\CustomAsset\ServerAsset``.
 
     Itemtype can only be set when generating a JSON inventory.
 
     This directive is used for inventory and remoteinventory tasks only.
+.. note::
+
+    The suffix ``Asset`` must always be added at the end of the class name to avoid conflicts with PHP reserved keywords.
+
 
 .. _additional-content:
 
