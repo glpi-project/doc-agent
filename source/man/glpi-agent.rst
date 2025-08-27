@@ -356,7 +356,7 @@ ESX task specific options
 
    When expected ESX asset itemtype in GLPI 11+ is **Esx**,
    *esx-itemtype* option value must be set to
-   **Glpi\\CustomAsset\\Esx**.
+   **Glpi\\CustomAsset\\EsxAsset**.
 
 Package deployment task specific options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
