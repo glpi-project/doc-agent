@@ -461,6 +461,7 @@ Task-specific parameters
     Itemtype can only be set when generating a JSON inventory.
 
     This directive is used for inventory and remoteinventory tasks only.
+
 .. note::
 
     The suffix ``Asset`` must always be added at the end of the class name to avoid conflicts with PHP reserved keywords.
