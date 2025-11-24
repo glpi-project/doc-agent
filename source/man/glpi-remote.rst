@@ -30,7 +30,8 @@ options]
        --ca-cert-file <FILE> CA certificates file (winrm or for agent sub-command)
        --ssl-fingerprint <FINGERPRINT>
                            Trust server certificate if its SSL fingerprint matches the given one
-       --ssl-cert-file     Client certificate file (winrm)
+       --ssl-cert-file <FILE> Client certificate file (winrm)
+       --ssl-key-file <FILE>  Client private key file (asumed included in cert file if missing)
        -u --user           authentication user
        -P --password       authentication password
        -X --show-passwords (list command) show password as they are masked by default
@@ -171,6 +172,10 @@ General options
 
 **--ssl-cert-file**\ =\ *FILE*
    SSL certificate file for authentication
+
+**--ssl-key-file**\ =\ *FILE*
+   SSL client private key filename. If missing, assumed is included in
+   cert file
 
 **--no-ssl-check**
    Do not check server SSL certificate.

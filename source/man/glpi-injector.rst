@@ -16,7 +16,8 @@ glpi-injector [-h\|--help] [-R\|--recursive] [-r\|--remove]
 [-v\|--verbose] [--debug] [--useragent
 <user-agent>\|-x\|--xml-ua\|--json-ua] [-C\|--no-compression]
 [--no-ssl-check] [--ssl-cert-file <private certificate file>]
-[[-P\|--proxy] <proxy url>] [[-f\|--file] <file>|[-d\|--directory]
+[[-P\|--proxy] <proxy url>] [--ca-cert-file <CA certificate file>] [--ss
+<CA certificate file>] [[-f\|--file] <file>|[-d\|--directory]
 <directory>\|--stdin] [-u\|--url] <url>
 
 .. code-block:: text
@@ -35,7 +36,10 @@ glpi-injector [-h\|--help] [-R\|--recursive] [-r\|--remove]
        -x --xml-ua --json-ua
                       use Client version found in XML or JSON as User-Agent for POST
        --no-ssl-check do not check server SSL certificate
-       --ssl-cert-file client certificate file
+       --ca-cert-file=FILE CA certificates file
+       --ssl-cert-file=FILE client certificate file
+       --ssl-key-file=FILE client private key file (asumed included in cert file if missing)
+       --ssl-fingerprint=FINGERPRINT Trust server certificate on its SSL fingerprint
        -C --no-compression don't compress sent XML inventories
        -P --proxy=PROXY proxy address
        --oauth-client-id

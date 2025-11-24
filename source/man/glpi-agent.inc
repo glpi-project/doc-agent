@@ -16,3 +16,5 @@
    ``--required-category``, ``--itemtype`` and `--esx-itemtype`` options are available since glpi-agent 1.13
 
    ``--proxy`` option supports ``none`` value to not use environment variable since glpi-agent 1.13
+
+   ``--ssl-cert-file`` and ``--ssl-key-file`` options support is available since glpi-agent 1.16

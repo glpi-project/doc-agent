@@ -208,6 +208,9 @@ Network options
 :ref:`--ssl-cert-file=FILE <ssl-cert-file>`
    Client certificate file
 
+:ref:`--ssl-key-file=FILE <ssl-key-file>`
+   Client private key file
+
 :ref:`--ssl-fingerprint=FINGERPRINT <ssl-fingerprint>`
    Fingerprint of SSL certificate to trust
 

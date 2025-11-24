@@ -84,6 +84,10 @@ glpi-agent [options] [--server server\|--local path]
                                         (false)
        --timeout=TIME                 connection timeout, in seconds (180)
 
+       --ssl-cert-file=FILE           ssl client certificate file
+       --ssl-key-file=FILE            ssl client private key file
+                                      (asumed included in cert file if missing)
+
      Web interface options:
        --no-httpd                     disable embedded web server (false)
        --httpd-ip=IP                  network interface to listen to (all)
@@ -389,6 +393,13 @@ Server target specific options
 
 **--timeout**\ =\ *TIME*
    Timeout for server connections.
+
+**--ssl-cert-file**\ =\ *FILE*
+   SSL client certificate filename.
+
+**--ssl-key-file**\ =\ *FILE*
+   SSL client private key filename. If missing, assumed is included in
+   cert file
 
 Web interface options
 ~~~~~~~~~~~~~~~~~~~~~

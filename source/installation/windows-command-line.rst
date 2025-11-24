@@ -397,6 +397,11 @@ Command line parameters
    server target or for WinRM remote inventory.
    (By default: empty)
 
+``SSL_KEY_FILE=filename`` (needs MSI installer >= 1.16)
+   Specifies the file containing SSL client private key to use when connecting to
+   server target or for WinRM remote inventory.
+   (By default: empty)
+
 ``SSL_FINGERPRINT=fingerprint`` (needs MSI installer >= 1.3)
    Specifies the fingerprint of the ssl server certificate to trust.
 

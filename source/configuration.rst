@@ -242,6 +242,12 @@ The only required configuration parameter is an execution target, which depends 
     Specifies the file containing SSL client certificate to use when connecting to
     server target or for WinRM remote inventory.
 
+.. _ssl-key-file:
+
+``ssl-key-file``
+    Specifies the file containing SSL client private key to use when connecting to
+    server target or for WinRM remote inventory.
+
 .. _ssl-fingerprint:
 
 ``ssl-fingerprint`` (Available since GLPI Agent v1.3)

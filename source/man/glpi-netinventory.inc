@@ -7,4 +7,6 @@
 
    ``--retries`` option is available since glpi-agent 1.9
 
-   ``--glpi-version`` option is available since glpi-agent 1.12
+   ``--glpi_version`` option is available since glpi-agent 1.12
+
+   ``--glpi-version`` option replaces ``--glpi_version`` since glpi-agent 1.16

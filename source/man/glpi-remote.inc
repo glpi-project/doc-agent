@@ -6,3 +6,5 @@
 .. attention::
 
    ``--stricthostkeychecking`` option is available since glpi-agent 1.7
+
+   ``--ssl-key-file`` option is available since glpi-agent 1.16
