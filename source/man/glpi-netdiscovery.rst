@@ -31,6 +31,7 @@ glpi-netdiscovery [options] --first <address> --last <address>
                               base expiration timeout, in seconds (180)
        --entity <ENTITY>      GLPI entity
        --threads <COUNT>      number of discovery threads (1)
+       --glpi-version VERSION set targeted glpi version to enable supported features
        --control              output control messages
        --file <FILE>          snmpwalk input file
        -i --inventory         chain with netinventory task for discovered devices

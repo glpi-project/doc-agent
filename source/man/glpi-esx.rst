@@ -54,7 +54,7 @@ DESCRIPTION
 *glpi-esx* creates inventory of remote ESX/ESXi and vCenter VMware. It
 uses the SOAP interface of the remote server.
 
-Supported systems:
+Supported systems start from:
 
 *ESX and ESXi 3.5*
 
