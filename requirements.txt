@@ -2,5 +2,5 @@ sphinx
 docutils
 sphinx-rtd-theme
 sphinx-prompt
-git+https://github.com/brownsarahm/sphinxcontrib-mermaid@cdnupdate
+sphinxcontrib-mermaid
 sphinxcontrib-youtube
