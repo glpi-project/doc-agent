@@ -94,10 +94,10 @@ options]
        glpi-remote scan 192.168.48.99 | glpi-injector --url https://myglpi/
 
      Examples for agent command:
-       glpi-remote -T strong-shared-secret agent 192.168.43.236
-       glpi-remote -v -T strong-shared-secret agent 192.168.43.237 | \
+       glpi-remote -K strong-shared-secret agent 192.168.43.236
+       glpi-remote -v -K strong-shared-secret agent 192.168.43.237 | \
            glpi-injector -url https://myglpi/
-       glpi-remote -T strong-shared-secret -d /var/remote agent 192.168.43.236 192.168.43.237
+       glpi-remote -K strong-shared-secret -d /var/remote agent 192.168.43.236 192.168.43.237
 
 DESCRIPTION
 -----------
