@@ -168,13 +168,21 @@ You can for example create a ``local.cfg`` file and:
 Unofficial Homebrew method
 ^^^^^^^^
 
-You can also use `Homebrew <https://brew.sh/>`_ to install GLPI Agent using `a community-maintained tap <https://github.com/eduardomozart/homebrew-glpi-agent>`:
+You can also use `Homebrew <https://brew.sh/>`_ to install GLPI Agent using `a community-maintained tap <https://github.com/eduardomozart/homebrew-glpi-agent>`_:
 
 .. prompt:: bash
 
    brew tap eduardomozart/glpi-agent
    brew trust eduardomozart/glpi-agent
    brew install --cask glpi-agent
+
+If you want to test the latest features and bug fixes from the ``develop`` branch, you can install the `nightly build <https://nightly.glpi-project.org/glpi-agent/>`_.
+
+.. prompt:: bash
+
+   brew tap eduardomozart/glpi-agent
+   brew trust eduardomozart/glpi-agent
+   brew install --cask glpi-agent-nightly
 
 GNU/Linux
 ---------
