@@ -29,11 +29,15 @@ glpi-netdiscovery [options] --first <address> --last <address>
        --retries              SNMP requets maximum retries (0)
        --backend-collect-timeout <TIME>
                               base expiration timeout, in seconds (180)
+       --features=[FEATURE][,FEATURE]
+                              list of internal features to enable
        --entity <ENTITY>      GLPI entity
        --threads <COUNT>      number of discovery threads (1)
        --glpi-version VERSION set targeted glpi version to enable supported features
        --control              output control messages
        --file <FILE>          snmpwalk input file
+       --iec-file <FILE>      iec61850 datas file to emulate iec61850 protocol support
+       --iec-dump             dump iec61850 scanned datas in .iec61850-dump file
        -i --inventory         chain with netinventory task for discovered devices
        -s --save <FOLDER>     base folder where to save discovery and inventory xmls
                                - netdiscovery xmls will go in <FOLDER>/netdiscovery

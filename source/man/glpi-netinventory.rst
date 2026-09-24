@@ -20,12 +20,16 @@ glpi-netinventory [options] [--host <host>\|--file <file>]
        --port <PORT[,PORT2]>  SNMP port (161)
        --protocol <PROT[,P2]> SNMP protocol/domain (udp/ipv4)
        --file <FILE>          snmpwalk output file
+       --iec-file <FILE>      iec61850 datas file to emulate iec61850 protocol support
+       --iec-dump             dump iec61850 scanned datas in .iec61850-dump file
        --community <STRING>   community string (public)
        --credentials <STRING> SNMP credentials (version:1,community:public)
        --timeout <TIME>       SNMP timeout, in seconds (15)
        --retries              SNMP requets maximum retries (0)
        --backend-collect-timeout <TIME>
                               base expiration timeout, in seconds (180)
+       --features=[FEATURE][,FEATURE]
+                              list of internal features to enable
        --glpi-version VERSION set targeted glpi version to enable supported features
        --type <TYPE>          force device type
        --threads <COUNT>      number of inventory threads (1)
