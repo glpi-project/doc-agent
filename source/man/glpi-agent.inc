@@ -11,6 +11,8 @@
 
    ``--oauth-client-id`` and ``--oauth-client-secret`` options are available since glpi-agent 1.10
 
+   Comma-separated list support for ``--oauth-client-id`` and ``--oauth-client-secret`` came in 1.20
+
    ``--glpi-version`` option is available since glpi-agent 1.12
 
    ``--required-category``, ``--itemtype`` and `--esx-itemtype`` options are available since glpi-agent 1.13
@@ -18,3 +20,5 @@
    ``--proxy`` option supports ``none`` value to not use environment variable since glpi-agent 1.13
 
    ``--ssl-cert-file`` and ``--ssl-key-file`` options support is available since glpi-agent 1.16
+
+   ``--features`` option is available since glpi-agent 1.20

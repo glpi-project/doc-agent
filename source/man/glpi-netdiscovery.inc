@@ -8,3 +8,7 @@
    ``--retries`` option is available since glpi-agent 1.9
 
    ``--glpi-version`` option is available since glpi-agent 1.16
+
+   ``--features`` option is available since glpi-agent 1.20
+
+   ``--iec-dump`` and ``--iec-file`` options are available since glpi-agent 1.20

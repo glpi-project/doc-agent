@@ -10,3 +10,7 @@
    ``--glpi_version`` option is available since glpi-agent 1.12
 
    ``--glpi-version`` option replaces ``--glpi_version`` since glpi-agent 1.16
+
+   ``--features`` option is available since glpi-agent 1.20
+
+   ``--iec-dump`` and ``--iec-file`` options are available since glpi-agent 1.20
