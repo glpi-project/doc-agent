@@ -166,7 +166,7 @@ You can for example create a ``local.cfg`` file and:
    A MacOSX installation video tutorial is available here: `GLPI Agent Demonstration - macOS Monterey - Apple M1 <https://www.youtube.com/watch?v=zFYcURQNh9k>`_
 
 Unofficial Homebrew method
-^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can also use `Homebrew <https://brew.sh/>`_ to install GLPI Agent using `a community-maintained tap <https://github.com/eduardomozart/homebrew-glpi-agent>`_:
 
