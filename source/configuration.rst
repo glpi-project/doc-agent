@@ -592,7 +592,13 @@ Task-specific parameters
 
 ``features`` (Available since GLPI Agent v1.20)
     The ``features`` permits to enable glpi-agent comportments disabled by default. It takes a comma-separated list of strings, each one related to
-    the feature to activate:
+    the feature to activate.
+
+    Since GLPI Agent v1.20:
 
         - ``SKIP_CDP_ON_IPPHONE`` permits to disable CDP support on devices ports where an IP phone has been identified to be connected during netinventory task.
           The goal is to be able to also report the MAC of the computer connected to the IP Phone 2-ports hub, otherwise only the ip phone is reported to be connected.
+
+    Since GLPI Agent v1.21:
+
+        - ``WINDOWS_UPN_AS_LOGIN`` tells glpi-agent to report connected user with discovered UPN in place of his NT Logon on Windows.
