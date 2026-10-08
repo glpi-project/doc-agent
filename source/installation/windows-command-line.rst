@@ -184,6 +184,11 @@ Command line parameters
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
 
+``FEATURES`` (needs MSI installer >= v1.20)
+   Can be used to enable disabled by default glpi-agent features. (By default: empty)
+
+   Specifies a comma-separated list of features to enable. See :ref:`features <features>` for possible key values and explanation.
+
 ``FULL_INVENTORY_POSTPONE=value`` (needs MSI installer >= v1.8)
    Sets the expected number of full inventory postpone. (By default: ``14``)
 
@@ -329,20 +334,24 @@ Command line parameters
    If you indicate an empty string (""), all tasks will be executed.
 
 ``OAUTH_CLIENT_ID=id`` (needs MSI installer >= v1.10)
-   Specifies the GLPI OAuth2 client ID for server authentication.
+   Specifies the GLPI OAuth2 client ID for server authentication. (By default: empty)
+
+   Since v1.20, it can take as argument a separated by commas list of OAuth2 client-secret and will be
+   used for each set server target in the same order than listed servers in :ref:`server <server>` parameter.
 
 .. attention::
 
-   **OAuth2 authentication support** in GLPI for inventory submission is planned to
-   be release with next GLPI major release, GLPI 11. The feature can be tested
-   with `GLPI main version nightly builds <https://nightly.glpi-project.org/glpi/>`_.
+   **OAuth2 authentication** is supported server-side since GLPI 11.
 
    **OAuth clients credentials** have to be created in the dedicated **Configuration**
    panel in **GLPI 11** and greater with "**Client credentials**" as **Grants** value
    and "**inventory**" as **Scope** value.
 
 ``OAUTH_CLIENT_SECRET=secret`` (needs MSI installer >= v1.10)
-   Specifies the GLPI OAuth2 client secret for server authentication.
+   Specifies the GLPI OAuth2 client secret for server authentication. (By default: empty)
+
+   Since v1.20, it can take as argument a separated by commas list of OAuth2 client-secret and will be
+   used for each set server target in the same order than listed servers in :ref:`server <server>` parameter.
 
 ``PASSWORD=password``
    Uses *password* as password for server authentication. (By default: empty)

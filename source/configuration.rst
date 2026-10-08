@@ -194,11 +194,12 @@ The only required configuration parameter is an execution target, which depends 
 ``oauth-client-id`` (Available since GLPI Agent v1.10)
     Specifies the GLPI OAuth2 client ID for server authentication.
 
+    Since v1.20, it can take as argument a separated by commas list of OAuth2 client-id and will be
+    used for each set server target in the same order than listed servers in :ref:`server <server>` parameter.
+
 .. attention::
 
-    **OAuth2 authentication support** in GLPI for inventory submission is planned to
-    be release with next GLPI major release, GLPI 11. The feature can be tested
-    with `GLPI main version nightly builds <https://nightly.glpi-project.org/glpi/>`_.
+    **OAuth2 authentication** is supported server-side since GLPI 11.
 
     **OAuth clients credentials** have to be created in the dedicated **Configuration**
     panel in **GLPI 11** and greater with "**Client credentials**" as **Grants** value
@@ -208,6 +209,9 @@ The only required configuration parameter is an execution target, which depends 
 
 ``oauth-client-secret`` (Available since GLPI Agent v1.10)
     Specifies the GLPI OAuth2 client secret for server authentication.
+
+    Since v1.20, it can take as argument a separated by commas list of OAuth2 client-secret and will be
+    used for each set server target in the same order than listed servers in :ref:`server <server>` parameter.
 
 .. _ca-cert-dir:
 
@@ -585,3 +589,12 @@ Task-specific parameters
 .. caution::
 
     ``snmp-retries`` can make snmp inventories more longer to achieve. Use only if you find a device sometime is really not answering in time.
+
+.. _features:
+
+``features`` (Available since GLPI Agent v1.20)
+    The ``features`` permits to enable glpi-agent comportments disabled by default. It takes a comma-separated list of strings, each one related to
+    the feature to activate:
+
+        - ``SKIP_CDP_ON_IPPHONE`` permits to disable CDP support on devices ports where an IP phone has been identified to be connected during netinventory task.
+          The goal is to be able to also report the MAC of the computer connected to the IP Phone 2-ports hub, otherwise only the ip phone is reported to be connected.
