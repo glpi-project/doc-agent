@@ -51,7 +51,7 @@ Available parameters
 
 The only required configuration parameter is an execution target, which depends on the mode you will use:
 
-* ``server``: a server URL, such as ``https://my-glpi-server/``, or ``https://my-glpi-server/front/inventory.php``,
+* ``server``: a server URL, such as ``https://my-glpi-server/```,
 * ``local``: full path for local directory, like ``/tmp/inventory``.
 
 .. _server:
@@ -73,17 +73,15 @@ The only required configuration parameter is an execution target, which depends 
 
     1. If you're not using **GlpiInventory plugin**:
 
-     Your server URL should look like: ``https://my-glpi-server/``, or  ``https://my-glpi-server/front/inventory.php``
-     
-     Using ``https://my-glpi-server/`` may cause issues fixed in GLPI 10.0.6. If you use an older version, it may be better to use the full URL for now.
+     Your server URL should look like depending on your httpd server configuration: ``https://my-glpi-server/`` or  ``https://my-glpi-server/glpi``
 
-    2. If you have installed **GlpiInventory plugin** via **Marketplace**:
+    2. If you have installed **GlpiInventory plugin**:
 
-     Your server URL should look like: ``https://my-glpi-server/marketplace/glpiinventory/``
+     Since GLPI11, your server URL should look like:
+      * ``https://my-glpi-server/plugins/glpiinventory/``
 
-    3. If you have installed **GlpiInventory plugin** manually under ``/plugins`` GLPI folder:
-
-     Your server URL should look like: ``https://my-glpi-server/plugins/glpiinventory/``
+     For GLPI 10, your server URL should look like:
+      * ``https://my-glpi-server/marketplace/glpiinventory/``
 
 .. caution::
 
