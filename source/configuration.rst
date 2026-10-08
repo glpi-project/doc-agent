@@ -267,16 +267,16 @@ The only required configuration parameter is an execution target, which depends 
     to provide a way to authentify SSL GLPI server if CA certificate or server certificate
     is integrated there.
 
-    It takes as argument a string which can be a list separated by commas:
+    It can take as argument a string which can be a list separated by commas:
 
     * ``none``: just disable keystore support on Windows or keychain support on MacOSX
     * Only on Windows, any combination of the following **case-sensitive** keys:
 
-      * ``My``, ``CA``, ``Root`` for default machine store
-      * ``User-My``, ``User-CA``, ``User-Root`` for machine user store
-      * ``Service-My``, ``Service-CA``, ``Service-Root`` for machine service store
-      * ``Enterprise-My``, ``Enterprise-CA``, ``Enterprise-Root`` for machine enterprise store
-      * ``GroupPolicy-My``, ``GroupPolicy-CA``, ``GroupPolicy-Root`` for machine group policy store
+      * ``Mozilla::CA`` to only use publicly known certificates and listed in Mozilla::CA perl module
+      * ``ROOT`` for default Root Store
+      * ``CA`` for default CA Store
+      * ``TRUST`` for default Trust Store
+      * ``MY`` for default My Store
 
     * Only on MacOSX, the user ('root' as a daemon) keychain will be used.
 
