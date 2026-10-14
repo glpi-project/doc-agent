@@ -189,6 +189,18 @@ GNU/Linux
 
 We support major distros as we provides generic packages for **RPM** and **DEB** based distros as well if they supports **Snap** packaging. You can install required packages after getting them from `our github releases page <https://github.com/glpi-project/glpi-agent/releases>`_ or the `nightly build page <https://nightly.glpi-project.org/glpi-agent>`_.
 
+.. _rpm-signing: #
+
+.. hint::
+
+   Our **RPM** packages are **officially signed** since v1.22. To validate you're installing officially signed packages, you have to import our public key using rpm command like this:
+
+   .. prompt:: bash
+
+      rpm --import https://glpi-agent.readthedocs.io/en/latest/_static/RPM-GPG-KEY-teclib
+
+   The public key is available in this documentation: `RPM-GPG-KEY-teclib </_static/RPM-GPG-KEY-teclib>`_ and also on our public repository: `RPM-GPG-KEY-teclib <https://github.com/glpi-project/glpi-agent/raw/develop/contrib/unix/RPM-GPG-KEY-teclib>`_.
+
 .. hint::
 
    When possible, prefer to use our :ref:`linux perl installer <linux-installer>` as it supports **RPM** and **DEB** based distros. There's a version also including the **Snap** package.
