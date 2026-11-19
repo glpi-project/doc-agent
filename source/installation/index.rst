@@ -144,7 +144,7 @@ If you want to add it to all users auto-started softwares, you can directly inst
 
 .. hint::
 
-   **Glpi-Agent Monitor** has been integrated into **GLPI-Agent MSI installer** and can be enabled using :ref:`AGENTMONITOR=1 <agent-monitor>` on the MSI commandline. When installed this way, you don't need to copy it manually and it starts when a user is logs in.
+   **Glpi-Agent Monitor** has been integrated into **GLPI-Agent MSI installer** and can be enabled using :ref:`AGENTMONITOR=1 <AGENTMONITOR>` on the MSI commandline. When installed this way, you don't need to copy it manually and it starts when a user is logs in.
 
 MacOS
 -----

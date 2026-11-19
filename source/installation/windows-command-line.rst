@@ -24,13 +24,14 @@ All options can be defined in several places; the last taking precedence on all 
 
    When using command line parameters, you should keep in mind:
 
-   * parameters beggining with a slash are indeed ``msiexec.exe`` options,
-   * an equal sign is always required for other parameters: ``TAG=prod``,
-   * options names are case-sensitive,
-   * options values are *not* case-sensitive, unless specified,
-   * the equal sign must not be preceded or followed with a space character: ``LOCAL = C:\temp`` is incorrect,
-   * if a value contains a space, it must be surrounded with single ``'`` or double quotes ``"``,
-   * if you want to set a empty value, put an empty string (``LOCAL=`` or ``LOCAL=""``).
+   * parameters beggining with a slash are indeed ``msiexec.exe`` options
+   * an equal sign is always required for other parameters: ``TAG=prod``
+   * a boolean value must be set to 0 or 1: ``NO_HTTPD=1``, ``JSON=1``
+   * options names are case-sensitive
+   * options values are *not* case-sensitive unless specified
+   * equal sign must *not* be preceded or followed with a space character: ``LOCAL = C:\temp`` is *not* correct
+   * if a value contains a space, it must be surrounded with single ``'`` or double quotes ``"``
+   * if you want to set a empty value, put an empty string: ``LOCAL=`` or ``LOCAL=""``
 
 .. attention::
 
@@ -47,16 +48,24 @@ Command line parameters
 ``/quiet``
    Silent installation. This is indeed a ``msiexec.exe`` option. (By default: No)
 
+.. _ADD_FIREWALL_EXCEPTION:
+
 ``ADD_FIREWALL_EXCEPTION=1``
    Adds GLPI Agent to the Windows Firewall exception list. (By default: ``0`` for No)
+
+.. _ADDITIONAL_CONTENT:
 
 ``ADDITIONAL_CONTENT=filename`` (needs MSI installer >= 1.3)
    Specifies an XML file whose content will be automatically merged with output.
    If inventory format is JSON, you can also specify a JSON file from which ``content`` base node will be merged.
    (By default: empty)
 
+.. _ADDLOCAL:
+
 ``ADDLOCAL=feature[,feature[...]]``
    This parameter permits to select features to install. (By default: empty string)
+
+   This is indeed a ``msi`` packaging option.
 
    The *feature* can take the following values:
 
@@ -71,17 +80,21 @@ Command line parameters
    The base feature is ``feat_AGENT`` which is always selected and includes Inventory task.
    Since v1.8, no other task is selected by default.
 
-.. _agent-monitor:
+.. _AGENTMONITOR:
 
 ``AGENTMONITOR=1`` (needs MSI installer >= v1.5)
    Install Glpi-AgentMonitor (See `GLPI-Agent Monitor project <https://github.com/glpi-project/glpi-agentmonitor>`_).
 
    Only applicable if GLPI-Agent is installed as a service (i.e. ``EXECMODE=1``).
 
+.. _AGENTMONITOR_NEWTICKET_SCREENSHOT:
+
 ``AGENTMONITOR_NEWTICKET_SCREENSHOT=0|1`` (needs MSI installer >= v1.11)
    Sets Glpi-AgentMonitor flag to enable or not automatic screenshot on new ticket request. (By default: 1)
 
    Only applicable if GLPI-Agent is installed as a service and Glpi-AgentMonitor installed (i.e. ``EXECMODE=1`` and ``AGENTMONITOR=1``).
+
+.. _AGENTMONITOR_NEWTICKET_URL:
 
 ``AGENTMONITOR_NEWTICKET_URL=URL`` (needs MSI installer >= v1.8)
    Sets Glpi-AgentMonitor URL for new ticket feature. (By default: empty string)
@@ -90,11 +103,15 @@ Command line parameters
 
    Only applicable if GLPI-Agent is installed as a service and Glpi-AgentMonitor installed (i.e. ``EXECMODE=1`` and ``AGENTMONITOR=1``).
 
+.. _BACKEND_COLLECT_TIMEOUT:
+
 ``BACKEND_COLLECT_TIMEOUT=180``
    Timeout for task ``Inventory`` modules execution. (By default: ``180`` seconds)
 
    It is also used as based timeout for ``RemoteInventory`` timeouts computation. You may experience
    datas loss during ``RemoteInventory`` task if this value is too short.
+
+.. _CA_CERT_DIR:
 
 ``CA_CERT_DIR=pathname``
    Absolute path to the standard certificate directory of certificate
@@ -126,6 +143,8 @@ Command line parameters
 
       move.exe C:\FICert_Class1.crt pathname\b760f1ce.0
 
+.. _CA_CERT_FILE:
+
 ``CA_CERT_FILE=filename``
    Full path to the certificates file of certification authorities (CA).
    (By default: empty)
@@ -143,6 +162,8 @@ Command line parameters
 
       copy.exe FICert_Class1.crt+FICert_Class2.crt FICerts.pem
 
+.. _WIN_CMDLINE_DEBUG:
+
 ``DEBUG=level``
    Sets the debug level of the agent. (By default: ``0``)
 
@@ -151,6 +172,8 @@ Command line parameters
    * ``0``: Debug off
    * ``1``: Normal debug
    * ``2``: Full debug
+
+.. _WIN_CMDLINE_DELAYTIME:
 
 ``DELAYTIME=limit``
    Sets an initial delay before first contact with a remote destination
@@ -163,12 +186,16 @@ Command line parameters
    The ``DELAYTIME`` parameter comes into play only if GLPI Agent
    runs in *server mode* (see ``EXECMODE``).
 
+.. _ESX_ITEMTYPE:
+
 ``ESX_ITEMTYPE=type`` (needs MSI installer >= 1.13)
    Sets ESX inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
 
    When empty, asset itemtype in ESX inventory will still be set to ``Computer`` to keep compatibility with GLPI 10.
 
    See also :ref:`esx-itemtype <esx-itemtype>` configuration for more details.
+
+.. _EXECMODE:
 
 ``EXECMODE=value``
    Sets the agent execution mode. (By default: ``1``)
@@ -184,15 +211,21 @@ Command line parameters
    The mode ``Task`` is only available on Windows XP (or higher) and
    Windows Server 2003 (or higher) operative systems.
 
-``FEATURES`` (needs MSI installer >= v1.20)
+.. _WIN_CMDLINE_FEATURES:
+
+``FEATURES`` (needs MSI installer >= v1.22)
    Can be used to enable disabled by default glpi-agent features. (By default: empty)
 
    Specifies a comma-separated list of features to enable. See :ref:`features <features>` for possible key values and explanation.
+
+.. _FULL_INVENTORY_POSTPONE:
 
 ``FULL_INVENTORY_POSTPONE=value`` (needs MSI installer >= v1.8)
    Sets the expected number of full inventory postpone. (By default: ``14``)
 
    See :ref:`full-inventory-postpone <full-inventory-postpone>` configuration for more details.
+
+.. _GLPI_VERSION:
 
 ``GLPI_VERSION=version``
    Set expected GLPI version to enable specifically required features. (By default: empty)
@@ -202,17 +235,25 @@ Command line parameters
 
    See :ref:`glpi-version <glpi-version>` configuration for more details.
 
+.. _WIN_CMDLINE_HTML:
+
 ``HTML=1``
    Save the inventory as HTML instead of XML or JSON. (By default: ``0`` for No)
 
    The ``HTML`` parameter comes into play only if you have also indicated a
    value for the ``LOCAL`` parameter.
 
+.. _HTTPD_IP:
+
 ``HTTPD_IP=ip``
    IP address by which the embedded web server should listen. (By default: ``0.0.0.0``)
 
+.. _HTTPD_PORT:
+
 ``HTTPD_PORT=port``
    IP port by which the embedded web server should listen. (By default: ``62354``)
+
+.. _HTTPD_TRUST:
 
 ``HTTPD_TRUST={ip|range|hostname}[,{ip|range|hostname}[...]]``
    Trusted IP addresses that do not require authentication token by the
@@ -242,10 +283,14 @@ Command line parameters
        ... HTTPD_TRUST="127.0.0.1/32" \
            SERVER="http://itms.acme.org/glpi/"
 
+.. _INSTALLDIR:
+
 ``INSTALLDIR=pathname``
    Sets the installation base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent``)
 
    *pathname* must be an absolute path.
+
+.. _WIN_CMDLINE_ITEMTYPE:
 
 ``ITEMTYPE=type`` (needs MSI installer >= 1.13)
    Sets inventory itemtype to support GLPI 11+ genericity feature. (By default: empty)
@@ -254,22 +299,30 @@ Command line parameters
 
    See also :ref:`itemtype <itemtype>` configuration for more details.
 
+.. _WIN_CMDLINE_JSON:
+
 ``JSON=0`` (needs MSI installer >= 1.3)
    Don't save the local inventory as JSON instead of XML. (By default: ``1`` for Yes)
 
    The ``JSON`` parameter comes into play only if you have also indicated a
    value for the ``LOCAL`` parameter.
 
+.. _WIN_CMDLINE_LAZY:
+
 ``LAZY=1``
    Contact server only if the server expiration delay has been reached. (By default: ``1``)
 
    This option is only used if you set ``EXECMODE=2`` to use Windows Task scheduling.
+
+.. _WIN_CMDLINE_LISTEN:
 
 ``LISTEN=1`` (needs MSI installer >= 1.3)
    Force agent to always listen for requests on httpd interface, even when no target is defined with
    server or local option. (By default: ``0`` for No)
 
    Very useful in combination with `Inventory Server plugin </plugins/inventory-server-plugin.html>`_.
+
+.. _WIN_CMDLINE_LOCAL:
 
 ``LOCAL=pathname``
    Writes the results of tasks execution into the given directory. (By default: empty)
@@ -280,6 +333,8 @@ Command line parameters
 
    You can use the ``LOCAL`` and ``SERVER`` options simultaneously.
 
+.. _WIN_CMDLINE_LOGFILE:
+
 ``LOGFILE=filename``
    Writes log messages into the file *filename*. (By default: ``C:\Program Files\GLPI-Agent\logs\glpi-agent.log``)
 
@@ -287,8 +342,12 @@ Command line parameters
    into play only if you have also indicated ``file`` as a value of the
    ``LOGGER`` parameter, which is the default.
 
+.. _LOGFILE_MAXSIZE:
+
 ``LOGFILE_MAXSIZE=size``
    Sets the maximum size of logfile (see ``LOGFILE``) to *size* in MBytes. (By default: 4 MBytes)
+
+.. _WIN_CMDLINE_LOGGER:
 
 ``LOGGER=backend[,backend]``
    Sets the logger backends. (By default: ``file``)
@@ -297,6 +356,8 @@ Command line parameters
 
    * ``file``: Sends the log messages to a file (see ``LOGFILE``)
    * ``stderr``: Sends the log messages to the console
+
+.. _NO_CATEGORY:
 
 ``NO_CATEGORY=category[,category[...]]``
    Do not inventory the indicated categories of elements. (By default: empty)
@@ -307,17 +368,27 @@ Command line parameters
 
       "C:\Program Files\GLPI-Agent\glpi-agent" --list-categories
 
+.. _NO_COMPRESSION:
+
 ``NO_COMPRESSION=1`` (needs MSI installer >= 1.3)
    Disable compression when exchanging informations with GLPI Server. (By default: ``0``)
+
+.. _NO_HTTPD:
 
 ``NO_HTTPD=1``
    Disables the embedded web server. (By default: ``0``)
 
+.. _NO_P2P:
+
 ``NO_P2P=1``
    Do not use peer to peer to download files. (By default: ``0``)
 
+.. _NO_SSL_CHECK:
+
 ``NO_SSL_CHECK=1``
    Do not check server certificate. (By default: ``0``)
+
+.. _NO_TASK:
 
 ``NO_TASK=task[,task[...]]``
    Disables the given tasks. (By default: empty)
@@ -333,6 +404,8 @@ Command line parameters
 
    If you indicate an empty string (""), all tasks will be executed.
 
+.. _OAUTH_CLIENT_ID:
+
 ``OAUTH_CLIENT_ID=id`` (needs MSI installer >= v1.10)
    Specifies the GLPI OAuth2 client ID for server authentication. (By default: empty)
 
@@ -347,11 +420,15 @@ Command line parameters
    panel in **GLPI 11** and greater with "**Client credentials**" as **Grants** value
    and "**inventory**" as **Scope** value.
 
+.. _OAUTH_CLIENT_SECRET:
+
 ``OAUTH_CLIENT_SECRET=secret`` (needs MSI installer >= v1.10)
    Specifies the GLPI OAuth2 client secret for server authentication. (By default: empty)
 
    Since v1.20, it can take as argument a separated by commas list of OAuth2 client-secret and will be
    used for each set server target in the same order than listed servers in :ref:`server <server>` parameter.
+
+.. _WIN_CMDLINE_PASSWORD:
 
 ``PASSWORD=password``
    Uses *password* as password for server authentication. (By default: empty)
@@ -359,34 +436,56 @@ Command line parameters
    The ``PASSWORD`` comes into play only if you have also indicated a
    value for the ``SERVER`` parameter.
 
+.. _WIN_CMDLINE_PROXY:
+
 ``PROXY=URI``
    Uses *URI* as HTTP/S proxy server. (By default: empty)
+
+.. _QUICKINSTALL:
 
 ``QUICKINSTALL=1``
    Don't ask for detailed configurations during graphical install. (By default: ``0``)
 
+.. _REINSTALL:
+
 ``REINSTALL=feat_AGENT``
    Use this option only in the case you need to change the agent configuration using the same installer. (Not used by default)
+
+.. _REQUIRED_CATEGORY:
 
 ``REQUIRED_CATEGORY=category[,category[...]]`` (needs MSI installer >= v1.13)
    Sets categories to always include in partial inventory when postponing a full inventory. (By default: empty)
 
    See :ref:`required-category <required-category>` configuration for more details.
 
+.. _WIN_CMDLINE_REMOTE:
+
 ``REMOTE=remote:definition`` (needs MSI installer >= 1.3)
    Specify a remote inventory definition to be used by :doc:`../tasks/remote-inventory` task. (By default: empty)
+
+   This option is deprecated.
+
+.. _REMOTE_WORKERS:
 
 ``REMOTE_WORKERS=max`` (needs MSI installer >= v1.5)
     Set the maximum number of remote inventory to process at the same time. (By default: ``1``)
 
+.. _WIN_CMDLINE_RUNNOW:
+
 ``RUNNOW=1``
    Launches the agent immediately after its installation. (By default: ``0``)
+
+.. _SCAN_HOMEDIRS:
 
 ``SCAN_HOMEDIRS=1``
    Allows the agent to scan home directories for virtual machines. (By default: ``0``)
 
+.. _SCAN_PROFILES:
+
 ``SCAN_PROFILES=1``
    Allows the agent to scan softwares installed in users profiles. (By default: ``0``)
+
+.. _WIN_CMDLINE_SERVER:
 
 ``SERVER=URI[,URI[...]]``
    Sends results of tasks execution to given servers. (By default: empty)
@@ -396,20 +495,28 @@ Command line parameters
 
    You can use the ``SERVER`` and ``LOCAL`` parameters simultaneously.
 
+.. _SNMP_RETRIES:
+
 ``SNMP_RETRIES=max`` (needs MSI installer >= v1.9)
    Set the maximum number of time a SNMP request could be retried again on no device response. (By default: ``0``)
 
    Only used by NetDiscovery and NetInventory tasks.
+
+.. _SSL_CERT_FILE:
 
 ``SSL_CERT_FILE=filename`` (needs MSI installer >= 1.3)
    Specifies the file containing SSL client certificate to use when connecting to
    server target or for WinRM remote inventory.
    (By default: empty)
 
-``SSL_KEY_FILE=filename`` (needs MSI installer >= 1.16)
+.. _SSL_KEY_FILE:
+
+``SSL_KEY_FILE=filename`` (needs MSI installer >= 1.22)
    Specifies the file containing SSL client private key to use when connecting to
    server target or for WinRM remote inventory.
    (By default: empty)
+
+.. _SSL_FINGERPRINT:
 
 ``SSL_FINGERPRINT=fingerprint`` (needs MSI installer >= 1.3)
    Specifies the fingerprint of the ssl server certificate to trust.
@@ -417,13 +524,19 @@ Command line parameters
    The fingerprint to use can be retrieved in agent log by temporarily enabling
    `no-ssl-check` option.
 
+.. _SSL_KEYSTORE:
+
 ``SSL_KEYSTORE=[none|key[,key[,...]]]`` (needs MSI installer >= 1.11)
    Can be used to disable keystore if set to ``none``.
 
    Specifies a comma-separated list of Keystore stores. See :ref:`ssl-keystore <ssl-keystore>` for possible key values and explanation.
 
+.. _WIN_CMDLINE_TAG:
+
 ``TAG=tag``
    Marks the computer with the tag *tag* . (By default: empty)
+
+.. _WIN_CMDLINE_TASKS:
 
 ``TASKS=task[,task[,...]]``
    Plan tasks in the given order. (By default: empty)
@@ -443,6 +556,8 @@ Command line parameters
    If you indicate ``,...`` at the end, all not listed tasks will be added in any order.
    You can indicate a task more than one time if this makes sens.
 
+.. _TASK_DAILY_MODIFIER:
+
 ``TASK_DAILY_MODIFIER=modifier``
    Daily task schedule modifier. (By default: ``1`` day)
 
@@ -450,6 +565,8 @@ Command line parameters
 
    The ``TASK_DAILY_MODIFIER`` parameter comes into play only if you have
    also indicated ``daily`` as value of the ``TASK_FREQUENCY`` option.
+
+.. _TASK_FREQUENCY:
 
 ``TASK_FREQUENCY=frequency``
    Frequency for task schedule. (By default: ``hourly``)
@@ -460,6 +577,8 @@ Command line parameters
    * ``hourly``: At hour intervals (see ``TASK_HOURLY_MODIFIER`` parameter)
    * ``daily``: At day intervals (see ``TASK_DAILY_MODIFIER`` parameter)
 
+.. _TASK_HOURLY_MODIFIER:
+
 ``TASK_HOURLY_MODIFIER=modifier``
    Hourly task schedule modifier. (By default: ``1`` hour)
 
@@ -467,6 +586,8 @@ Command line parameters
 
    The ``TASK_HOURLY_MODIFIER`` parameter comes into play only if you have
    also indicated ``hourly`` as value of the ``TASK_FREQUENCY`` parameter.
+
+.. _TASK_MINUTE_MODIFIER:
 
 ``TASK_MINUTE_MODIFIER=modifier``
    Minute task schedule modifier. (By default: ``15`` minutes)
@@ -476,17 +597,23 @@ Command line parameters
    The ``TASK_MINUTE_MODIFIER`` parameter comes into play only if you have
    also indicated ``minute`` as value of the ``TASK_FREQUENCY`` parameter.
 
+.. _WIN_CMDLINE_TIMEOUT:
+
 ``TIMEOUT=180``
    Sets the limit time (in seconds) to connect with the server. (By default: ``180`` seconds)
 
    The ``TIMEOUT`` parameter comes into play only if you have also indicated
    a value for the ``SERVER`` parameter.
 
+.. _WIN_CMDLINE_USER:
+
 ``USER=user``
    Uses *user* as user for server authentication. (By default: empty)
 
    The ``USER`` parameter comes into play only if you have also indicated a
    value for the ``SERVER`` parameter.
+
+.. _WIN_CMDLINE_VARDIR:
 
 ``VARDIR=pathname``
    Sets the vardir base directory of the agent. (By default: ``C:\Program Files\GLPI-Agent\var``)
